@@ -1,0 +1,25 @@
+import java.util.Scanner;
+
+public class RecursiveDigitSum {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Ввод числа
+        System.out.print("Введите натуральное число N: ");
+        int N = scanner.nextInt();
+
+        // Вызываем рекурсивную функцию и выводим результат
+        int sum = sumOfDigits(N);
+        System.out.println("Сумма цифр числа " + N + " равна: " + sum);
+
+        scanner.close();
+    }
+
+    // Рекурсивная функция для вычисления суммы цифр числа
+    public static int sumOfDigits(int N) {
+        if (N == 0) {
+            return 0; // Базовый случай: сумма цифр числа 0 — это 0
+        }
+        return (N % 10) + sumOfDigits(N / 10); // Последняя цифра + сумма оставшихся цифр
+    }
+}
