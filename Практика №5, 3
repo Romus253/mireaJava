@@ -1,0 +1,28 @@
+import javax.swing.*;
+import java.awt.*;
+
+public class Classbuffer43 extends JFrame {
+    private ImageIcon image;
+
+    public Classbuffer43(String amount29) {
+        setTitle("Image Viewer");
+        setSize(600, 600);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setLayout(new BorderLayout());
+        
+        image = new ImageIcon(amount29);
+        JLabel imageLabel = new JLabel(image);
+        add(imageLabel, BorderLayout.CENTER);
+    }
+
+    public static void main(String[] args) {
+        if (args.length == 0) {
+            System.out.println("Ошибка: Укажите путь к изображению в аргументах командной строки.");
+            return;
+        }
+        String amount29 = args[0];
+        SwingUtilities.invokeLater(() -> new Classbuffer43(amount29).setVisible(true));
+    }
+}
+
+// java Classbuffer43 "файл.png"

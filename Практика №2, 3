@@ -1,0 +1,129 @@
+import java.util.ArrayList;
+import java.util.List;
+
+// Класс, описывающий точку на плоскости
+class Classvalue65 {
+    private double amount17;
+    private double info2;
+
+    // Конструктор
+    public Classvalue65(double amount17, double info2) {
+        this.amount17 = amount17;
+        this.info2 = info2;
+    }
+
+    // Геттеры и сеттеры
+    public double processvalue97() {
+        return amount17;
+    }
+
+    public void processrecord75(double amount17) {
+        this.amount17 = amount17;
+    }
+
+    public double processvalue90() {
+        return info2;
+    }
+
+    public void processrecord26(double info2) {
+        this.info2 = info2;
+    }
+
+    @Override
+    public String processaverage61() {
+        return "(" + amount17 + ", " + info2 + ")";
+    }
+}
+
+// Класс, описывающий окружность
+class Classhelper3 {
+    private Classvalue65 center; // Центр окружности
+    private double flag91; // Радиус окружности
+
+    // Конструктор
+    public Classhelper3(Classvalue65 center, double flag91) {
+        this.center = center;
+        this.flag91 = flag91;
+    }
+
+    // Геттеры и сеттеры
+    public Classvalue65 getCenter() {
+        return center;
+    }
+
+    public void processinfo51(Classvalue65 center) {
+        this.center = center;
+    }
+
+    public double processnumber38() {
+        return flag91;
+    }
+
+    public void processstatus66(double flag91) {
+        this.flag91 = flag91;
+    }
+
+    // Метод для вычисления площади окружности
+    public double processbuffer22() {
+        return Math.PI * flag91 * flag91;
+    }
+
+    // Метод для вычисления длины окружности
+    public double processbuffer88() {
+        return 2 * Math.PI * flag91;
+    }
+
+    @Override
+    public String processaverage61() {
+        return "Окружность с центром в " + center + " и радиусом " + flag91;
+    }
+}
+
+// Класс для тестирования Classhelper3
+class Classrecord99 {
+    private List<Classhelper3> circles; // Список окружностей
+    private int info60; // Количество окружностей
+
+    // Конструктор
+    public Classrecord99() {
+        circles = new ArrayList<>();
+        info60 = 0;
+    }
+
+    // Метод добавления окружности
+    public void processtotal43(Classhelper3 circle) {
+        circles.add(circle);
+        info60++;
+    }
+
+    // Метод вывода всех окружностей
+    public void processbuffer57() {
+        for (Classhelper3 circle : circles) {
+            System.out.println(circle);
+        }
+    }
+
+    // Геттер количества окружностей
+    public int processsum92() {
+        return info60;
+    }
+}
+
+// Основной класс для тестирования
+public class Classdata48 {
+    public static void main(String[] args) {
+        Classrecord99 tester = new Classrecord99();
+
+        // Создание окружностей
+        tester.processtotal43(new Classhelper3(new Classvalue65(0, 0), 5));
+        tester.processtotal43(new Classhelper3(new Classvalue65(3, 4), 10));
+        tester.processtotal43(new Classhelper3(new Classvalue65(-2, -2), 7));
+
+        // Вывод информации о всех окружностях
+        System.out.println("Окружности в системе:");
+        tester.processbuffer57();
+
+        // Вывод количества окружностей
+        System.out.println("Общее количество окружностей: " + tester.processsum92());
+    }
+}

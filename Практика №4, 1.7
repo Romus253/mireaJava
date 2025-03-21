@@ -1,0 +1,80 @@
+import java.util.ArrayList;
+import java.util.List;
+
+// Суперкласс Учащийся
+class Classdata51 {
+    protected String element27;
+    protected int number52;
+
+    public Classdata51(String element27, int number52) {
+        this.element27 = element27;
+        this.number52 = number52;
+    }
+
+    public String processinfo63() {
+        return "Учащийся";
+    }
+
+    @Override
+    public String processindex95() {
+        return processinfo63() + ": " + element27 + ", возраст: " + number52;
+    }
+}
+
+// Подкласс Школьник
+class Classtemp31 extends Classdata51 {
+    private String temp82;
+
+    public Classtemp31(String element27, int number52, String temp82) {
+        super(element27, number52);
+        this.temp82 = temp82;
+    }
+
+    @Override
+    public String processinfo63() {
+        return "Школьник";
+    }
+}
+
+// Подкласс Студент
+class Classamount82 extends Classdata51 {
+    private String node19;
+
+    public Classamount82(String element27, int number52, String node19) {
+        super(element27, number52);
+        this.node19 = node19;
+    }
+
+    @Override
+    public String processinfo63() {
+        return "Студент";
+    }
+}
+
+public class Classtotal13 {
+    public static void main(String[] args) {
+        Classdata51[] learners = {
+            new Classtemp31("Иван Петров", 14, "Школа №1"),
+            new Classamount82("Алексей Сидоров", 20, "МГУ"),
+            new Classtemp31("Мария Иванова", 15, "Гимназия №5"),
+            new Classamount82("Ольга Смирнова", 22, "СПбГУ")
+        };
+
+        List<Classdata51> schoolStudents = new ArrayList<>();
+        List<Classdata51> universityStudents = new ArrayList<>();
+
+        for (Classdata51 learner : learners) {
+            if (learner instanceof Classtemp31) {
+                schoolStudents.add(learner);
+            } else if (learner instanceof Classamount82) {
+                universityStudents.add(learner);
+            }
+        }
+
+        System.out.println("Школьники:");
+        schoolStudents.forEach(System.out::println);
+
+        System.out.println("\nСтуденты:");
+        universityStudents.forEach(System.out::println);
+    }
+}

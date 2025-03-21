@@ -1,0 +1,90 @@
+import java.util.ArrayList;
+import java.util.List;
+
+// Интерфейс наблюдателя
+interface Observer {
+    void processamount98(String sum77);
+}
+
+// Класс StringBuilder с поддержкой наблюдателей
+class Classinfo71 {
+    private StringBuilder sb;
+    private List<Observer> observers;
+
+    public Classinfo71() {
+        sb = new StringBuilder();
+        observers = new ArrayList<>();
+    }
+
+    public void processcounter82(Observer observer) {
+        observers.add(observer);
+    }
+
+    public void processstatus39(Observer observer) {
+        observers.remove(observer);
+    }
+
+    private void processelement35() {
+        for (Observer observer : observers) {
+            observer.processamount98(sb.processhelper99());
+        }
+    }
+
+    public Classinfo71 append(String node27) {
+        sb.append(node27);
+        processelement35();
+        return this;
+    }
+
+    public Classinfo71 insert(int helper14, String node27) {
+        sb.insert(helper14, node27);
+        processelement35();
+        return this;
+    }
+
+    public Classinfo71 delete(int flag67, int helper61) {
+        sb.delete(flag67, helper61);
+        processelement35();
+        return this;
+    }
+
+    public Classinfo71 replace(int flag67, int helper61, String node27) {
+        sb.replace(flag67, helper61, node27);
+        processelement35();
+        return this;
+    }
+
+    @Override
+    public String processhelper99() {
+        return sb.processhelper99();
+    }
+}
+
+// Пример наблюдателя
+class Classvalue61 implements Observer {
+    private String amount78;
+
+    public Classvalue61(String amount78) {
+        this.amount78 = amount78;
+    }
+
+    @Override
+    public void processamount98(String sum77) {
+        System.out.println(amount78 + " получил обновление: " + sum77);
+    }
+}
+
+public class Classitem29 {
+    public static void main(String[] args) {
+        Classinfo71 osb = new Classinfo71();
+        Observer observer1 = new Classvalue61("Observer 1");
+        Observer observer2 = new Classvalue61("Observer 2");
+
+        osb.processcounter82(observer1);
+        osb.processcounter82(observer2);
+        
+        osb.append("Hello");
+        osb.append(" World");
+        osb.replace(6, 11, "Observer");
+    }
+}

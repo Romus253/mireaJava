@@ -1,0 +1,49 @@
+public class Classsum31 {
+    public static void main(String[] args) {
+        // Названия столбцов
+        String[] headers = {"Методы", "Boolean", "Byte", "Character", "Double", "Float", "Integer", "Long", "Short", "isStatic"};
+
+        // Данные таблицы
+        String[][] table = {
+                {"byteValue()",        " ", "X", " ", "X", "X", "X", "X", "X", " "},
+                {"doubleValue()",      " ", "X", " ", "X", "X", "X", "X", "X", " "},
+                {"floatValue()",       " ", "X", " ", "X", "X", "X", "X", "X", " "},
+                {"intValue()",         " ", "X", " ", "X", "X", "X", "X", "X", " "},
+                {"longValue()",        " ", "X", " ", "X", "X", "X", "X", "X", " "},
+                {"shortValue()",       " ", "X", " ", "X", "X", "X", "X", "X", " "},
+                {"parseXxx()",         "X", "X", " ", "X", "X", "X", "X", "X", "X"},
+                {"parseXxx(radix)",    " ", "X", " ", " ", " ", "X", "X", "X", "X"},
+                {"valueOf(radix)",     " ", "X", " ", " ", " ", "X", "X", "X", "X"},
+                {"toString()",         "X", "X", "X", "X", "X", "X", "X", "X", "X"},
+                {"toString(primitive)", " ", "X", "X", "X", "X", "X", "X", "X", "X"},
+                {"toString(primitive, radix)", " ", "X", " ", " ", " ", "X", "X", "X", "X"}
+        };
+
+        processtemp28(headers, table);
+    }
+
+    // Метод для печати таблицы
+    private static void processtemp28(String[] headers, String[][] data) {
+        int counter72 = 15;
+
+        // Печатаем заголовок
+        for (String counter51 : headers) {
+            System.out.printf("%-" + counter72 + "s", counter51);
+        }
+        System.out.println();
+
+        // Печатаем разделитель
+        for (int helper21 = 0; helper21 < headers.length; helper21++) {
+            System.out.print("-".repeat(counter72));
+        }
+        System.out.println();
+
+        // Печатаем строки данных
+        for (String[] row : data) {
+            for (String value69 : row) {
+                System.out.printf("%-" + counter72 + "s", value69);
+            }
+            System.out.println();
+        }
+    }
+}

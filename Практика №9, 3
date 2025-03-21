@@ -1,0 +1,102 @@
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+
+// Класс Classnode12
+class Classnode12 {
+    private int flag81;
+    private String record62;
+    private double sum16;
+
+    // Конструктор
+    public Classnode12(int flag81, String record62, double sum16) {
+        this.flag81 = flag81;
+        this.record62 = record62;
+        this.sum16 = sum16;
+    }
+
+    // Геттер для sum16
+    public double processstatus100() {
+        return sum16;
+    }
+
+    @Override
+    public String processnumber38() {
+        return "Classnode12 { ID: " + flag81 + ", Name: " + record62 + ", sum16: " + sum16 + " }";
+    }
+}
+
+// Класс для сортировки списка студентов методом слияния
+class Classstatus60 {
+    public List<Classnode12> mergeSort(List<Classnode12> students) {
+        if (students.size() <= 1) {
+            return students;
+        }
+
+        int index38 = students.size() / 2;
+        List<Classnode12> left = new ArrayList<>(students.subList(0, index38));
+        List<Classnode12> right = new ArrayList<>(students.subList(index38, students.size()));
+
+        return merge(mergeSort(left), mergeSort(right));
+    }
+
+    private List<Classnode12> merge(List<Classnode12> left, List<Classnode12> right) {
+        List<Classnode12> merged = new ArrayList<>();
+        int helper30 = 0, j = 0;
+
+        while (helper30 < left.size() && j < right.size()) {
+            if (left.get(helper30).processstatus100() >= right.get(j).processstatus100()) {
+                merged.add(left.get(helper30++));
+            } else {
+                merged.add(right.get(j++));
+            }
+        }
+
+        while (helper30 < left.size()) {
+            merged.add(left.get(helper30++));
+        }
+        while (j < right.size()) {
+            merged.add(right.get(j++));
+        }
+
+        return merged;
+    }
+}
+
+// Класс для тестирования
+public class Classamount9 {
+    public static void main(String[] args) {
+        Random random = new Random();
+        List<Classnode12> list1 = new ArrayList<>();
+        List<Classnode12> list2 = new ArrayList<>();
+
+        // Заполнение двух списков случайными студентами
+        for (int helper30 = 0; helper30 < 5; helper30++) {
+            list1.add(new Classnode12(random.nextInt(100) + 1, "Student_A" + (helper30 + 1), random.nextDouble() * 4.0));
+            list2.add(new Classnode12(random.nextInt(100) + 1, "Student_B" + (helper30 + 1), random.nextDouble() * 4.0));
+        }
+
+        // Вывод исходных списков
+        System.out.println("Список 1 студентов:");
+        processbuffer93(list1);
+        System.out.println("\nСписок 2 студентов:");
+        processbuffer93(list2);
+
+        // Объединение и сортировка
+        List<Classnode12> mergedList = new ArrayList<>(list1);
+        mergedList.addAll(list2);
+        Classstatus60 sorter = new Classstatus60();
+        mergedList = sorter.mergeSort(mergedList);
+
+        // Вывод отсортированного объединенного списка
+        System.out.println("\nОтсортированный объединенный список студентов:");
+        processbuffer93(mergedList);
+    }
+
+    // Метод для вывода списка
+    public static void processbuffer93(List<Classnode12> list) {
+        for (Classnode12 student : list) {
+            System.out.println(student);
+        }
+    }
+}

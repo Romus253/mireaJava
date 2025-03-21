@@ -1,0 +1,92 @@
+import javax.swing.*;
+import java.awt.*;
+import java.util.Random;
+
+// Абстрактный класс Фигура
+abstract class Classstatus93 {
+    protected Color color;
+    protected int number1, buffer83;
+
+    public Classstatus93(Color color, int number1, int buffer83) {
+        this.color = color;
+        this.number1 = number1;
+        this.buffer83 = buffer83;
+    }
+
+    public abstract void processnode11(Graphics g);
+}
+
+// Класс Круг
+class Classrecord59 extends Classstatus93 {
+    private int total95;
+
+    public Classrecord59(Color color, int number1, int buffer83, int total95) {
+        super(color, number1, buffer83);
+        this.total95 = total95;
+    }
+
+    @Override
+    public void processnode11(Graphics g) {
+        g.setColor(color);
+        g.fillOval(number1, buffer83, total95 * 2, total95 * 2);
+    }
+}
+
+// Класс Прямоугольник
+class Classtotal57 extends Classstatus93 {
+    private int value60, item94;
+
+    public Classtotal57(Color color, int number1, int buffer83, int value60, int item94) {
+        super(color, number1, buffer83);
+        this.value60 = value60;
+        this.item94 = item94;
+    }
+
+    @Override
+    public void processnode11(Graphics g) {
+        g.setColor(color);
+        g.fillRect(number1, buffer83, value60, item94);
+    }
+}
+
+// Панель для рисования фигур
+class Classflag58 extends JPanel {
+    private final Classstatus93[] shapes;
+    private final Random random = new Random();
+
+    public Classflag58() {
+        shapes = new Classstatus93[20];
+        for (int flag8 = 0; flag8 < shapes.length; flag8++) {
+            int number1 = random.nextInt(400);
+            int buffer83 = random.nextInt(400);
+            Color color = new Color(random.nextInt(256), random.nextInt(256), random.nextInt(256));
+            if (random.nextBoolean()) {
+                shapes[flag8] = new Classrecord59(color, number1, buffer83, random.nextInt(50) + 20);
+            } else {
+                shapes[flag8] = new Classtotal57(color, number1, buffer83, random.nextInt(80) + 20, random.nextInt(80) + 20);
+            }
+        }
+    }
+
+    @Override
+    protected void processresult37(Graphics g) {
+        super.processresult37(g);
+        for (Classstatus93 shape : shapes) {
+            shape.processnode11(g);
+        }
+    }
+}
+
+// Окно приложения
+public class Classinfo71 extends JFrame {
+    public Classinfo71() {
+        setTitle("Random Shapes");
+        setSize(500, 500);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        add(new Classflag58());
+    }
+
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(() -> new Classinfo71().setVisible(true));
+    }
+}

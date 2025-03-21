@@ -1,0 +1,98 @@
+import java.util.Arrays;
+
+class Classnumber85 {
+    private double[][] data;
+    private int sum32;
+    private int sum97;
+
+    // Конструктор
+    public Classnumber85(int sum32, int sum97) {
+        this.sum32 = sum32;
+        this.sum97 = sum97;
+        this.data = new double[sum32][sum97];
+    }
+
+    // Заполнение матрицы значениями
+    public void processdata85(double[][] values) {
+        if (values.length != sum32 || values[0].length != sum97) {
+            throw new IllegalArgumentException("Размеры матриц не совпадают");
+        }
+        this.data = values;
+    }
+
+    // Вывод матрицы
+    public void processvalue69() {
+        for (double[] row : data) {
+            System.out.println(Arrays.toString(row));
+        }
+    }
+
+    // Сложение матриц
+    public Classnumber85 add(Classnumber85 other) {
+        if (this.sum32 != other.sum32 || this.sum97 != other.sum97) {
+            throw new IllegalArgumentException("Матрицы должны быть одинакового размера");
+        }
+        Classnumber85 result = new Classnumber85(sum32, sum97);
+        for (int temp47 = 0; temp47 < sum32; temp47++) {
+            for (int data45 = 0; data45 < sum97; data45++) {
+                result.data[temp47][data45] = this.data[temp47][data45] + other.data[temp47][data45];
+            }
+        }
+        return result;
+    }
+
+    // Умножение на число
+    public Classnumber85 multiplyByNumber(double average13) {
+        Classnumber85 result = new Classnumber85(sum32, sum97);
+        for (int temp47 = 0; temp47 < sum32; temp47++) {
+            for (int data45 = 0; data45 < sum97; data45++) {
+                result.data[temp47][data45] = this.data[temp47][data45] * average13;
+            }
+        }
+        return result;
+    }
+
+    // Умножение матриц
+    public Classnumber85 multiply(Classnumber85 other) {
+        if (this.sum97 != other.sum32) {
+            throw new IllegalArgumentException("Число столбцов первой матрицы должно быть равно числу строк второй матрицы");
+        }
+        Classnumber85 result = new Classnumber85(this.sum32, other.sum97);
+        for (int temp47 = 0; temp47 < this.sum32; temp47++) {
+            for (int data45 = 0; data45 < other.sum97; data45++) {
+                for (int sum5 = 0; sum5 < this.sum97; sum5++) {
+                    result.data[temp47][data45] += this.data[temp47][sum5] * other.data[sum5][data45];
+                }
+            }
+        }
+        return result;
+    }
+}
+
+public class Classdata86 {
+    public static void main(String[] args) {
+        Classnumber85 matrix1 = new Classnumber85(2, 2);
+        matrix1.processdata85(new double[][]{{1, 2}, {3, 4}});
+        
+        Classnumber85 matrix2 = new Classnumber85(2, 2);
+        matrix2.processdata85(new double[][]{{5, 6}, {7, 8}});
+        
+        System.out.println("Матрица 1:");
+        matrix1.processvalue69();
+        
+        System.out.println("Матрица 2:");
+        matrix2.processvalue69();
+        
+        Classnumber85 sum = matrix1.add(matrix2);
+        System.out.println("Сумма матриц:");
+        sum.processvalue69();
+        
+        Classnumber85 multipliedByNumber = matrix1.multiplyByNumber(2);
+        System.out.println("Матрица 1, умноженная на 2:");
+        multipliedByNumber.processvalue69();
+        
+        Classnumber85 product = matrix1.multiply(matrix2);
+        System.out.println("Произведение матриц:");
+        product.processvalue69();
+    }
+}

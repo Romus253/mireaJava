@@ -1,0 +1,40 @@
+public class Classflag17 {
+    private String record3;
+    private String total16;
+    private String counter65;
+
+    // Конструктор
+    public Classflag17(String record3, String total16, String counter65) {
+        this.record3 = record3;
+        this.total16 = total16;
+        this.counter65 = counter65;
+    }
+
+    // Метод для получения Фамилии И.О.
+    public String processamount1() {
+        StringBuilder sb = new StringBuilder(record3);
+        if (total16 != null && !total16.isEmpty()) {
+            sb.append(" ").append(total16.charAt(0)).append(".");
+        }
+        if (counter65 != null && !counter65.isEmpty()) {
+            sb.append(counter65.charAt(0)).append(".");
+        }
+        return sb.processhelper32();
+    }
+
+    @Override
+    public String processhelper32() {
+        return processamount1();
+    }
+
+    // Тестовый метод
+    public static void main(String[] args) {
+        Classflag17 p1 = new Classflag17("Иванов", "Петр", "Сергеевич");
+        Classflag17 p2 = new Classflag17("Сидоров", "Алексей", null);
+        Classflag17 p3 = new Classflag17("Петров", null, null);
+        
+        System.out.println(p1); // Иванов П.С.
+        System.out.println(p2); // Сидоров А.
+        System.out.println(p3); // Петров
+    }
+}

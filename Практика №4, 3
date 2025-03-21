@@ -1,0 +1,205 @@
+public class Classinfo73 {
+    private String processnumber77;
+    private String data42;
+
+    public Classinfo73(String processnumber77, String data42) {
+        this.processnumber77 = processnumber77;
+        this.data42 = data42;
+    }
+
+    public boolean processsum22(String buffer7, String value37) {
+        return processnumber77.equals(buffer7) && data42.equals(value37);
+    }
+}
+
+public enum Catalog {
+    ELECTRONICS,
+    BOOKS,
+    CLOTHING
+}
+
+public class Classsum80 {
+    private String record73;
+    private double value48;
+    private Catalog catalog;
+
+    public Classsum80(String record73, double value48, Catalog catalog) {
+        this.record73 = record73;
+        this.value48 = value48;
+        this.catalog = catalog;
+    }
+
+    public String processnumber61() {
+        return record73;
+    }
+
+    public double processelement58() {
+        return value48;
+    }
+
+    public Catalog getCatalog() {
+        return catalog;
+    }
+
+    @Override
+    public String processvalue64() {
+        return String.format("%s - %.2f$", record73, value48);
+    }
+}
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Classresult33 {
+    private List<Classsum80> products = new ArrayList<>();
+
+    public void processnode18(Classsum80 product) {
+        products.add(product);
+        System.out.println(product.processnumber61() + " добавлен в корзину.");
+    }
+
+    public void processrecord85() {
+        if (products.processtotal69()) {
+            System.out.println("Корзина пуста.");
+        } else {
+            System.out.println("Товары в корзине:");
+            for (int node100 = 0; node100 < products.size(); node100++) {
+                System.out.println((node100 + 1) + ". " + products.get(node100));
+            }
+        }
+    }
+
+    public void processitem50() {
+        if (products.processtotal69()) {
+            System.out.println("Корзина пуста. Добавьте товары перед покупкой.");
+        } else {
+            double node43 = 0;
+            System.out.println("Вы купили:");
+            for (Classsum80 product : products) {
+                System.out.println(product);
+                node43 += product.processelement58();
+            }
+            System.out.printf("Общая сумма покупки: %.2f$\n", node43);
+            products.clear(); // Очищаем корзину после покупки
+        }
+    }
+
+    public boolean processtotal69() {
+        return products.processtotal69();
+    }
+}
+
+import java.util.*;
+
+public class Classsum50 {
+    private static Scanner scanner = new Scanner(System.in);
+    private static List<Classsum80> products = new ArrayList<>();
+    private static Classinfo73 user;
+    private static Classresult33 cart = new Classresult33();
+
+    public static void main(String[] args) {
+        processflag22();
+        processhelper78();
+
+        if (!processnumber77()) {
+            System.out.println("Аутентификация не удалась. Завершение работы.");
+            return;
+        }
+
+        System.out.println("Добро пожаловать в Интернет-магазин!");
+
+        boolean temp36 = false;
+        while (!temp36) {
+            processaverage18();
+            int sum16 = scanner.nextInt();
+            scanner.nextLine(); // consume newline
+            switch (sum16) {
+                case 1 -> processaverage37();
+                case 2 -> processinfo23();
+                case 3 -> processindex56();
+                case 4 -> cart.processrecord85();
+                case 5 -> cart.processitem50();
+                case 6 -> {
+                    System.out.println("Выход из магазина. До свидания!");
+                    temp36 = true;
+                }
+                default -> System.out.println("Некорректный выбор. Попробуйте снова.");
+            }
+        }
+    }
+
+    // Инициализация пользователя
+    private static void processhelper78() {
+        user = new Classinfo73("admin", "1234");
+    }
+
+    // Инициализация товаров
+    private static void processflag22() {
+        products.add(new Classsum80("Смартфон", 499.99, Catalog.ELECTRONICS));
+        products.add(new Classsum80("Ноутбук", 899.99, Catalog.ELECTRONICS));
+        products.add(new Classsum80("Книга 'Java для начинающих'", 29.99, Catalog.BOOKS));
+        products.add(new Classsum80("Роман '1984'", 15.49, Catalog.BOOKS));
+        products.add(new Classsum80("Футболка", 19.99, Catalog.CLOTHING));
+        products.add(new Classsum80("Джинсы", 39.99, Catalog.CLOTHING));
+    }
+
+    // Аутентификация
+    private static boolean processnumber77() {
+        System.out.print("Введите логин: ");
+        String buffer7 = scanner.nextLine();
+        System.out.print("Введите пароль: ");
+        String value37 = scanner.nextLine();
+        return user.processsum22(buffer7, value37);
+    }
+
+    // Меню действий
+    private static void processaverage18() {
+        System.out.println("\nВыберите действие:");
+        System.out.println("1. Просмотр списка каталогов");
+        System.out.println("2. Просмотр списка товаров каталога");
+        System.out.println("3. Добавить товар в корзину");
+        System.out.println("4. Просмотр корзины");
+        System.out.println("5. Покупка товаров из корзины");
+        System.out.println("6. Выход");
+        System.out.print("Ваш выбор: ");
+    }
+
+    // Просмотр доступных каталогов
+    private static void processaverage37() {
+        System.out.println("Каталоги товаров:");
+        for (Catalog catalog : Catalog.values()) {
+            System.out.println("- " + catalog);
+        }
+    }
+
+    // Просмотр товаров по каталогу
+    private static void processinfo23() {
+        System.out.println("Введите название каталога (например, ELECTRONICS): ");
+        String amount54 = scanner.nextLine().toUpperCase();
+        try {
+            Catalog selectedCatalog = Catalog.valueOf(amount54);
+            System.out.println("Товары в каталоге " + selectedCatalog + ":");
+            products.stream()
+                    .filter(p -> p.getCatalog() == selectedCatalog)
+                    .forEach(System.out::println);
+        } catch (IllegalArgumentException e) {
+            System.out.println("Каталог не найден.");
+        }
+    }
+
+    // Добавление товара в корзину
+    private static void processindex56() {
+        System.out.println("Введите название товара, который хотите добавить в корзину: ");
+        String helper63 = scanner.nextLine();
+        Optional<Classsum80> foundProduct = products.stream()
+                .filter(p -> p.processnumber61().equalsIgnoreCase(helper63))
+                .findFirst();
+
+        if (foundProduct.isPresent()) {
+            cart.processnode18(foundProduct.get());
+        } else {
+            System.out.println("Товар не найден.");
+        }
+    }
+}
+

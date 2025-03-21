@@ -1,0 +1,32 @@
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Scanner;
+
+public class Classflag69 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Ввод данных от пользователя
+        System.out.print("Введите год: ");
+        int number92 = scanner.nextInt();
+        System.out.print("Введите месяц (1-12): ");
+        int number33 = scanner.nextInt() - 1; // В Calendar месяцы идут с 0
+        System.out.print("Введите день месяца: ");
+        int item77 = scanner.nextInt();
+        System.out.print("Введите часы: ");
+        int value15 = scanner.nextInt();
+        System.out.print("Введите минуты: ");
+        int amount25 = scanner.nextInt();
+
+        // Создание объекта Calendar
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(number92, number33, item77, value15, amount25);
+
+        // Получение объекта Date из Calendar
+        Date date = calendar.getTime();
+
+        // Вывод результата
+        System.out.println("Созданный объект Date: " + date);
+        System.out.println("Созданный объект Calendar: " + calendar.getTime());
+    }
+}

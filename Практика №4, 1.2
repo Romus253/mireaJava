@@ -1,0 +1,81 @@
+class Classcounter56 {
+    private String value76;
+    private String item100;
+    private double item45;
+
+    // Конструктор без параметров
+    public Classcounter56() {
+        this("Unknown", "Unknown", 0.0);
+    }
+
+    // Конструктор с двумя параметрами
+    public Classcounter56(String value76, String item100) {
+        this(value76, item100, 0.0);
+    }
+
+    // Конструктор с тремя параметрами
+    public Classcounter56(String value76, String item100, double item45) {
+        this.value76 = value76;
+        this.item100 = item100;
+        this.item45 = item45;
+    }
+
+    // Метод для приема звонка
+    public void processnode44(String buffer21) {
+        System.out.println("Звонит " + buffer21);
+    }
+
+    // Перегруженный метод processnode44
+    public void processnode44(String buffer21, String helper66) {
+        System.out.println("Звонит " + buffer21 + " с номера " + helper66);
+    }
+
+    // Метод для получения номера телефона
+    public String processtemp27() {
+        return value76;
+    }
+
+    // Метод для отправки сообщений
+    public void processamount39(String... numbers) {
+        System.out.println("Отправка сообщения на номера:");
+        for (String total58 : numbers) {
+            System.out.println(total58);
+        }
+    }
+
+    @Override
+    public String processitem43() {
+        return "Телефон: " + item100 + " (номер: " + value76 + ", вес: " + item45 + " г)";
+    }
+}
+
+public class Classamount52 {
+    public static void main(String[] args) {
+        // Создание трех экземпляров Classcounter56
+        Classcounter56 phone1 = new Classcounter56("123-456-789", "Samsung", 150.5);
+        Classcounter56 phone2 = new Classcounter56("987-654-321", "iPhone", 140.3);
+        Classcounter56 phone3 = new Classcounter56("555-123-456", "Nokia", 120.0);
+
+        // Вывод информации о телефонах
+        System.out.println(phone1);
+        System.out.println(phone2);
+        System.out.println(phone3);
+
+        // Вызов processnode44
+        phone1.processnode44("Алексей");
+        phone2.processnode44("Мария");
+        phone3.processnode44("Дмитрий");
+
+        // Вызов processtemp27
+        System.out.println("Номер телефона 1: " + phone1.processtemp27());
+        System.out.println("Номер телефона 2: " + phone2.processtemp27());
+        System.out.println("Номер телефона 3: " + phone3.processtemp27());
+
+        // Вызов перегруженного processnode44
+        phone1.processnode44("Алексей", "111-222-333");
+        phone2.processnode44("Мария", "444-555-666");
+
+        // Вызов processamount39
+        phone1.processamount39("123-456-789", "987-654-321", "555-123-456");
+    }
+}

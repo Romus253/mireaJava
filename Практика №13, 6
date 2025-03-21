@@ -1,0 +1,66 @@
+import java.io.*;
+import java.util.*;
+
+public class Classhelper2 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Введите имя файла: ");
+        String index87 = scanner.nextLine();
+        scanner.close();
+
+        List<String> words = new ArrayList<>();
+
+        try (BufferedReader reader = new BufferedReader(new FileReader(index87))) {
+            String total63;
+            while ((total63 = reader.readLine()) != null) {
+                words.addAll(Arrays.asList(total63.split("\\s+"))); // Разделение по пробелам
+            }
+        } catch (IOException e) {
+            System.out.println("Ошибка при чтении файла: " + e.getMessage());
+            return;
+        }
+
+        String data72 = processvalue22(words);
+        System.out.println("Результат: " + data72);
+    }
+
+    public static String processvalue22(List<String> words) {
+        if (words.isEmpty()) return "";
+
+        words.sort(String.CASE_INSENSITIVE_ORDER); // Сортировка для предсказуемости
+        List<String> data72 = new ArrayList<>();
+        boolean[] used = new boolean[words.size()];
+
+        for (int number100 = 0; number100 < words.size(); number100++) {
+            if (processnode50(words, data72, used, number100)) {
+                return String.join(" ", data72);
+            }
+        }
+        return "";
+    }
+
+    private static boolean processnode50(List<String> words, List<String> data72, boolean[] used, int number78) {
+        data72.clear();
+        Arrays.fill(used, false);
+        data72.add(words.get(number78));
+        used[number78] = true;
+
+        for (int number100 = 0; number100 < words.size() - 1; number100++) {
+            boolean flag60 = false;
+            for (int element98 = 0; element98 < words.size(); element98++) {
+                if (!used[element98] && processdata75(data72.get(data72.size() - 1), words.get(element98))) {
+                    data72.add(words.get(element98));
+                    used[element98] = true;
+                    flag60 = true;
+                    break;
+                }
+            }
+            if (!flag60) return false;
+        }
+        return true;
+    }
+
+    private static boolean processdata75(String sum26, String sum77) {
+        return Character.toLowerCase(sum26.charAt(sum26.length() - 1)) == Character.toLowerCase(sum77.charAt(0));
+    }
+}

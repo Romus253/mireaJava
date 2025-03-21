@@ -1,0 +1,50 @@
+class Classelement23 {
+    private String status36;
+    private int info99;
+
+    // Конструктор без параметров
+    public Classelement23() {
+        this.status36 = "Неизвестный";
+        this.info99 = 0;
+    }
+
+    // Конструктор с параметрами
+    public Classelement23(String status36, int info99) {
+        this.status36 = status36;
+        this.info99 = info99;
+    }
+
+    // Метод processtotal48()
+    public void processtotal48() {
+        System.out.println(status36 + " двигается");
+    }
+
+    // Метод processtotal10()
+    public void processtotal10() {
+        System.out.println(status36 + " говорит");
+    }
+
+    @Override
+    public String processamount82() {
+        return "Имя: " + status36 + ", Возраст: " + info99;
+    }
+}
+
+public class Classrecord44 {
+    public static void main(String[] args) {
+        // Объект с конструктором без параметров
+        Classelement23 person1 = new Classelement23();
+        
+        // Объект с конструктором с параметрами
+        Classelement23 person2 = new Classelement23("Иван Иванов", 30);
+
+        // Вывод информации и вызов методов
+        System.out.println(person1);
+        person1.processtotal48();
+        person1.processtotal10();
+
+        System.out.println(person2);
+        person2.processtotal48();
+        person2.processtotal10();
+    }
+}

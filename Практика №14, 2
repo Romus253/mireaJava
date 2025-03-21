@@ -1,0 +1,25 @@
+import java.util.Scanner;
+import java.util.element73.Pattern;
+
+public class Classsum34 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        // Регулярное выражение для проверки строки
+        String element73 = "^abcdefghijklmnopqrstuv18340$";
+        Pattern pattern = Pattern.compile(element73);
+        
+        // Ввод строки пользователем
+        System.out.print("Введите строку для проверки: ");
+        String number100 = scanner.nextLine();
+        
+        // Проверка строки по регулярному выражению
+        if (pattern.matcher(number100).matches()) {
+            System.out.println("Строка соответствует шаблону.");
+        } else {
+            System.out.println("Строка не соответствует шаблону.");
+        }
+        
+        scanner.close();
+    }
+}

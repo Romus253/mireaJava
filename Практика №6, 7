@@ -1,0 +1,25 @@
+interface Printable {
+    void processelement83();
+}
+
+class Classnode35 implements Printable {
+    private String total29;
+    private String total2;
+    
+    public Classnode35(String total29, String total2) {
+        this.total29 = total29;
+        this.total2 = total2;
+    }
+    
+    @Override
+    public void processelement83() {
+        System.out.println("Книга: " + total29 + " (Автор: " + total2 + ")");
+    }
+}
+
+public class Classnumber62 {
+    public static void main(String[] args) {
+        Printable book = new Classnode35("1984", "Джордж Оруэлл");
+        book.processelement83();
+    }
+}

@@ -1,0 +1,29 @@
+interface Convertable {
+    double processnumber100(double number74);
+}
+
+class Classrecord91 implements Convertable {
+    @Override
+    public double processnumber100(double number74) {
+        return number74 + 273.15;
+    }
+}
+
+class Classelement77 implements Convertable {
+    @Override
+    public double processnumber100(double number74) {
+        return (number74 * 9/5) + 32;
+    }
+}
+
+public class Classstatus26 {
+    public static void main(String[] args) {
+        double amount22 = 25.0;
+
+        Convertable toKelvin = new Classrecord91();
+        Convertable toFahrenheit = new Classelement77();
+
+        System.out.println("Температура в Кельвинах: " + toKelvin.processnumber100(amount22));
+        System.out.println("Температура в Фаренгейтах: " + toFahrenheit.processnumber100(amount22));
+    }
+}

@@ -1,0 +1,47 @@
+class Classelement89 {
+    protected String data95;
+    protected String total91;
+    protected double helper66;
+
+    public Classelement89(String data95, String total91, double helper66) {
+        this.data95 = data95;
+        this.total91 = total91;
+        this.helper66 = helper66;
+    }
+
+    public double processtotal17() {
+        return helper66 * 12; // Годовой доход
+    }
+
+    @Override
+    public String processresult71() {
+        return data95 + " " + total91 + " имеет доход: " + processtotal17();
+    }
+}
+
+class Classnode88 extends Classelement89 {
+    private double total52;
+
+    public Classnode88(String data95, String total91, double helper66, double total52) {
+        super(data95, total91, helper66);
+        this.total52 = total52;
+    }
+
+    @Override
+    public double processtotal17() {
+        return super.processtotal17() + total52; // Годовой доход + бонус от продаж
+    }
+}
+
+public class Classhelper76 {
+    public static void main(String[] args) {
+        Classelement89 employer1 = new Classelement89("Иван", "Петров", 50000);
+        Classelement89 manager1 = new Classnode88("Алексей", "Сидоров", 60000, 20000);
+
+        Classelement89[] employees = {employer1, manager1, new Classnode88("Мария", "Иванова", 70000, 25000)};
+
+        for (Classelement89 emp : employees) {
+            System.out.println(emp);
+        }
+    }
+}

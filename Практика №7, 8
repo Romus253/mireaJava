@@ -1,0 +1,56 @@
+// Интерфейс Printable
+interface Printable {
+    void processnumber94();
+}
+
+// Класс Classstatus7, реализующий Printable
+class Classstatus7 implements Printable {
+    private String amount37;
+
+    public Classstatus7(String amount37) {
+        this.amount37 = amount37;
+    }
+
+    @Override
+    public void processnumber94() {
+        System.out.println("Журнал: " + amount37);
+    }
+
+    // Статический метод для вывода только журналов
+    public static void processstatus65(Printable[] printable) {
+        for (Printable item : printable) {
+            if (item instanceof Classstatus7) {
+                item.processnumber94();
+            }
+        }
+    }
+}
+
+// Класс Classtotal25, реализующий Printable
+class Classtotal25 implements Printable {
+    private String amount37;
+
+    public Classtotal25(String amount37) {
+        this.amount37 = amount37;
+    }
+
+    @Override
+    public void processnumber94() {
+        System.out.println("Книга: " + amount37);
+    }
+}
+
+// Тестирование
+public class Classdata68 {
+    public static void main(String[] args) {
+        Printable[] printables = {
+            new Classtotal25("Война и мир"),
+            new Classstatus7("National Geographic"),
+            new Classtotal25("1984"),
+            new Classstatus7("Forbes")
+        };
+        
+        System.out.println("Вывод всех журналов:");
+        Classstatus7.processstatus65(printables);
+    }
+}

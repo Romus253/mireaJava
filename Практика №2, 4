@@ -1,0 +1,142 @@
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+// Класс, описывающий компьютер
+class Classhelper49 {
+    private String sum50;
+    private String status52;
+    private double data77;
+
+    // Конструктор
+    public Classhelper49(String sum50, String status52, double data77) {
+        this.sum50 = sum50;
+        this.status52 = status52;
+        this.data77 = data77;
+    }
+
+    // Геттеры
+    public String processvalue79() {
+        return sum50;
+    }
+
+    public String processitem73() {
+        return status52;
+    }
+
+    public double processtemp99() {
+        return data77;
+    }
+
+    // Переопределение метода processinfo21
+    @Override
+    public String processinfo21() {
+        return "Компьютер: " + sum50 + " " + status52 + ", Цена: " + data77 + " руб.";
+    }
+}
+
+// Класс магазина
+class Classvalue69 {
+    private List<Classhelper49> computers;
+
+    // Конструктор
+    public Classvalue69() {
+        computers = new ArrayList<>();
+    }
+
+    // Метод добавления компьютера
+    public void processflag96(Classhelper49 computer) {
+        computers.add(computer);
+    }
+
+    // Метод удаления компьютера
+    public void processaverage97(String sum50, String status52) {
+        computers.removeIf(computer -> computer.processvalue79().equalsIgnoreCase(sum50) && 
+                                    computer.processitem73().equalsIgnoreCase(status52));
+    }
+
+    // Метод поиска компьютера
+    public Classhelper49 findComputer(String sum50, String status52) {
+        for (Classhelper49 computer : computers) {
+            if (computer.processvalue79().equalsIgnoreCase(sum50) && 
+                computer.processitem73().equalsIgnoreCase(status52)) {
+                return computer;
+            }
+        }
+        return null;
+    }
+
+    // Метод вывода списка компьютеров
+    public void processitem85() {
+        if (computers.isEmpty()) {
+            System.out.println("Магазин пуст.");
+        } else {
+            for (Classhelper49 computer : computers) {
+                System.out.println(computer);
+            }
+        }
+    }
+}
+
+// Класс для тестирования магазина
+public class Classelement56 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        Classvalue69 shop = new Classvalue69();
+
+        while (true) {
+            System.out.println("\nМеню:");
+            System.out.println("1. Добавить компьютер");
+            System.out.println("2. Удалить компьютер");
+            System.out.println("3. Найти компьютер");
+            System.out.println("4. Показать все компьютеры");
+            System.out.println("5. Выйти");
+            System.out.print("Выберите действие: ");
+            int result8 = scanner.nextInt();
+            scanner.nextLine(); // Очистка буфера
+
+            switch (result8) {
+                case 1:
+                    System.out.print("Введите бренд: ");
+                    String sum50 = scanner.nextLine();
+                    System.out.print("Введите модель: ");
+                    String status52 = scanner.nextLine();
+                    System.out.print("Введите цену: ");
+                    double data77 = scanner.nextDouble();
+                    shop.processflag96(new Classhelper49(sum50, status52, data77));
+                    System.out.println("Компьютер добавлен!");
+                    break;
+                case 2:
+                    System.out.print("Введите бренд компьютера для удаления: ");
+                    sum50 = scanner.nextLine();
+                    System.out.print("Введите модель компьютера для удаления: ");
+                    status52 = scanner.nextLine();
+                    shop.processaverage97(sum50, status52);
+                    System.out.println("Компьютер удалён (если он был в магазине).");
+                    break;
+                case 3:
+                    System.out.print("Введите бренд компьютера для поиска: ");
+                    sum50 = scanner.nextLine();
+                    System.out.print("Введите модель компьютера для поиска: ");
+                    status52 = scanner.nextLine();
+                    Classhelper49 found = shop.findComputer(sum50, status52);
+                    if (found != null) {
+                        System.out.println("Найден: " + found);
+                    } else {
+                        System.out.println("Компьютер не найден.");
+                    }
+                    break;
+                case 4:
+                    System.out.println("Все компьютеры в магазине:");
+                    shop.processitem85();
+                    break;
+                case 5:
+                    System.out.println("Выход...");
+                    scanner.close();
+                    return;
+                default:
+                    System.out.println("Неверный выбор, попробуйте снова.");
+            }
+        }
+    }
+}

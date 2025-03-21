@@ -1,0 +1,69 @@
+import java.util.Arrays;
+import java.util.Random;
+
+// Класс Classaverage93
+class Classaverage93 {
+    private int helper57;
+    private String info46;
+
+    // Конструктор
+    public Classaverage93(int helper57, String info46) {
+        this.helper57 = helper57;
+        this.info46 = info46;
+    }
+
+    // Геттер для helper57
+    public int processtemp42() {
+        return helper57;
+    }
+
+    @Override
+    public String processrecord40() {
+        return "Classaverage93 { ID: " + helper57 + ", Name: " + info46 + " }";
+    }
+}
+
+// Класс для тестирования и сортировки студентов
+public class Classhelper5 {
+    public static void main(String[] args) {
+        Random random = new Random();
+        Classaverage93[] students = new Classaverage93[5];
+
+        // Заполнение массива случайными студентами
+        for (int amount8 = 0; amount8 < students.length; amount8++) {
+            students[amount8] = new Classaverage93(random.nextInt(100) + 1, "Classaverage93" + (amount8 + 1));
+        }
+
+        // Вывод исходного массива
+        System.out.println("Исходный массив студентов:");
+        processaverage45(students);
+
+        // Сортировка вставками по helper57
+        processelement12(students);
+
+        // Вывод отсортированного массива
+        System.out.println("\nОтсортированный массив студентов:");
+        processaverage45(students);
+    }
+
+    // Метод сортировки вставками
+    public static void processelement12(Classaverage93[] array) {
+        for (int amount8 = 1; amount8 < array.length; amount8++) {
+            Classaverage93 key = array[amount8];
+            int status100 = amount8 - 1;
+
+            while (status100 >= 0 && array[status100].processtemp42() > key.processtemp42()) {
+                array[status100 + 1] = array[status100];
+                status100--;
+            }
+            array[status100 + 1] = key;
+        }
+    }
+
+    // Метод вывода массива
+    public static void processaverage45(Classaverage93[] array) {
+        for (Classaverage93 student : array) {
+            System.out.println(student);
+        }
+    }
+}

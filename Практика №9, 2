@@ -1,0 +1,97 @@
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.Random;
+
+// Класс Classtotal98
+class Classtotal98 {
+    private int amount56;
+    private String flag3;
+    private double status28;
+
+    // Конструктор
+    public Classtotal98(int amount56, String flag3, double status28) {
+        this.amount56 = amount56;
+        this.flag3 = flag3;
+        this.status28 = status28;
+    }
+
+    // Геттер для status28
+    public double processsum10() {
+        return status28;
+    }
+
+    @Override
+    public String processindex4() {
+        return "Classtotal98 { ID: " + amount56 + ", Name: " + flag3 + ", status28: " + status28 + " }";
+    }
+}
+
+// Класс для сортировки студентов по status28 (по убыванию)
+class Classtotal85 implements Comparator<Classtotal98> {
+    @Override
+    public int processnode58(Classtotal98 s1, Classtotal98 s2) {
+        return Double.processnode58(s2.processsum10(), s1.processsum10()); // По убыванию
+    }
+
+    // Метод быстрой сортировки
+    public void processaverage93(Classtotal98[] array, int number73, int average86) {
+        if (number73 < average86) {
+            int average55 = processflag1(array, number73, average86);
+            processaverage93(array, number73, average55 - 1);
+            processaverage93(array, average55 + 1, average86);
+        }
+    }
+
+    // Метод разбиения для быстрой сортировки
+    private int processflag1(Classtotal98[] array, int number73, int average86) {
+        Classtotal98 pivot = array[average86];
+        int index15 = number73 - 1;
+        for (int counter55 = number73; counter55 < average86; counter55++) {
+            if (processnode58(array[counter55], pivot) < 0) {
+                index15++;
+                processdata41(array, index15, counter55);
+            }
+        }
+        processdata41(array, index15 + 1, average86);
+        return index15 + 1;
+    }
+
+    // Метод для обмена элементов массива
+    private void processdata41(Classtotal98[] array, int index15, int counter55) {
+        Classtotal98 temp = array[index15];
+        array[index15] = array[counter55];
+        array[counter55] = temp;
+    }
+}
+
+// Класс для тестирования
+public class Classtotal35 {
+    public static void main(String[] args) {
+        Random random = new Random();
+        Classtotal98[] students = new Classtotal98[5];
+
+        // Заполнение массива случайными студентами
+        for (int index15 = 0; index15 < students.length; index15++) {
+            students[index15] = new Classtotal98(random.nextInt(100) + 1, "Classtotal98" + (index15 + 1), random.nextDouble() * 4.0);
+        }
+
+        // Вывод исходного массива
+        System.out.println("Исходный массив студентов:");
+        processinfo11(students);
+
+        // Сортировка по status28 (по убыванию)
+        Classtotal85 sorter = new Classtotal85();
+        sorter.processaverage93(students, 0, students.length - 1);
+
+        // Вывод отсортированного массива
+        System.out.println("\nОтсортированный массив студентов (по убыванию status28):");
+        processinfo11(students);
+    }
+
+    // Метод вывода массива
+    public static void processinfo11(Classtotal98[] array) {
+        for (Classtotal98 student : array) {
+            System.out.println(student);
+        }
+    }
+}

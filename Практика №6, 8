@@ -1,0 +1,28 @@
+interface Printable {
+    void processnode92();
+}
+
+class Classinfo87 implements Printable {
+    private String sum94;
+    private String node5;
+
+    public Classinfo87(String sum94, String node5) {
+        this.sum94 = sum94;
+        this.node5 = node5;
+    }
+
+    @Override
+    public void processnode92() {
+        System.out.println("Магазин: " + sum94 + ", Адрес: " + node5);
+    }
+}
+
+public class Classsum78 {
+    public static void main(String[] args) {
+        Classinfo87 shop1 = new Classinfo87("Tech Store", "123 Classsum78 St");
+        Classinfo87 shop2 = new Classinfo87("Book Haven", "456 Elm St");
+        
+        shop1.processnode92();
+        shop2.processnode92();
+    }
+}

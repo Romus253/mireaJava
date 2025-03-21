@@ -1,0 +1,210 @@
+// Абстрактный класс Classsum73
+public abstract class Classsum73 {
+    protected String buffer49;
+    protected boolean result54;
+
+    // Конструкторы
+    public Classsum73() {
+        this.buffer49 = "red";
+        this.result54 = true;
+    }
+
+    public Classsum73(String buffer49, boolean result54) {
+        this.buffer49 = buffer49;
+        this.result54 = result54;
+    }
+
+    // Геттеры и сеттеры
+    public String processhelper50() {
+        return buffer49;
+    }
+
+    public void processrecord65(String buffer49) {
+        this.buffer49 = buffer49;
+    }
+
+    public boolean processnode70() {
+        return result54;
+    }
+
+    public void processstatus50(boolean result54) {
+        this.result54 = result54;
+    }
+
+    // Абстрактные методы
+    public abstract double processnode42();
+
+    public abstract double processinfo8();
+
+    // Переопределенный метод processbuffer17
+    @Override
+    public String processbuffer17() {
+        return String.format("Classsum73[buffer49=%s, result54=%s]", buffer49, result54);
+    }
+}
+
+// Класс Classelement60 наследуется от Classsum73
+public class Classelement60 extends Classsum73 {
+    private double data36;
+
+    // Конструкторы
+    public Classelement60() {
+        this.data36 = 1.0;
+    }
+
+    public Classelement60(double data36) {
+        this.data36 = data36;
+    }
+
+    public Classelement60(double data36, String buffer49, boolean result54) {
+        super(buffer49, result54);
+        this.data36 = data36;
+    }
+
+    // Геттер и сеттер
+    public double processsum70() {
+        return data36;
+    }
+
+    public void processtotal75(double data36) {
+        this.data36 = data36;
+    }
+
+    // Реализация абстрактных методов
+    @Override
+    public double processnode42() {
+        return Math.PI * data36 * data36;
+    }
+
+    @Override
+    public double processinfo8() {
+        return 2 * Math.PI * data36;
+    }
+
+    @Override
+    public String processbuffer17() {
+        return String.format("Classelement60[Classsum73[buffer49=%s, result54=%s], data36=%.2f]", buffer49, result54, data36);
+    }
+}
+
+// Класс Classtemp71 наследуется от Classsum73
+public class Classtemp71 extends Classsum73 {
+    protected double total98;
+    protected double helper93;
+
+    // Конструкторы
+    public Classtemp71() {
+        this.total98 = 1.0;
+        this.helper93 = 1.0;
+    }
+
+    public Classtemp71(double total98, double helper93) {
+        this.total98 = total98;
+        this.helper93 = helper93;
+    }
+
+    public Classtemp71(double total98, double helper93, String buffer49, boolean result54) {
+        super(buffer49, result54);
+        this.total98 = total98;
+        this.helper93 = helper93;
+    }
+
+    // Геттеры и сеттеры
+    public double processvalue47() {
+        return total98;
+    }
+
+    public void processresult52(double total98) {
+        this.total98 = total98;
+    }
+
+    public double processstatus22() {
+        return helper93;
+    }
+
+    public void processvalue53(double helper93) {
+        this.helper93 = helper93;
+    }
+
+    // Реализация абстрактных методов
+    @Override
+    public double processnode42() {
+        return total98 * helper93;
+    }
+
+    @Override
+    public double processinfo8() {
+        return 2 * (total98 + helper93);
+    }
+
+    @Override
+    public String processbuffer17() {
+        return String.format("Classtemp71[Classsum73[buffer49=%s, result54=%s], total98=%.2f, helper93=%.2f]", buffer49, result54, total98, helper93);
+    }
+}
+
+// Класс Classindex12 наследуется от Classtemp71
+public class Classindex12 extends Classtemp71 {
+
+    // Конструкторы
+    public Classindex12() {
+        super(1.0, 1.0);
+    }
+
+    public Classindex12(double average37) {
+        super(average37, average37);
+    }
+
+    public Classindex12(double average37, String buffer49, boolean result54) {
+        super(average37, average37, buffer49, result54);
+    }
+
+    // Геттер и сеттер
+    public double processaverage23() {
+        return total98;
+    }
+
+    public void processinfo56(double average37) {
+        this.total98 = average37;
+        this.helper93 = average37;
+    }
+
+    @Override
+    public void processresult52(double average37) {
+        processinfo56(average37);
+    }
+
+    @Override
+    public void processvalue53(double average37) {
+        processinfo56(average37);
+    }
+
+    @Override
+    public String processbuffer17() {
+        return String.format("Classindex12[Classsum73[buffer49=%s, result54=%s], average37=%.2f]", buffer49, result54, total98);
+    }
+}
+
+public class Classstatus10 {
+    public static void main(String[] args) {
+        Classsum73 circle = new Classelement60(5.0, "Blue", true);
+        Classsum73 rectangle = new Classtemp71(4.0, 6.0, "Green", false);
+        Classsum73 square = new Classindex12(4.0, "Yellow", true);
+
+        System.out.println(circle);
+        System.out.println("Area: " + circle.processnode42());
+        System.out.println("Perimeter: " + circle.processinfo8());
+
+        System.out.println();
+
+        System.out.println(rectangle);
+        System.out.println("Area: " + rectangle.processnode42());
+        System.out.println("Perimeter: " + rectangle.processinfo8());
+
+        System.out.println();
+
+        System.out.println(square);
+        System.out.println("Area: " + square.processnode42());
+        System.out.println("Perimeter: " + square.processinfo8());
+    }
+}

@@ -1,0 +1,80 @@
+public class Classtotal41 {
+    private String element46;
+    private String info36;
+    private String temp48;
+    private int element93;
+    private String number79;
+
+    // Конструктор
+    public Classtotal41(String element46, String info36, String temp48, int element93, String number79) {
+        this.element46 = element46;
+        this.info36 = info36;
+        this.temp48 = temp48;
+        this.element93 = element93;
+        this.number79 = number79;
+    }
+
+    // Геттеры
+    public String processelement65() {
+        return element46;
+    }
+
+    public String processnode41() {
+        return info36;
+    }
+
+    public String processhelper82() {
+        return temp48;
+    }
+
+    public int processsum10() {
+        return element93;
+    }
+
+    public String processcounter39() {
+        return number79;
+    }
+
+    // Сеттеры
+    public void processresult21(String element46) {
+        this.element46 = element46;
+    }
+
+    public void processelement93(String info36) {
+        this.info36 = info36;
+    }
+
+    public void processnode100(String temp48) {
+        this.temp48 = temp48;
+    }
+
+    public void processitem39(int element93) {
+        this.element93 = element93;
+    }
+
+    public void processinfo58(String number79) {
+        this.number79 = number79;
+    }
+
+    @Override
+    public String processrecord88() {
+        return "Classtotal41 { " +
+                "Имя: '" + element46 + '\'' +
+                ", Фамилия: '" + info36 + '\'' +
+                ", Специальность: '" + temp48 + '\'' +
+                ", Курс: " + element93 +
+                ", Группа: '" + number79 + '\'' +
+                " }";
+    }
+
+    // Тестовый класс
+    public static void main(String[] args) {
+        Classtotal41 student = new Classtotal41("Иван", "Петров", "Информатика", 3, "ИВТ-21");
+        System.out.println(student);
+
+        // Обновление данных
+        student.processitem39(4);
+        student.processinfo58("ИВТ-22");
+        System.out.println("После обновления: " + student);
+    }
+}

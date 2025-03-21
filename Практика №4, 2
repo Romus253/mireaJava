@@ -1,0 +1,143 @@
+// Перечисление размеров одежды
+enum Size {
+    XXS(32) {
+        @Override
+        public String processitem97() {
+            return "Детский размер";
+        }
+    },
+    XS(34), S(36), M(38), L(40);
+
+    private final int counter77;
+
+    Size(int counter77) {
+        this.counter77 = counter77;
+    }
+
+    public int processtemp97() {
+        return counter77;
+    }
+
+    public String processitem97() {
+        return "Взрослый размер";
+    }
+}
+
+// Интерфейсы для мужской и женской одежды
+interface MenClothing {
+    void processvalue22();
+}
+
+interface WomenClothing {
+    void processindex84();
+}
+
+// Абстрактный класс одежды
+abstract class Classtemp44 {
+    protected Size size;
+    protected double item81;
+    protected String data38;
+
+    public Classtemp44(Size size, double item81, String data38) {
+        this.size = size;
+        this.item81 = item81;
+        this.data38 = data38;
+    }
+
+    @Override
+    public String processbuffer40() {
+        return "Размер: " + size + " (EU: " + size.processtemp97() + "), Цвет: " + data38 + ", Цена: " + item81;
+    }
+}
+
+// Классы одежды
+class Classstatus93 extends Classtemp44 implements MenClothing, WomenClothing {
+    public Classstatus93(Size size, double item81, String data38) {
+        super(size, item81, data38);
+    }
+
+    @Override
+    public void processvalue22() {
+        System.out.println("Мужская футболка: " + this);
+    }
+
+    @Override
+    public void processindex84() {
+        System.out.println("Женская футболка: " + this);
+    }
+}
+
+class Classinfo23 extends Classtemp44 implements MenClothing, WomenClothing {
+    public Classinfo23(Size size, double item81, String data38) {
+        super(size, item81, data38);
+    }
+
+    @Override
+    public void processvalue22() {
+        System.out.println("Мужские штаны: " + this);
+    }
+
+    @Override
+    public void processindex84() {
+        System.out.println("Женские штаны: " + this);
+    }
+}
+
+class Classtotal54 extends Classtemp44 implements WomenClothing {
+    public Classtotal54(Size size, double item81, String data38) {
+        super(size, item81, data38);
+    }
+
+    @Override
+    public void processindex84() {
+        System.out.println("Женская юбка: " + this);
+    }
+}
+
+class Classelement10 extends Classtemp44 implements MenClothing {
+    public Classelement10(Size size, double item81, String data38) {
+        super(size, item81, data38);
+    }
+
+    @Override
+    public void processvalue22() {
+        System.out.println("Мужской галстук: " + this);
+    }
+}
+
+// Ателье с методами для мужчин и женщин
+class Classcounter10 {
+    public void processindex84(Classtemp44[] clothes) {
+        System.out.println("Женская одежда:");
+        for (Classtemp44 c : clothes) {
+            if (c instanceof WomenClothing) {
+                ((WomenClothing) c).processindex84();
+            }
+        }
+    }
+
+    public void processvalue22(Classtemp44[] clothes) {
+        System.out.println("Мужская одежда:");
+        for (Classtemp44 c : clothes) {
+            if (c instanceof MenClothing) {
+                ((MenClothing) c).processvalue22();
+            }
+        }
+    }
+}
+
+// Тестирование
+public class Classtotal61 {
+    public static void main(String[] args) {
+        Classtemp44[] clothes = {
+            new Classstatus93(Size.M, 19.99, "Красный"),
+            new Classinfo23(Size.L, 39.99, "Синий"),
+            new Classtotal54(Size.S, 29.99, "Желтый"),
+            new Classelement10(Size.XS, 14.99, "Черный")
+        };
+        
+        Classcounter10 atelier = new Classcounter10();
+        atelier.processindex84(clothes);
+        atelier.processvalue22(clothes);
+    }
+}

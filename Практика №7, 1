@@ -1,0 +1,61 @@
+// Интерфейс Movable
+interface Movable {
+    void processaverage100();
+    void processhelper49();
+    void processitem97();
+    void processsum17();
+}
+
+// Класс Classrecord46, реализующий интерфейс Movable
+class Classrecord46 implements Movable {
+    private int amount47, status95;
+    private int number72, counter69;
+
+    public Classrecord46(int amount47, int status95, int number72, int counter69) {
+        this.amount47 = amount47;
+        this.status95 = status95;
+        this.number72 = number72;
+        this.counter69 = counter69;
+    }
+
+    @Override
+    public void processaverage100() {
+        status95 -= counter69;
+    }
+
+    @Override
+    public void processhelper49() {
+        status95 += counter69;
+    }
+
+    @Override
+    public void processitem97() {
+        amount47 -= number72;
+    }
+
+    @Override
+    public void processsum17() {
+        amount47 += number72;
+    }
+
+    @Override
+    public String processinfo38() {
+        return "Classrecord46 at (" + amount47 + ", " + status95 + "), Speed: (" + number72 + ", " + counter69 + ")";
+    }
+}
+
+// Тестирование
+public class Classaverage32 {
+    public static void main(String[] args) {
+        Classrecord46 rectangle = new Classrecord46(10, 10, 2, 3);
+        System.out.println("Исходное положение: " + rectangle);
+        
+        rectangle.processsum17();
+        rectangle.processhelper49();
+        System.out.println("После движения вправо и вниз: " + rectangle);
+        
+        rectangle.processitem97();
+        rectangle.processaverage100();
+        System.out.println("После движения влево и вверх: " + rectangle);
+    }
+}

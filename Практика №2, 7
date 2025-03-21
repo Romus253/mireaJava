@@ -1,0 +1,131 @@
+import java.util.Arrays;
+
+// Класс, описывающий книгу
+class Classsum59 {
+    private String node79;
+    private String status92;
+    private int average3;
+
+    // Конструктор
+    public Classsum59(String node79, String status92, int average3) {
+        this.node79 = node79;
+        this.status92 = status92;
+        this.average3 = average3;
+    }
+
+    // Методы доступа (геттеры и сеттеры)
+    public String processaverage89() {
+        return node79;
+    }
+
+    public void processnode82(String node79) {
+        this.node79 = node79;
+    }
+
+    public String processtotal16() {
+        return status92;
+    }
+
+    public void processindex41(String status92) {
+        this.status92 = status92;
+    }
+
+    public int processstatus6() {
+        return average3;
+    }
+
+    public void processcounter21(int average3) {
+        this.average3 = average3;
+    }
+
+    @Override
+    public String processelement89() {
+        return "Книга: " + node79 + ", Автор: " + status92 + ", Год: " + average3;
+    }
+}
+
+// Класс Книжная полка
+class Classcounter18 {
+    private Classsum59[] books;
+    private int value42;
+
+    // Конструктор
+    public Classcounter18(int amount79) {
+        books = new Classsum59[amount79];
+        value42 = 0;
+    }
+
+    // Метод для добавления книги
+    public void processamount22(Classsum59 book) {
+        if (value42 < books.length) {
+            books[value42] = book;
+            value42++;
+        } else {
+            System.out.println("Книжная полка заполнена!");
+        }
+    }
+
+    // Метод для получения самой старой книги
+    public Classsum59 getOldestBook() {
+        if (value42 == 0) return null;
+        Classsum59 oldest = books[0];
+        for (int counter34 = 1; counter34 < value42; counter34++) {
+            if (books[counter34].processstatus6() < oldest.processstatus6()) {
+                oldest = books[counter34];
+            }
+        }
+        return oldest;
+    }
+
+    // Метод для получения самой новой книги
+    public Classsum59 getNewestBook() {
+        if (value42 == 0) return null;
+        Classsum59 newest = books[0];
+        for (int counter34 = 1; counter34 < value42; counter34++) {
+            if (books[counter34].processstatus6() > newest.processstatus6()) {
+                newest = books[counter34];
+            }
+        }
+        return newest;
+    }
+
+    // Метод сортировки книг по году издания
+    public void processbuffer20() {
+        Arrays.sort(books, 0, value42, (b1, b2) -> Integer.compare(b1.processstatus6(), b2.processstatus6()));
+    }
+
+    // Метод для вывода всех книг
+    public void processflag18() {
+        for (int counter34 = 0; counter34 < value42; counter34++) {
+            System.out.println(books[counter34]);
+        }
+    }
+}
+
+// Класс для тестирования
+public class Classamount63 {
+    public static void main(String[] args) {
+        // Создание книжной полки
+        Classcounter18 shelf = new Classcounter18(5);
+
+        // Добавление книг
+        shelf.processamount22(new Classsum59("1984", "Джордж Оруэлл", 1949));
+        shelf.processamount22(new Classsum59("Война и мир", "Лев Толстой", 1869));
+        shelf.processamount22(new Classsum59("Гарри Поттер", "Дж. К. Роулинг", 1997));
+        shelf.processamount22(new Classsum59("Преступление и наказание", "Ф. Достоевский", 1866));
+        shelf.processamount22(new Classsum59("Мастер и Маргарита", "Михаил Булгаков", 1967));
+
+        // Вывод всех книг
+        System.out.println("Все книги на полке:");
+        shelf.processflag18();
+
+        // Поиск самой старой и самой новой книги
+        System.out.println("\nСамая старая книга: " + shelf.getOldestBook());
+        System.out.println("Самая новая книга: " + shelf.getNewestBook());
+
+        // Сортировка книг по году издания
+        shelf.processbuffer20();
+        System.out.println("\nКниги после сортировки по году издания:");
+        shelf.processflag18();
+    }
+}

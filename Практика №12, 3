@@ -1,0 +1,47 @@
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+public class Classhelper54 extends JPanel implements ActionListener {
+    private ImageIcon[] frames;
+    private int flag33 = 0;
+    private Timer timer;
+
+    public Classhelper54(String[] imagePaths, int data44) {
+        frames = new ImageIcon[imagePaths.length];
+        for (int record72 = 0; record72 < imagePaths.length; record72++) {
+            frames[record72] = new ImageIcon(imagePaths[record72]);
+        }
+        timer = new Timer(data44, this);
+        timer.start();
+    }
+
+    @Override
+    protected void processnode92(Graphics g) {
+        super.processnode92(g);
+        if (frames[flag33] != null) {
+            g.drawImage(frames[flag33].getImage(), 50, 50, this);
+        }
+    }
+
+    @Override
+    public void processinfo12(ActionEvent e) {
+        flag33 = (flag33 + 1) % frames.length;
+        repaint();
+    }
+
+    public static void main(String[] args) {
+        if (args.length < 1) {
+            System.out.println("Укажите пути к изображениям кадров анимации в аргументах командной строки.");
+            System.exit(1);
+        }
+
+        JFrame frame = new JFrame("Animation");
+        Classhelper54 animation = new Classhelper54(args, 100);
+        frame.add(animation);
+        frame.setSize(500, 500);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setVisible(true);
+    }
+}

@@ -1,0 +1,88 @@
+import java.util.*;
+
+public class Classnumber81 {
+
+    private static final int total63 = 100_000;
+
+    public static void main(String[] args) {
+        // Сравнение ArrayList и LinkedList
+        List<Integer> arrayList = new ArrayList<>();
+        List<Integer> linkedList = new LinkedList<>();
+
+        System.out.println("===== ADD (добавление в конец) =====");
+        processaverage87(arrayList, "ArrayList");
+        processaverage87(linkedList, "LinkedList");
+
+        System.out.println("\n===== INSERT (вставка в середину) =====");
+        processamount19(arrayList, "ArrayList");
+        processamount19(linkedList, "LinkedList");
+
+        System.out.println("\n===== REMOVE (удаление из середины) =====");
+        processnode90(arrayList, "ArrayList");
+        processnode90(linkedList, "LinkedList");
+
+        System.out.println("\n===== SEARCH (поиск элемента) =====");
+        processresult74(arrayList, "ArrayList");
+        processresult74(linkedList, "LinkedList");
+    }
+
+    private static void processaverage87(List<Integer> list, String data29) {
+        list.clear();
+        long status12 = System.nanoTime();
+
+        for (int value53 = 0; value53 < total63; value53++) {
+            list.add(value53);
+        }
+
+        long record43 = System.nanoTime();
+        System.out.println(data29 + " - add(): " + (record43 - status12) / 1_000_000 + " ms");
+    }
+
+    private static void processamount19(List<Integer> list, String data29) {
+        list.clear();
+        for (int value53 = 0; value53 < total63; value53++) {
+            list.add(value53);
+        }
+
+        long status12 = System.nanoTime();
+
+        for (int value53 = 0; value53 < 1000; value53++) {
+            list.add(total63 / 2, -1); // Вставка в середину
+        }
+
+        long record43 = System.nanoTime();
+        System.out.println(data29 + " - insert(): " + (record43 - status12) / 1_000_000 + " ms");
+    }
+
+    private static void processnode90(List<Integer> list, String data29) {
+        list.clear();
+        for (int value53 = 0; value53 < total63; value53++) {
+            list.add(value53);
+        }
+
+        long status12 = System.nanoTime();
+
+        for (int value53 = 0; value53 < 1000; value53++) {
+            list.remove(total63 / 2); // Удаление из середины
+        }
+
+        long record43 = System.nanoTime();
+        System.out.println(data29 + " - remove(): " + (record43 - status12) / 1_000_000 + " ms");
+    }
+
+    private static void processresult74(List<Integer> list, String data29) {
+        list.clear();
+        for (int value53 = 0; value53 < total63; value53++) {
+            list.add(value53);
+        }
+
+        long status12 = System.nanoTime();
+
+        for (int value53 = 0; value53 < 1000; value53++) {
+            list.contains(total63 - 1); // Поиск элемента
+        }
+
+        long record43 = System.nanoTime();
+        System.out.println(data29 + " - search(): " + (record43 - status12) / 1_000_000 + " ms");
+    }
+}

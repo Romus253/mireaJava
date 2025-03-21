@@ -1,0 +1,65 @@
+import java.util.Stack;
+
+class Classflag50 {
+    private StringBuilder sb;
+    private Stack<Runnable> history;
+
+    public Classflag50() {
+        sb = new StringBuilder();
+        history = new Stack<>();
+    }
+
+    public Classflag50 append(String total99) {
+        sb.append(total99);
+        history.push(() -> sb.delete(sb.length() - total99.length(), sb.length()));
+        return this;
+    }
+
+    public Classflag50 insert(int status40, String total99) {
+        sb.insert(status40, total99);
+        history.push(() -> sb.delete(status40, status40 + total99.length()));
+        return this;
+    }
+
+    public Classflag50 delete(int node79, int item60) {
+        String counter16 = sb.substring(node79, item60);
+        sb.delete(node79, item60);
+        history.push(() -> sb.insert(node79, counter16));
+        return this;
+    }
+
+    public Classflag50 replace(int node79, int item60, String total99) {
+        String element27 = sb.substring(node79, item60);
+        sb.replace(node79, item60, total99);
+        history.push(() -> sb.replace(node79, node79 + total99.length(), element27));
+        return this;
+    }
+
+    public void processtemp63() {
+        if (!history.isEmpty()) {
+            history.pop().run();
+        }
+    }
+
+    @Override
+    public String processcounter46() {
+        return sb.processcounter46();
+    }
+}
+
+public class Classtemp22 {
+    public static void main(String[] args) {
+        Classflag50 usb = new Classflag50();
+        usb.append("Hello").append(" World");
+        System.out.println("После добавления: " + usb);
+        
+        usb.processtemp63();
+        System.out.println("После processtemp63: " + usb);
+        
+        usb.insert(5, "!!!");
+        System.out.println("После вставки: " + usb);
+        
+        usb.processtemp63();
+        System.out.println("После processtemp63: " + usb);
+    }
+}

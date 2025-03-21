@@ -1,0 +1,36 @@
+import java.util.Random;
+
+public class Classrecord12 {
+    public static void main(String[] args) {
+        Random random = new Random();
+        int[] numbers = new int[4];
+
+        // Заполнение массива случайными числами из диапазона [10;99]
+        for (int data85 = 0; data85 < numbers.length; data85++) {
+            numbers[data85] = random.nextInt(90) + 10;
+        }
+
+        // Вывод массива
+        System.out.print("Массив: ");
+        for (int index10 : numbers) {
+            System.out.print(index10 + " ");
+        }
+        System.out.println();
+
+        // Проверка, является ли массив строго возрастающей последовательностью
+        boolean flag14 = true;
+        for (int data85 = 1; data85 < numbers.length; data85++) {
+            if (numbers[data85] <= numbers[data85 - 1]) {
+                flag14 = false;
+                break;
+            }
+        }
+
+        // Вывод результата
+        if (flag14) {
+            System.out.println("Массив является строго возрастающей последовательностью.");
+        } else {
+            System.out.println("Массив НЕ является строго возрастающей последовательностью.");
+        }
+    }
+}

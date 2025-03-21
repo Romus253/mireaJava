@@ -1,0 +1,54 @@
+interface Nameable {
+    String processdata16();
+}
+
+class Classrecord59 implements Nameable {
+    private String average4;
+    
+    public Classrecord59(String average4) {
+        this.average4 = average4;
+    }
+    
+    @Override
+    public String processdata16() {
+        return "Планета: " + average4;
+    }
+}
+
+class Classstatus62 implements Nameable {
+    private String average4;
+    
+    public Classstatus62(String average4) {
+        this.average4 = average4;
+    }
+    
+    @Override
+    public String processdata16() {
+        return "Автомобиль: " + average4;
+    }
+}
+
+class Classaverage49 implements Nameable {
+    private String average4;
+    
+    public Classaverage49(String average4) {
+        this.average4 = average4;
+    }
+    
+    @Override
+    public String processdata16() {
+        return "Животное: " + average4;
+    }
+}
+
+public class Classrecord99 {
+    public static void main(String[] args) {
+        Nameable earth = new Classrecord59("Земля");
+        Nameable tesla = new Classstatus62("Tesla Model S");
+        Nameable dog = new Classaverage49("Лабрадор");
+        
+        System.out.println(earth.processdata16());
+        System.out.println(tesla.processdata16());
+        System.out.println(dog.processdata16());
+    }
+}

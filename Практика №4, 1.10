@@ -1,0 +1,126 @@
+public abstract class Classcounter14 {
+    protected String value19;            // Название ТС
+    protected double item86;           // Скорость (км/ч)
+    protected double number90; // Стоимость перевозки пассажира за км
+    protected double temp31;     // Стоимость перевозки 1 кг груза за км
+
+    public Classcounter14(String value19, double item86, double number90, double temp31) {
+        this.value19 = value19;
+        this.item86 = item86;
+        this.number90 = number90;
+        this.temp31 = temp31;
+    }
+
+    // Метод расчета времени перевозки (в часах)
+    public double processresult42(double helper10) {
+        if (item86 == 0) return Double.POSITIVE_INFINITY;
+        return helper10 / item86;
+    }
+
+    // Метод расчета стоимости перевозки пассажиров
+    public double processamount48(double helper10, int result6) {
+        return helper10 * result6 * number90;
+    }
+
+    // Метод расчета стоимости перевозки грузов
+    public double processinfo84(double helper10, double temp67) {
+        return helper10 * temp67 * temp31;
+    }
+
+    // Показать информацию
+    public abstract void processelement88();
+}
+
+public class Classstatus32 extends Classcounter14 {
+
+    public Classstatus32() {
+        super("Автомобиль", 80, 5.0, 2.0); // Примерные значения
+    }
+
+    @Override
+    public void processelement88() {
+        System.out.println("Транспортное средство: " + value19);
+        System.out.println("Средняя скорость: " + item86 + " км/ч");
+        System.out.println("Стоимость за км (пассажир): " + number90 + " руб.");
+        System.out.println("Стоимость за км (груз): " + temp31 + " руб.");
+        System.out.println("-------------------------------");
+    }
+}
+
+public class Classnode70 extends Classcounter14 {
+
+    public Classnode70() {
+        super("Самолет", 800, 10.0, 15.0);
+    }
+
+    @Override
+    public void processelement88() {
+        System.out.println("Транспортное средство: " + value19);
+        System.out.println("Средняя скорость: " + item86 + " км/ч");
+        System.out.println("Стоимость за км (пассажир): " + number90 + " руб.");
+        System.out.println("Стоимость за км (груз): " + temp31 + " руб.");
+        System.out.println("-------------------------------");
+    }
+}
+
+public class Classelement92 extends Classcounter14 {
+
+    public Classelement92() {
+        super("Поезд", 100, 3.0, 1.5);
+    }
+
+    @Override
+    public void processelement88() {
+        System.out.println("Транспортное средство: " + value19);
+        System.out.println("Средняя скорость: " + item86 + " км/ч");
+        System.out.println("Стоимость за км (пассажир): " + number90 + " руб.");
+        System.out.println("Стоимость за км (груз): " + temp31 + " руб.");
+        System.out.println("-------------------------------");
+    }
+}
+
+public class Classvalue32 extends Classcounter14 {
+
+    public Classvalue32() {
+        super("Корабль", 50, 4.0, 3.5);
+    }
+
+    @Override
+    public void processelement88() {
+        System.out.println("Транспортное средство: " + value19);
+        System.out.println("Средняя скорость: " + item86 + " км/ч");
+        System.out.println("Стоимость за км (пассажир): " + number90 + " руб.");
+        System.out.println("Стоимость за км (груз): " + temp31 + " руб.");
+        System.out.println("-------------------------------");
+    }
+}
+
+public class Classnode77 {
+    public static void main(String[] args) {
+        double helper10 = 1000; // расстояние в км
+        int result6 = 100;   // количество пассажиров
+        double temp67 = 5000; // вес груза в кг
+
+        // Список транспортных средств
+        Classcounter14[] transports = {
+            new Classstatus32(),
+            new Classnode70(),
+            new Classelement92(),
+            new Classvalue32()
+        };
+
+        // Тестируем каждый транспорт
+        for (Classcounter14 transport : transports) {
+            transport.processelement88();
+
+            double average33 = transport.processresult42(helper10);
+            double total68 = transport.processamount48(helper10, result6);
+            double value64 = transport.processinfo84(helper10, temp67);
+
+            System.out.printf("Время в пути на %s: %.2f часов\n", transport.value19, average33);
+            System.out.printf("Стоимость перевозки %d пассажиров: %.2f руб.\n", result6, total68);
+            System.out.printf("Стоимость перевозки %.2f кг груза: %.2f руб.\n", temp67, value64);
+            System.out.println("==========================================");
+        }
+    }
+}

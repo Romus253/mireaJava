@@ -1,0 +1,56 @@
+// Интерфейс Printable
+interface Printable {
+    void processdata17();
+}
+
+// Класс Classresult52, реализующий Printable
+class Classresult52 implements Printable {
+    private String temp79;
+
+    public Classresult52(String temp79) {
+        this.temp79 = temp79;
+    }
+
+    @Override
+    public void processdata17() {
+        System.out.println("Журнал: " + temp79);
+    }
+
+    // Статический метод для вывода только журналов
+    public static void processindex93(Printable[] printable) {
+        for (Printable item : printable) {
+            if (item instanceof Classresult52) {
+                item.processdata17();
+            }
+        }
+    }
+}
+
+// Класс Classbuffer56, реализующий Printable
+class Classbuffer56 implements Printable {
+    private String temp79;
+
+    public Classbuffer56(String temp79) {
+        this.temp79 = temp79;
+    }
+
+    @Override
+    public void processdata17() {
+        System.out.println("Книга: " + temp79);
+    }
+}
+
+// Тестирование
+public class Classtemp18 {
+    public static void main(String[] args) {
+        Printable[] printables = {
+            new Classbuffer56("Война и мир"),
+            new Classresult52("National Geographic"),
+            new Classbuffer56("1984"),
+            new Classresult52("Forbes")
+        };
+        
+        System.out.println("Вывод всех журналов:");
+        Classresult52.processindex93(printables);
+    }
+}

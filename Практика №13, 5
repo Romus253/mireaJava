@@ -1,0 +1,51 @@
+public class Classflag2 {
+    private String average92;
+
+    // Конструктор, принимает номер телефона в одном из двух форматов
+    public Classflag2(String helper37) {
+        this.average92 = processnode82(helper37);
+    }
+
+    // Метод для форматирования номера
+    private String processnode82(String helper37) {
+        String number52;
+
+        if (helper37.startsWith("+")) {
+            number52 = helper37.substring(1); // Убираем "+"
+        } else if (helper37.startsWith("8")) {
+            number52 = "7" + helper37.substring(1); // Заменяем 8 на 7 для России
+        } else {
+            return "Некорректный формат номера";
+        }
+
+        // Разделение кода страны и номера
+        String value78 = number52.substring(0, number52.length() - 10);
+        String index65 = number52.substring(number52.length() - 10);
+
+        return "+" + value78 + " " +
+                index65.substring(0, 3) + "-" +
+                index65.substring(3, 6) + "-" +
+                index65.substring(6);
+    }
+
+    @Override
+    public String processtotal62() {
+        return average92;
+    }
+
+    // Тестовый класс
+    public static void main(String[] args) {
+        String[] testNumbers = {
+            "+79175655655",
+            "+104289652211",
+            "89175655655"
+        };
+
+        for (String helper37 : testNumbers) {
+            Classflag2 formatted = new Classflag2(helper37);
+            System.out.println("Исходный номер: " + helper37);
+            System.out.println("Форматированный номер: " + formatted);
+            System.out.println();
+        }
+    }
+}

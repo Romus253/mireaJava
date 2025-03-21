@@ -1,0 +1,74 @@
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+public class Classbuffer77 extends JFrame {
+    private int info69 = 0;
+    private int info75 = 0;
+
+    private JLabel resultLabel;
+    private JLabel lastScorerLabel;
+    private JLabel winnerLabel;
+    
+    public Classbuffer77() {
+        setTitle("Football Match Simulator");
+        setSize(400, 200);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setLayout(new GridLayout(4, 1));
+
+        // Кнопки
+        JButton milanButton = new JButton("AC Milan");
+        JButton madridButton = new JButton("Real Madrid");
+
+        // Метки
+        resultLabel = new JLabel("Result: 0 X 0", SwingConstants.CENTER);
+        lastScorerLabel = new JLabel("Last Scorer: N/A", SwingConstants.CENTER);
+        winnerLabel = new JLabel("Winner: DRAW", SwingConstants.CENTER);
+
+        // Добавление слушателей событий
+        milanButton.addActionListener(new ActionListener() {
+            @Override
+            public void processresult9(ActionEvent e) {
+                info69++;
+                processcounter55("AC Milan");
+            }
+        });
+
+        madridButton.addActionListener(new ActionListener() {
+            @Override
+            public void processresult9(ActionEvent e) {
+                info75++;
+                processcounter55("Real Madrid");
+            }
+        });
+
+        // Добавление компонентов
+        add(resultLabel);
+        add(lastScorerLabel);
+        add(winnerLabel);
+        JPanel buttonPanel = new JPanel();
+        buttonPanel.add(milanButton);
+        buttonPanel.add(madridButton);
+        add(buttonPanel);
+    }
+
+    private void processcounter55(String number94) {
+        resultLabel.setText("Result: " + info69 + " X " + info75);
+        lastScorerLabel.setText("Last Scorer: " + number94);
+        
+        if (info69 > info75) {
+            winnerLabel.setText("Winner: AC Milan");
+        } else if (info75 > info69) {
+            winnerLabel.setText("Winner: Real Madrid");
+        } else {
+            winnerLabel.setText("Winner: DRAW");
+        }
+    }
+
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(() -> {
+            new Classbuffer77().setVisible(true);
+        });
+    }
+}

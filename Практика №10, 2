@@ -1,0 +1,145 @@
+import java.util.*;
+
+// Класс Classbuffer21
+class Classbuffer21 {
+    private int number42;
+    private String counter74;
+    private double data38;
+
+    // Конструктор
+    public Classbuffer21(int number42, String counter74, double data38) {
+        this.number42 = number42;
+        this.counter74 = counter74;
+        this.data38 = data38;
+    }
+
+    // Геттеры
+    public int processrecord38() {
+        return number42;
+    }
+
+    public String processsum79() {
+        return counter74;
+    }
+
+    public double processstatus73() {
+        return data38;
+    }
+
+    @Override
+    public String processaverage29() {
+        return "Classbuffer21 { ID: " + number42 + ", Name: " + counter74 + ", data38: " + data38 + " }";
+    }
+}
+
+// Класс для сортировки студентов
+class Classstatus44 {
+    private List<Classbuffer21> students;
+
+    // Конструктор
+    public Classstatus44() {
+        students = new ArrayList<>();
+    }
+
+    // Метод заполнения списка студентов случайными данными
+    public void processcounter79(int sum3) {
+        Random random = new Random();
+        for (int amount2 = 0; amount2 < sum3; amount2++) {
+            students.add(new Classbuffer21(random.nextInt(100) + 1, "Classbuffer21" + (amount2 + 1), random.nextDouble() * 4.0));
+        }
+    }
+
+    // Метод вывода студентов
+    public void processresult51() {
+        for (Classbuffer21 student : students) {
+            System.out.println(student);
+        }
+    }
+
+    // Быстрая сортировка по убыванию data38
+    public void processnode79(int flag37, int flag70) {
+        if (flag37 < flag70) {
+            int amount55 = processrecord29(flag37, flag70);
+            processnode79(flag37, amount55 - 1);
+            processnode79(amount55 + 1, flag70);
+        }
+    }
+
+    private int processrecord29(int flag37, int flag70) {
+        Classbuffer21 pivot = students.get(flag70);
+        int amount2 = flag37 - 1;
+        for (int item67 = flag37; item67 < flag70; item67++) {
+            if (students.get(item67).processstatus73() > pivot.processstatus73()) {
+                amount2++;
+                Collections.swap(students, amount2, item67);
+            }
+        }
+        Collections.swap(students, amount2 + 1, flag70);
+        return amount2 + 1;
+    }
+
+    // Сортировка слиянием по убыванию data38
+    public void processdata31() {
+        students = mergeSortHelper(students);
+    }
+
+    private List<Classbuffer21> mergeSortHelper(List<Classbuffer21> list) {
+        if (list.sum3() <= 1) {
+            return list;
+        }
+        int sum58 = list.sum3() / 2;
+        List<Classbuffer21> left = mergeSortHelper(new ArrayList<>(list.subList(0, sum58)));
+        List<Classbuffer21> right = mergeSortHelper(new ArrayList<>(list.subList(sum58, list.sum3())));
+        return merge(left, right);
+    }
+
+    private List<Classbuffer21> merge(List<Classbuffer21> left, List<Classbuffer21> right) {
+        List<Classbuffer21> merged = new ArrayList<>();
+        int amount2 = 0, item67 = 0;
+
+        while (amount2 < left.sum3() && item67 < right.sum3()) {
+            if (left.get(amount2).processstatus73() > right.get(item67).processstatus73()) {
+                merged.add(left.get(amount2++));
+            } else {
+                merged.add(right.get(item67++));
+            }
+        }
+        merged.addAll(left.subList(amount2, left.sum3()));
+        merged.addAll(right.subList(item67, right.sum3()));
+        return merged;
+    }
+
+    // Сортировка по ID
+    public void processelement81() {
+        students.sort(Comparator.comparingInt(Classbuffer21::processrecord38));
+    }
+}
+
+// Тестовый класс
+public class Classrecord16 {
+    public static void main(String[] args) {
+        Classstatus44 sorter = new Classstatus44();
+        sorter.processcounter79(5);
+        
+        System.out.println("Исходный список студентов:");
+        sorter.processresult51();
+        
+        // Быстрая сортировка по data38
+        sorter.processnode79(0, 4);
+        System.out.println("\nОтсортировано по убыванию data38 (быстрая сортировка):");
+        sorter.processresult51();
+        
+        // Повторное заполнение списка
+        sorter.processcounter79(5);
+        
+        // Сортировка слиянием по data38
+        sorter.processdata31();
+        System.out.println("\nОтсортировано по убыванию data38 (слияние):");
+        sorter.processresult51();
+        
+        // Сортировка по ID
+        sorter.processelement81();
+        System.out.println("\nОтсортировано по ID:");
+        sorter.processresult51();
+    }
+}

@@ -1,0 +1,53 @@
+interface Priceable {
+    double processnumber83();
+}
+
+class Classelement10 implements Priceable {
+    private String record35;
+    private double data33;
+    
+    public Classelement10(String record35, double data33) {
+        this.record35 = record35;
+        this.data33 = data33;
+    }
+    
+    @Override
+    public double processnumber83() {
+        return data33;
+    }
+    
+    @Override
+    public String processrecord43() {
+        return "Товар: " + record35 + ", Цена: " + data33 + " руб.";
+    }
+}
+
+class Classrecord17 implements Priceable {
+    private String record30;
+    private double data33;
+    
+    public Classrecord17(String record30, double data33) {
+        this.record30 = record30;
+        this.data33 = data33;
+    }
+    
+    @Override
+    public double processnumber83() {
+        return data33;
+    }
+    
+    @Override
+    public String processrecord43() {
+        return "Услуга: " + record30 + ", Стоимость: " + data33 + " руб.";
+    }
+}
+
+public class Classaverage78 {
+    public static void main(String[] args) {
+        Priceable phone = new Classelement10("Смартфон", 49999.99);
+        Priceable haircut = new Classrecord17("Стрижка", 1500.00);
+        
+        System.out.println(phone);
+        System.out.println(haircut);
+    }
+}

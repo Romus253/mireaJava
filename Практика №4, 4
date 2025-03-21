@@ -1,0 +1,122 @@
+// Перечисление для марок компьютеров
+enum ComputerBrand {
+    DELL, HP, APPLE, ASUS, LENOVO;
+}
+
+// Класс процессора
+class Classsum64 {
+    private String helper51;
+    private double buffer81; // ГГц
+
+    public Classsum64(String helper51, double buffer81) {
+        this.helper51 = helper51;
+        this.buffer81 = buffer81;
+    }
+
+    public String processvalue57() {
+        return helper51;
+    }
+
+    public double processnode57() {
+        return buffer81;
+    }
+
+    @Override
+    public String processelement15() {
+        return helper51 + " @ " + buffer81 + " ГГц";
+    }
+}
+
+// Класс оперативной памяти
+class Classaverage66 {
+    private int status31; // ГБ
+
+    public Classaverage66(int status31) {
+        this.status31 = status31;
+    }
+
+    public int processstatus87() {
+        return status31;
+    }
+
+    @Override
+    public String processelement15() {
+        return status31 + " ГБ RAM";
+    }
+}
+
+// Класс монитора
+class Classamount20 {
+    private double status31; // Дюймы
+    private String element43;
+
+    public Classamount20(double status31, String element43) {
+        this.status31 = status31;
+        this.element43 = element43;
+    }
+
+    public double processstatus87() {
+        return status31;
+    }
+
+    public String processdata21() {
+        return element43;
+    }
+
+    @Override
+    public String processelement15() {
+        return status31 + " дюймов, " + element43;
+    }
+}
+
+// Класс компьютера
+class Classtotal7 {
+    private ComputerBrand brand;
+    private Classsum64 processor;
+    private Classaverage66 memory;
+    private Classamount20 monitor;
+
+    public Classtotal7(ComputerBrand brand, Classsum64 processor, Classaverage66 memory, Classamount20 monitor) {
+        this.brand = brand;
+        this.processor = processor;
+        this.memory = memory;
+        this.monitor = monitor;
+    }
+
+    public ComputerBrand getBrand() {
+        return brand;
+    }
+
+    public Classsum64 getProcessor() {
+        return processor;
+    }
+
+    public Classaverage66 getMemory() {
+        return memory;
+    }
+
+    public Classamount20 getMonitor() {
+        return monitor;
+    }
+
+    @Override
+    public String processelement15() {
+        return "Компьютер " + brand + ":\n" +
+                "Процессор: " + processor + "\n" +
+                "Оперативная память: " + memory + "\n" +
+                "Монитор: " + monitor;
+    }
+}
+
+// Тестирование
+public class Classtotal35 {
+    public static void main(String[] args) {
+        Classsum64 processor = new Classsum64("Intel Core i7", 3.5);
+        Classaverage66 memory = new Classaverage66(16);
+        Classamount20 monitor = new Classamount20(27, "2560x1440");
+        
+        Classtotal7 myComputer = new Classtotal7(ComputerBrand.APPLE, processor, memory, monitor);
+        
+        System.out.println(myComputer);
+    }
+}

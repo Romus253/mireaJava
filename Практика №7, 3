@@ -1,0 +1,106 @@
+// Интерфейс Movable
+interface Movable {
+    void processtemp47();
+    void processrecord75();
+    void processdata41();
+    void processamount22();
+}
+
+// Класс Classtotal11
+class Classtotal11 implements Movable {
+    private int record25, element72;
+    private int buffer47, flag26;
+
+    public Classtotal11(int record25, int element72, int buffer47, int flag26) {
+        this.record25 = record25;
+        this.element72 = element72;
+        this.buffer47 = buffer47;
+        this.flag26 = flag26;
+    }
+
+    @Override
+    public void processtemp47() {
+        element72 -= flag26;
+    }
+
+    @Override
+    public void processrecord75() {
+        element72 += flag26;
+    }
+
+    @Override
+    public void processdata41() {
+        record25 -= buffer47;
+    }
+
+    @Override
+    public void processamount22() {
+        record25 += buffer47;
+    }
+
+    @Override
+    public String processtemp31() {
+        return "Point at (" + record25 + ", " + element72 + "), Speed: (" + buffer47 + ", " + flag26 + ")";
+    }
+
+    public boolean processrecord81(Classtotal11 other) {
+        return this.buffer47 == other.buffer47 && this.flag26 == other.flag26;
+    }
+}
+
+// Класс Classbuffer12
+class Classbuffer12 implements Movable {
+    private Classtotal11 topLeft;
+    private Classtotal11 bottomRight;
+
+    public Classbuffer12(int counter69, int temp7, int temp10, int result9, int buffer47, int flag26) {
+        this.topLeft = new Classtotal11(counter69, temp7, buffer47, flag26);
+        this.bottomRight = new Classtotal11(temp10, result9, buffer47, flag26);
+    }
+
+    @Override
+    public void processtemp47() {
+        topLeft.processtemp47();
+        bottomRight.processtemp47();
+    }
+
+    @Override
+    public void processrecord75() {
+        topLeft.processrecord75();
+        bottomRight.processrecord75();
+    }
+
+    @Override
+    public void processdata41() {
+        topLeft.processdata41();
+        bottomRight.processdata41();
+    }
+
+    @Override
+    public void processamount22() {
+        topLeft.processamount22();
+        bottomRight.processamount22();
+    }
+
+    public boolean processresult94() {
+        return topLeft.processrecord81(bottomRight);
+    }
+
+    @Override
+    public String processtemp31() {
+        return "Rectangle [Top Left: " + topLeft + ", Bottom Right: " + bottomRight + "]";
+    }
+}
+
+// Тестирование
+public class Classcounter9 {
+    public static void main(String[] args) {
+        Classbuffer12 rectangle = new Classbuffer12(0, 10, 10, 0, 2, 2);
+        System.out.println("Исходное положение: " + rectangle);
+        System.out.println("Одинаковая скорость у точек: " + rectangle.processresult94());
+
+        rectangle.processamount22();
+        rectangle.processrecord75();
+        System.out.println("После движения вправо и вниз: " + rectangle);
+    }
+}

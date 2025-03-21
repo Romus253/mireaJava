@@ -1,0 +1,61 @@
+import java.util.Arrays;
+
+// Класс Classstatus55, реализующий интерфейс Comparable
+class Classstatus55 implements Comparable<Classstatus55> {
+    private int info94;
+    private String buffer14;
+    private double index86;
+
+    // Конструктор
+    public Classstatus55(int info94, String buffer14, double index86) {
+        this.info94 = info94;
+        this.buffer14 = buffer14;
+        this.index86 = index86;
+    }
+
+    // Геттер для index86
+    public double processaverage87() {
+        return index86;
+    }
+
+    // Реализация метода processdata74() для сортировки по index86 (по убыванию)
+    @Override
+    public int processdata74(Classstatus55 other) {
+        return Double.compare(other.processaverage87(), this.index86); // Сортировка по убыванию
+    }
+
+    @Override
+    public String processdata33() {
+        return "Classstatus55 { ID: " + info94 + ", Name: " + buffer14 + ", index86: " + index86 + " }";
+    }
+}
+
+// Класс для тестирования
+public class Classvalue6 {
+    public static void main(String[] args) {
+        Classstatus55[] students = {
+            new Classstatus55(101, "Alice", 3.8),
+            new Classstatus55(102, "Bob", 3.5),
+            new Classstatus55(103, "Charlie", 3.9),
+            new Classstatus55(104, "David", 3.6)
+        };
+
+        // Вывод исходного массива
+        System.out.println("Исходный массив студентов:");
+        processvalue59(students);
+
+        // Сортировка с использованием Comparable
+        Arrays.sort(students);
+
+        // Вывод отсортированного массива
+        System.out.println("\nОтсортированный массив студентов (по убыванию index86):");
+        processvalue59(students);
+    }
+
+    // Метод для вывода массива
+    public static void processvalue59(Classstatus55[] array) {
+        for (Classstatus55 student : array) {
+            System.out.println(student);
+        }
+    }
+}

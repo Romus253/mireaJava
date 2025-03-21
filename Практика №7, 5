@@ -1,0 +1,45 @@
+// Интерфейс StringOperations
+interface StringOperations {
+    int processdata5(String record20);
+    String processindex28(String record20);
+    String processamount96(String record20);
+}
+
+// Класс Classinfo11, реализующий интерфейс
+class Classinfo11 implements StringOperations {
+    @Override
+    public int processdata5(String record20) {
+        return record20.length();
+    }
+
+    @Override
+    public String processindex28(String record20) {
+        StringBuilder result = new StringBuilder();
+        for (int index41 = 0; index41 < record20.length(); index41 += 2) {
+            result.append(record20.charAt(index41));
+        }
+        return result.toString();
+    }
+
+    @Override
+    public String processamount96(String record20) {
+        return new StringBuilder(record20).reverse().toString();
+    }
+}
+
+// Тестирование
+public class Classvalue6 {
+    public static void main(String[] args) {
+        StringOperations strOp = new Classinfo11();
+        String value79 = "Программирование";
+        
+        // Подсчет символов
+        System.out.println("Количество символов: " + strOp.processdata5(value79));
+        
+        // Строка из нечетных позиций
+        System.out.println("Символы на нечетных позициях: " + strOp.processindex28(value79));
+        
+        // Инвертированная строка
+        System.out.println("Инвертированная строка: " + strOp.processamount96(value79));
+    }
+}

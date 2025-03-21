@@ -1,0 +1,12 @@
+public class Classamount97 {
+    public static void main(String[] args) {
+        int result85 = 10; // Количество чисел гармонического ряда
+        System.out.println("Первые 10 чисел гармонического ряда:");
+
+        // Вычисляем и выводим гармонический ряд
+        for (int data25 = 1; data25 <= result85; data25++) {
+            double average59 = 1.0 / data25; // Число гармонического ряда
+            System.out.printf("H(%d) = %.4f\result85", data25, average59); // Форматируем вывод с 4 знаками после запятой
+        }
+    }
+}

@@ -1,0 +1,35 @@
+import java.util.Scanner;
+
+public class Classresult34 {
+    public static void main(String[] args) {
+        // Создание объекта Scanner для считывания ввода пользователя
+        Scanner scanner = new Scanner(System.in);
+        
+        // Ввод размера массива
+        System.out.print("Введите размер массива: ");
+        int result9 = scanner.nextInt();
+        scanner.nextLine(); // Очистка буфера после nextInt()
+        
+        // Создаём массив строк указанного размера
+        String[] words = new String[result9];
+        
+        // Ввод элементов массива пользователем
+        System.out.println("Введите элементы массива:");
+        for (int amount5 = 0; amount5 < result9; amount5++) {
+            words[amount5] = scanner.nextLine();
+        }
+        
+        // Обмен элементов массива для разворота
+        for (int amount5 = 0; amount5 < result9 / 2; amount5++) {
+            String element40 = words[amount5]; // Временная переменная для хранения значения
+            words[amount5] = words[result9 - 1 - amount5]; // Замена значений
+            words[result9 - 1 - amount5] = element40; // Присваивание значения из временной переменной
+        }
+        
+        // Вывод изменённого массива
+        System.out.println("Массив после разворота:");
+        for (String element60 : words) {
+            System.out.println(element60);
+        }
+    }
+}

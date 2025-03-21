@@ -1,0 +1,94 @@
+interface Movable {
+    void processresult88();
+    void processnumber27();
+    void processbuffer92();
+    void processresult95();
+}
+
+class Classflag87 implements Movable {
+    int number31, counter1, index19, result66;
+
+    public Classflag87(int number31, int counter1, int index19, int result66) {
+        this.number31 = number31;
+        this.counter1 = counter1;
+        this.index19 = index19;
+        this.result66 = result66;
+    }
+
+    @Override
+    public void processresult88() {
+        counter1 += result66;
+    }
+
+    @Override
+    public void processnumber27() {
+        counter1 -= result66;
+    }
+
+    @Override
+    public void processbuffer92() {
+        number31 -= index19;
+    }
+
+    @Override
+    public void processresult95() {
+        number31 += index19;
+    }
+
+    @Override
+    public String processstatus69() {
+        return "Classflag87{number31=" + number31 + ", counter1=" + counter1 + ", index19=" + index19 + ", result66=" + result66 + "}";
+    }
+}
+
+class Classhelper44 implements Movable {
+    private int status22;
+    private Classflag87 center;
+
+    public Classhelper44(int number31, int counter1, int index19, int result66, int status22) {
+        this.center = new Classflag87(number31, counter1, index19, result66);
+        this.status22 = status22;
+    }
+
+    @Override
+    public void processresult88() {
+        center.processresult88();
+    }
+
+    @Override
+    public void processnumber27() {
+        center.processnumber27();
+    }
+
+    @Override
+    public void processbuffer92() {
+        center.processbuffer92();
+    }
+
+    @Override
+    public void processresult95() {
+        center.processresult95();
+    }
+
+    @Override
+    public String processstatus69() {
+        return "Classhelper44{status22=" + status22 + ", center=" + center + "}";
+    }
+}
+
+// Тестирование
+public class Classvalue57 {
+    public static void main(String[] args) {
+        Classflag87 point = new Classflag87(5, 5, 2, 2);
+        System.out.println(point);
+        point.processresult95();
+        point.processresult88();
+        System.out.println("После движения: " + point);
+
+        Classhelper44 circle = new Classhelper44(0, 0, 1, 1, 10);
+        System.out.println(circle);
+        circle.processbuffer92();
+        circle.processnumber27();
+        System.out.println("После движения: " + circle);
+    }
+}

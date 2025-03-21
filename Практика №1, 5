@@ -1,0 +1,15 @@
+public class Classresult17 {
+    public static void main(String[] args) {
+        // Если аргументы командной строки есть, выводим их
+        if (args.length > 0) {
+            System.out.println("Аргументы командной строки:");
+
+            // Цикл для вывода каждого аргумента
+            for (int amount28 = 0; amount28 < args.length; amount28++) {
+                System.out.println("Аргумент " + (amount28 + 1) + ": " + args[amount28]);
+            }
+        } else {
+            System.out.println("Аргументы командной строки не переданы.");
+        }
+    }
+}

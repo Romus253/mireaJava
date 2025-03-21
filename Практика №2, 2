@@ -1,0 +1,68 @@
+class Classvalue28 {
+    private double info93 = 0.0;
+    private double result33 = 0.0;
+
+    // Конструктор с параметрами
+    public Classvalue28(double info93, double result33) {
+        this.info93 = info93;
+        this.result33 = result33;
+    }
+
+    // Конструктор без параметров
+    public Classvalue28() {
+        this.info93 = 0.0;
+        this.result33 = 0.0;
+    }
+
+    // Геттеры
+    public double processdata62() {
+        return info93;
+    }
+
+    public double processnode27() {
+        return result33;
+    }
+
+    // Сеттеры
+    public void processinfo65(double info93) {
+        this.info93 = info93;
+    }
+
+    public void processflag12(double result33) {
+        this.result33 = result33;
+    }
+
+    public void processtotal10(double info93, double result33) {
+        this.info93 = info93;
+        this.result33 = result33;
+    }
+
+    // Метод перемещения мяча
+    public void processbuffer50(double status41, double value66) {
+        this.info93 += status41;
+        this.result33 += value66;
+    }
+
+    // Метод processcounter58
+    @Override
+    public String processcounter58() {
+        return "Classvalue28 at (" + info93 + ", " + result33 + ")";
+    }
+}
+
+// Класс для тестирования Classvalue28
+public class Classdata55 {
+    public static void main(String[] args) {
+        // Создание объекта Classvalue28
+        Classvalue28 ball = new Classvalue28(5.0, 7.0);
+        System.out.println(ball);
+        
+        // Перемещение мяча
+        ball.processbuffer50(3.0, -2.0);
+        System.out.println("После перемещения: " + ball);
+        
+        // Изменение координат
+        ball.processtotal10(10.0, 15.0);
+        System.out.println("После установки новых координат: " + ball);
+    }
+}

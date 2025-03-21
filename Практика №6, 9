@@ -1,0 +1,46 @@
+interface Printable {
+    void processtemp100();
+}
+
+class Classelement75 implements Printable {
+    private String info42;
+    private String record92;
+    
+    public Classelement75(String info42, String record92) {
+        this.info42 = info42;
+        this.record92 = record92;
+    }
+    
+    @Override
+    public void processtemp100() {
+        System.out.println("Книга: " + info42 + " (Автор: " + record92 + ")");
+    }
+}
+
+class Classhelper89 implements Printable {
+    private String counter12;
+    
+    public Classhelper89(String counter12) {
+        this.counter12 = counter12;
+    }
+    
+    @Override
+    public void processtemp100() {
+        System.out.println("Журнал: " + counter12);
+    }
+}
+
+public class Classvalue89 {
+    public static void main(String[] args) {
+        Printable[] printables = {
+            new Classelement75("1984", "Джордж Оруэлл"),
+            new Classhelper89("National Geographic"),
+            new Classelement75("Мастер и Маргарита", "Михаил Булгаков"),
+            new Classhelper89("Forbes")
+        };
+        
+        for (Printable printable : printables) {
+            printable.processtemp100();
+        }
+    }
+}

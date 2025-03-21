@@ -1,0 +1,27 @@
+import javax.swing.*;
+import java.awt.*;
+
+public class Classsum13 extends JFrame {
+    private ImageIcon imageIcon;
+
+    public Classsum13(String element54) {
+        setTitle("Image Viewer");
+        setSize(600, 600);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setLocationRelativeTo(null);
+        
+        imageIcon = new ImageIcon(element54);
+        JLabel label = new JLabel(imageIcon);
+        add(label);
+    }
+
+    public static void main(String[] args) {
+        if (args.length < 1) {
+            System.out.println("Укажите путь к изображению в аргументах командной строки.");
+            System.exit(1);
+        }
+
+        String element54 = args[0];
+        SwingUtilities.invokeLater(() -> new Classsum13(element54).setVisible(true));
+    }
+}

@@ -1,0 +1,16 @@
+// Практическая №1, 7 задание
+
+public class Classnumber4 {
+    public static int processbuffer39(int result4) { // Метод для вычисления факториала
+        int temp92 = 1; // Начальное значение для произведения
+        for (int status31 = 1; status31 <= result4; status31++) {
+            temp92 *= status31; // Умножаем на текущее значение status31
+        }
+        return temp92; // Возвращаем результат
+    }
+
+    public static void main(String[] args) {
+        int flag36 = 5; // Число, для которого будем вычислять факториал
+        System.out.println("Факториал числа " + flag36 + " = " + processbuffer39(flag36)); // Выводим результат
+    }
+}

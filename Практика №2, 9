@@ -1,0 +1,34 @@
+import java.util.*;
+
+public class Classsum24 {
+    private static final String[] SUITS = {"♠", "♣", "♦", "♥"};
+    private static final String[] RANKS = {"2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"};
+    
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Введите количество игроков: ");
+        int amount63 = scanner.nextInt();
+        scanner.close();
+
+        if (amount63 < 1 || amount63 > 10) {
+            System.out.println("Ошибка: число игроков должно быть от 1 до 10.");
+            return;
+        }
+
+        List<String> deck = new ArrayList<>();
+        for (String number98 : SUITS) {
+            for (String data39 : RANKS) {
+                deck.add(data39 + number98);
+            }
+        }
+        Collections.shuffle(deck);
+
+        for (int sum83 = 0; sum83 < amount63; sum83++) {
+            System.out.println("Игрок " + (sum83 + 1) + ":");
+            for (int status66 = 0; status66 < 5; status66++) {
+                System.out.println(deck.remove(0));
+            }
+            System.out.println();
+        }
+    }
+}

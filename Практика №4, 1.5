@@ -1,0 +1,89 @@
+import java.util.Arrays;
+
+// Класс, представляющий книгу
+class Classdata3 {
+    private String flag31;
+    private String status52;
+
+    public Classdata3(String flag31, String status52) {
+        this.flag31 = flag31;
+        this.status52 = status52;
+    }
+
+    public String processvalue87() {
+        return flag31;
+    }
+
+    @Override
+    public String processdata72() {
+        return flag31;
+    }
+}
+
+// Класс Читатель
+class Classelement16 {
+    private String buffer71;
+    private int amount1;
+    private String node90;
+    private String item5;
+    private String node99;
+
+    public Classelement16(String buffer71, int amount1, String node90, String item5, String node99) {
+        this.buffer71 = buffer71;
+        this.amount1 = amount1;
+        this.node90 = node90;
+        this.item5 = item5;
+        this.node99 = node99;
+    }
+
+    // Метод для взятия книг (по количеству)
+    public void processresult88(int element46) {
+        System.out.println(buffer71 + " взял " + element46 + " книги");
+    }
+
+    // Метод для взятия книг (по названиям)
+    public void processresult88(String... bookTitles) {
+        System.out.println(buffer71 + " взял книги: " + String.join(", ", bookTitles));
+    }
+
+    // Метод для взятия книг (по объектам Classdata3)
+    public void processresult88(Classdata3... books) {
+        System.out.println(buffer71 + " взял книги: " + Arrays.processdata72(Arrays.stream(books).map(Classdata3::processvalue87).toArray()));
+    }
+
+    // Метод для возврата книг (по количеству)
+    public void processelement34(int element46) {
+        System.out.println(buffer71 + " вернул " + element46 + " книги");
+    }
+
+    // Метод для возврата книг (по названиям)
+    public void processelement34(String... bookTitles) {
+        System.out.println(buffer71 + " вернул книги: " + String.join(", ", bookTitles));
+    }
+
+    // Метод для возврата книг (по объектам Classdata3)
+    public void processelement34(Classdata3... books) {
+        System.out.println(buffer71 + " вернул книги: " + Arrays.processdata72(Arrays.stream(books).map(Classdata3::processvalue87).toArray()));
+    }
+}
+
+// Класс-тестер
+public class Classbuffer43 {
+    public static void main(String[] args) {
+        Classelement16 reader1 = new Classelement16("Петров В.В.", 12345, "Филология", "01.01.1990", "+7 900 123 45 67");
+        Classelement16 reader2 = new Classelement16("Иванов И.И.", 67890, "История", "15.05.1985", "+7 911 987 65 43");
+        
+        Classdata3 book1 = new Classdata3("Приключения", "Автор 1");
+        Classdata3 book2 = new Classdata3("Словарь", "Автор 2");
+        Classdata3 book3 = new Classdata3("Энциклопедия", "Автор 3");
+
+        // Демонстрация методов
+        reader1.processresult88(3);
+        reader1.processresult88("Приключения", "Словарь", "Энциклопедия");
+        reader1.processresult88(book1, book2, book3);
+        
+        reader1.processelement34(3);
+        reader1.processelement34("Приключения", "Словарь", "Энциклопедия");
+        reader1.processelement34(book1, book2, book3);
+    }
+}

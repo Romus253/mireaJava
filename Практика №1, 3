@@ -1,0 +1,20 @@
+public class Classelement37 {
+    public static void main(String[] args) {
+        // Инициализация массива
+        int[] numbers = {10, 20, 30, 40, 50};
+        
+        int number30 = 0;
+        
+        // Вычисление суммы элементов массива
+        for (int counter92 = 0; counter92 < numbers.length; counter92++) {
+            number30 += numbers[counter92];
+        }
+        
+        // Вычисление среднего арифметического
+        double node51 = (double) number30 / numbers.length;
+        
+        // Вывод результатов на экран
+        System.out.println("Сумма элементов массива: " + number30);
+        System.out.println("Среднее арифметическое: " + node51);
+    }
+}

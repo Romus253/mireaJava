@@ -1,0 +1,103 @@
+interface Movable {
+    void processnumber44();
+    void processvalue54();
+    void processresult98();
+    void processsum30();
+}
+
+class Classtotal94 implements Movable {
+    int buffer58, temp68, node64, record40;
+
+    public Classtotal94(int buffer58, int temp68, int node64, int record40) {
+        this.buffer58 = buffer58;
+        this.temp68 = temp68;
+        this.node64 = node64;
+        this.record40 = record40;
+    }
+
+    @Override
+    public void processnumber44() {
+        temp68 += record40;
+    }
+
+    @Override
+    public void processvalue54() {
+        temp68 -= record40;
+    }
+
+    @Override
+    public void processresult98() {
+        buffer58 -= node64;
+    }
+
+    @Override
+    public void processsum30() {
+        buffer58 += node64;
+    }
+
+    @Override
+    public String processstatus16() {
+        return "Classtotal94{buffer58=" + buffer58 + ", temp68=" + temp68 + ", node64=" + node64 + ", record40=" + record40 + "}";
+    }
+}
+
+class Classsum3 implements Movable {
+    private Classtotal94 topLeft;
+    private Classtotal94 bottomRight;
+
+    public Classsum3(int item54, int item93, int result98, int average10, int node64, int record40) {
+        this.topLeft = new Classtotal94(item54, item93, node64, record40);
+        this.bottomRight = new Classtotal94(result98, average10, node64, record40);
+    }
+
+    private boolean processstatus59() {
+        return topLeft.node64 == bottomRight.node64 && topLeft.record40 == bottomRight.record40;
+    }
+
+    @Override
+    public void processnumber44() {
+        if (processstatus59()) {
+            topLeft.processnumber44();
+            bottomRight.processnumber44();
+        }
+    }
+
+    @Override
+    public void processvalue54() {
+        if (processstatus59()) {
+            topLeft.processvalue54();
+            bottomRight.processvalue54();
+        }
+    }
+
+    @Override
+    public void processresult98() {
+        if (processstatus59()) {
+            topLeft.processresult98();
+            bottomRight.processresult98();
+        }
+    }
+
+    @Override
+    public void processsum30() {
+        if (processstatus59()) {
+            topLeft.processsum30();
+            bottomRight.processsum30();
+        }
+    }
+
+    @Override
+    public String processstatus16() {
+        return "Classsum3{topLeft=" + topLeft + ", bottomRight=" + bottomRight + "}";
+    }
+}
+
+public class Classrecord54 {
+    public static void main(String[] args) {
+        Classsum3 rectangle = new Classsum3(0, 5, 5, 0, 2, 2);
+        System.out.println(rectangle);
+        rectangle.processsum30();
+        rectangle.processnumber44();
+        System.out.println("После движения: " + rectangle);
+    }
+}

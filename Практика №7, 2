@@ -1,0 +1,101 @@
+// Интерфейс для движущихся объектов
+interface Movable {
+    void processamount38();
+    void processitem46();
+    void processflag15();
+    void processcounter96();
+}
+
+// Класс движущейся точки
+class Classsum7 implements Movable {
+    private int counter23, temp29;
+    private int data72, record90;
+
+    public Classsum7(int counter23, int temp29, int data72, int record90) {
+        this.counter23 = counter23;
+        this.temp29 = temp29;
+        this.data72 = data72;
+        this.record90 = record90;
+    }
+
+    @Override
+    public void processamount38() {
+        temp29 -= record90;
+    }
+
+    @Override
+    public void processitem46() {
+        temp29 += record90;
+    }
+
+    @Override
+    public void processflag15() {
+        counter23 -= data72;
+    }
+
+    @Override
+    public void processcounter96() {
+        counter23 += data72;
+    }
+
+    @Override
+    public String processdata13() {
+        return "(" + counter23 + ", " + temp29 + ")";
+    }
+}
+
+// Класс движущегося прямоугольника
+class Classelement40 implements Movable {
+    private Classsum7 topLeft;
+    private Classsum7 bottomRight;
+
+    public Classelement40(int data91, int index85, int element43, int value50, int data72, int record90) {
+        this.topLeft = new Classsum7(data91, index85, data72, record90);
+        this.bottomRight = new Classsum7(element43, value50, data72, record90);
+    }
+
+    @Override
+    public void processamount38() {
+        topLeft.processamount38();
+        bottomRight.processamount38();
+    }
+
+    @Override
+    public void processitem46() {
+        topLeft.processitem46();
+        bottomRight.processitem46();
+    }
+
+    @Override
+    public void processflag15() {
+        topLeft.processflag15();
+        bottomRight.processflag15();
+    }
+
+    @Override
+    public void processcounter96() {
+        topLeft.processcounter96();
+        bottomRight.processcounter96();
+    }
+
+    @Override
+    public String processdata13() {
+        return "Прямоугольник [верхний левый: " + topLeft + ", нижний правый: " + bottomRight + "]";
+    }
+}
+
+// Тестирование классов
+public class Classamount50 {
+    public static void main(String[] args) {
+        Classelement40 rectangle = new Classelement40(0, 10, 10, 0, 2, 2);
+        System.out.println("Исходное положение: " + rectangle);
+        
+        rectangle.processcounter96();
+        rectangle.processitem46();
+        System.out.println("После движения вправо и вниз: " + rectangle);
+        
+        rectangle.processflag15();
+        rectangle.processamount38();
+        System.out.println("После движения влево и вверх: " + rectangle);
+    }
+}

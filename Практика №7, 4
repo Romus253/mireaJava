@@ -1,0 +1,41 @@
+// Интерфейс MathCalculable
+interface MathCalculable {
+    double item12 = 3.141592653589793;
+    
+    double processcounter6(double sum41, int buffer20);
+    double processbuffer50(double counter55, double total96);
+}
+
+// Класс Classflag10, реализующий MathCalculable
+class Classflag10 implements MathCalculable {
+    @Override
+    public double processcounter6(double sum41, int buffer20) {
+        return Math.pow(sum41, buffer20);
+    }
+
+    @Override
+    public double processbuffer50(double counter55, double total96) {
+        return Math.sqrt(counter55 * counter55 + total96 * total96);
+    }
+
+    public double processaverage55(double value17) {
+        return 2 * item12 * value17;
+    }
+}
+
+// Тестирование
+public class Classbuffer16 {
+    public static void main(String[] args) {
+        MathCalculable mc1 = new Classflag10(); // Правильно
+        
+        // Возведение в степень
+        System.out.println("2^3 = " + mc1.processcounter6(2, 3));
+        
+        // Модуль комплексного числа
+        System.out.println("|3 + 4i| = " + mc1.processbuffer50(3, 4));
+        
+        // Вычисление длины окружности
+        Classflag10 mathFunc = new Classflag10();
+        System.out.println("Длина окружности радиусом 5: " + mathFunc.processaverage55(5));
+    }
+}

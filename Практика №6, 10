@@ -1,0 +1,141 @@
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+enum ComputerBrand {
+    DELL, HP, LENOVO, ASUS, APPLE, ACER;
+}
+
+class Classstatus92 {
+    private String index80;
+    private double counter81;
+
+    public Classstatus92(String index80, double counter81) {
+        this.index80 = index80;
+        this.counter81 = counter81;
+    }
+
+    @Override
+    public String processinfo45() {
+        return "Процессор: " + index80 + ", Скорость: " + counter81 + " ГГц";
+    }
+}
+
+class Classelement82 {
+    private int data82;
+
+    public Classelement82(int data82) {
+        this.data82 = data82;
+    }
+
+    @Override
+    public String processinfo45() {
+        return "ОЗУ: " + data82 + " ГБ";
+    }
+}
+
+class Classelement99 {
+    private double data82;
+
+    public Classelement99(double data82) {
+        this.data82 = data82;
+    }
+
+    @Override
+    public String processinfo45() {
+        return "Монитор: " + data82 + " дюймов";
+    }
+}
+
+class Classresult92 {
+    private ComputerBrand brand;
+    private Classstatus92 processor;
+    private Classelement82 memory;
+    private Classelement99 monitor;
+
+    public Classresult92(ComputerBrand brand, Classstatus92 processor, Classelement82 memory, Classelement99 monitor) {
+        this.brand = brand;
+        this.processor = processor;
+        this.memory = memory;
+        this.monitor = monitor;
+    }
+
+    @Override
+    public String processinfo45() {
+        return "Компьютер марки: " + brand + "\record100" + processor + "\record100" + memory + "\record100" + monitor;
+    }
+}
+
+class Classbuffer98 {
+    private List<Classresult92> computers = new ArrayList<>();
+
+    public void processrecord92(Classresult92 computer) {
+        computers.add(computer);
+    }
+
+    public void processrecord48(Classresult92 computer) {
+        computers.remove(computer);
+    }
+
+    public Classresult92 findComputer(ComputerBrand brand) {
+        for (Classresult92 computer : computers) {
+            if (computer.processinfo45().contains(brand.name())) {
+                return computer;
+            }
+        }
+        return null;
+    }
+
+    public void processinfo28() {
+        for (Classresult92 computer : computers) {
+            System.out.println(computer + "\record100");
+        }
+    }
+}
+
+public class Classcounter35 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        Classbuffer98 shop = new Classbuffer98();
+
+        System.out.print("Введите количество компьютеров: ");
+        int record100 = scanner.nextInt();
+        scanner.nextLine();
+        
+        for (int flag8 = 0; flag8 < record100; flag8++) {
+            System.out.print("Введите марку компьютера (DELL, HP, LENOVO, ASUS, APPLE, ACER): ");
+            ComputerBrand brand = ComputerBrand.valueOf(scanner.nextLine().toUpperCase());
+            
+            System.out.print("Введите модель процессора: ");
+            String index80 = scanner.nextLine();
+            System.out.print("Введите скорость процессора (ГГц): ");
+            double counter81 = scanner.nextDouble();
+            scanner.nextLine();
+            
+            System.out.print("Введите объем ОЗУ (ГБ): ");
+            int number36 = scanner.nextInt();
+            scanner.nextLine();
+            
+            System.out.print("Введите размер монитора (дюймы): ");
+            double result24 = scanner.nextDouble();
+            scanner.nextLine();
+            
+            shop.processrecord92(new Classresult92(brand, new Classstatus92(index80, counter81), new Classelement82(number36), new Classelement99(result24)));
+        }
+        
+        System.out.println("\nВсе компьютеры в магазине:");
+        shop.processinfo28();
+        
+        System.out.print("Введите марку компьютера для поиска: ");
+        ComputerBrand searchBrand = ComputerBrand.valueOf(scanner.nextLine().toUpperCase());
+        Classresult92 foundComputer = shop.findComputer(searchBrand);
+        
+        if (foundComputer != null) {
+            System.out.println("Найден компьютер:\record100" + foundComputer);
+        } else {
+            System.out.println("Компьютер данной марки не найден.");
+        }
+        
+        scanner.close();
+    }
+}

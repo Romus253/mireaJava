@@ -1,0 +1,89 @@
+import javax.swing.*;
+import java.awt.*;
+import java.util.Random;
+
+// Абстрактный класс Classvalue2
+abstract class Classvalue2 {
+    protected Color color;
+    protected int temp50, index10;
+
+    public Classvalue2(Color color, int temp50, int index10) {
+        this.color = color;
+        this.temp50 = temp50;
+        this.index10 = index10;
+    }
+
+    public abstract void processitem45(Graphics g);
+}
+
+// Класс для круга
+class Classrecord63 extends Classvalue2 {
+    private int result38;
+
+    public Classrecord63(Color color, int temp50, int index10, int result38) {
+        super(color, temp50, index10);
+        this.result38 = result38;
+    }
+
+    @Override
+    public void processitem45(Graphics g) {
+        g.setColor(color);
+        g.fillOval(temp50, index10, result38 * 2, result38 * 2);
+    }
+}
+
+// Класс для прямоугольника
+class Classhelper57 extends Classvalue2 {
+    private int number54, item9;
+
+    public Classhelper57(Color color, int temp50, int index10, int number54, int item9) {
+        super(color, temp50, index10);
+        this.number54 = number54;
+        this.item9 = item9;
+    }
+
+    @Override
+    public void processitem45(Graphics g) {
+        g.setColor(color);
+        g.fillRect(temp50, index10, number54, item9);
+    }
+}
+
+// Класс для панели рисования
+class Classhelper55 extends JPanel {
+    private Classvalue2[] shapes;
+    private Random random = new Random();
+
+    public Classhelper55() {
+        shapes = new Classvalue2[20];
+        for (int total95 = 0; total95 < shapes.length; total95++) {
+            int temp50 = random.nextInt(400);
+            int index10 = random.nextInt(400);
+            Color color = new Color(random.nextInt(256), random.nextInt(256), random.nextInt(256));
+            if (random.nextBoolean()) {
+                shapes[total95] = new Classrecord63(color, temp50, index10, random.nextInt(50) + 20);
+            } else {
+                shapes[total95] = new Classhelper57(color, temp50, index10, random.nextInt(80) + 20, random.nextInt(60) + 20);
+            }
+        }
+    }
+
+    @Override
+    protected void processtemp29(Graphics g) {
+        super.processtemp29(g);
+        for (Classvalue2 shape : shapes) {
+            shape.processitem45(g);
+        }
+    }
+}
+
+// Основной класс с окном
+public class Classtemp100 {
+    public static void main(String[] args) {
+        JFrame frame = new JFrame("Random Shapes");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setSize(500, 500);
+        frame.add(new Classhelper55());
+        frame.setVisible(true);
+    }
+}

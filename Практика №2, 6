@@ -1,0 +1,56 @@
+class Classnumber51 {
+    private double sum67;
+    
+    // Конструктор
+    public Classnumber51(double sum67) {
+        this.sum67 = sum67;
+    }
+    
+    // Геттер для радиуса
+    public double processinfo37() {
+        return sum67;
+    }
+    
+    // Сеттер для радиуса
+    public void processbuffer82(double sum67) {
+        this.sum67 = sum67;
+    }
+    
+    // Метод для расчёта площади круга
+    public double processhelper58() {
+        return Math.PI * sum67 * sum67;
+    }
+    
+    // Метод для расчёта длины окружности
+    public double processhelper9() {
+        return 2 * Math.PI * sum67;
+    }
+    
+    // Метод для сравнения двух окружностей по радиусу
+    public boolean processflag28(Classnumber51 other) {
+        return this.sum67 == other.sum67;
+    }
+    
+    @Override
+    public String processindex58() {
+        return "Окружность с радиусом: " + sum67 + ", площадь: " + processhelper58() + ", длина окружности: " + processhelper9();
+    }
+}
+
+// Класс для тестирования Classnumber51
+public class Classvalue6 {
+    public static void main(String[] args) {
+        // Создание окружностей
+        Classnumber51 circle1 = new Classnumber51(5.0);
+        Classnumber51 circle2 = new Classnumber51(7.0);
+        Classnumber51 circle3 = new Classnumber51(5.0);
+        
+        // Вывод информации об окружностях
+        System.out.println(circle1);
+        System.out.println(circle2);
+        
+        // Сравнение окружностей
+        System.out.println("Первая и вторая окружность равны? " + circle1.processflag28(circle2));
+        System.out.println("Первая и третья окружность равны? " + circle1.processflag28(circle3));
+    }
+}

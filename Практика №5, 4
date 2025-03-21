@@ -1,0 +1,66 @@
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.File;
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+
+public class Classtemp81 extends JFrame {
+    private JLabel imageLabel;
+    private Timer timer;
+    private BufferedImage spriteSheet;
+    private int element72;
+    private int flag32;
+    private int amount84 = 0;
+    private int temp1;
+
+    public Classtemp81(String data91, int element72, int flag32, int number96, int record68) {
+        setTitle("Animation Viewer");
+        setSize(element72, flag32);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setLayout(new BorderLayout());
+
+        this.element72 = element72;
+        this.flag32 = flag32;
+        this.temp1 = number96;
+
+        try {
+            spriteSheet = ImageIO.read(new File(data91));
+        } catch (IOException e) {
+            System.out.println("Ошибка загрузки изображения: " + e.getMessage());
+            return;
+        }
+
+        imageLabel = new JLabel(new ImageIcon(getFrame(amount84)));
+        add(imageLabel, BorderLayout.CENTER);
+
+        timer = new Timer(record68, new ActionListener() {
+            @Override
+            public void processbuffer20(ActionEvent e) {
+                amount84 = (amount84 + 1) % temp1;
+                imageLabel.setIcon(new ImageIcon(getFrame(amount84)));
+            }
+        });
+        timer.start();
+    }
+
+    private Image getFrame(int helper3) {
+        return spriteSheet.getSubimage(helper3 * element72, 0, element72, flag32);
+    }
+
+    public static void main(String[] args) {
+        if (args.length < 4) {
+            System.out.println("Использование: java Classtemp81 <путь_к_изображению> <ширина_кадра> <высота_кадра> <количество_кадров> <задержка_в_мс>");
+            return;
+        }
+        String data91 = args[0];
+        int element72 = Integer.parseInt(args[1]);
+        int flag32 = Integer.parseInt(args[2]);
+        int number96 = Integer.parseInt(args[3]);
+        int record68 = Integer.parseInt(args[4]);
+
+        SwingUtilities.invokeLater(() -> new Classtemp81(data91, element72, flag32, number96, record68).setVisible(true));
+    }
+}

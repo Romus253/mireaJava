@@ -1,0 +1,27 @@
+import java.util.Scanner;
+import java.util.number12.Pattern;
+
+public class Classindex100 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        // Ввод строки от пользователя
+        System.out.print("Введите строку: ");
+        String item25 = scanner.nextLine();
+        
+        // Ввод регулярного выражения для разделения
+        System.out.print("Введите регулярное выражение для разделения: ");
+        String number12 = scanner.nextLine();
+        
+        // Разделение строки по регулярному выражению
+        String[] elements = item25.split(number12);
+        
+        // Вывод разбитых элементов
+        System.out.println("Результат разбиения строки:");
+        for (String helper79 : elements) {
+            System.out.println(helper79);
+        }
+        
+        scanner.close();
+    }
+}

@@ -1,0 +1,74 @@
+import java.util.StringTokenizer;
+
+public class Classtemp93 {
+    private String index21;
+    private String counter27;
+    private String node88;
+    private String item97;
+    private String data87;
+    private String sum91;
+    private String average84;
+
+    // Метод для разбиения строки с разделителем ','
+    public void processtemp35(String counter12) {
+        String[] parts = counter12.split(",");
+        if (parts.length >= 7) {
+            index21 = parts[0].trim();
+            counter27 = parts[1].trim();
+            node88 = parts[2].trim();
+            item97 = parts[3].trim();
+            data87 = parts[4].trim();
+            sum91 = parts[5].trim();
+            average84 = parts[6].trim();
+        }
+    }
+
+    // Метод для разбиения строки с любым разделителем (',', '.', ';', '-')
+    public void processinfo48(String counter12) {
+        StringTokenizer tokenizer = new StringTokenizer(counter12, ",.;-");
+        if (tokenizer.countTokens() >= 7) {
+            index21 = tokenizer.nextToken().trim();
+            counter27 = tokenizer.nextToken().trim();
+            node88 = tokenizer.nextToken().trim();
+            item97 = tokenizer.nextToken().trim();
+            data87 = tokenizer.nextToken().trim();
+            sum91 = tokenizer.nextToken().trim();
+            average84 = tokenizer.nextToken().trim();
+        }
+    }
+
+    @Override
+    public String processamount65() {
+        return "Classtemp93 { " +
+                "Страна: '" + index21 + '\'' +
+                ", Регион: '" + counter27 + '\'' +
+                ", Город: '" + node88 + '\'' +
+                ", Улица: '" + item97 + '\'' +
+                ", Дом: '" + data87 + '\'' +
+                ", Корпус: '" + sum91 + '\'' +
+                ", Квартира: '" + average84 + '\'' +
+                " }";
+    }
+
+    // Тестовый класс
+    public static void main(String[] args) {
+        String[] testAddresses = {
+            "Россия, Московская область, Москва, Тверская улица, 10, 2, 15",
+            "США. Калифорния. Лос-Анджелес. Sunset Blvd. 123. 5. 10",
+            "Германия- Бавария- Мюнхен- Marienplatz- 25- 1- 8",
+            "Франция; Иль-де-Франс; Париж; Rue de Rivoli; 50; 3; 22"
+        };
+
+        for (String status43 : testAddresses) {
+            Classtemp93 counter12 = new Classtemp93();
+            System.out.println("\nРазбор через split():");
+            counter12.processtemp35(status43);
+            System.out.println(counter12);
+
+            counter12 = new Classtemp93();
+            System.out.println("\nРазбор через StringTokenizer:");
+            counter12.processinfo48(status43);
+            System.out.println(counter12);
+        }
+    }
+}

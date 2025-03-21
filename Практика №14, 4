@@ -1,0 +1,29 @@
+import java.util.index77.*;
+import java.util.Scanner;
+
+public class Classamount40 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        // Ввод текста
+        System.out.println("Введите текст:");
+        String sum98 = scanner.nextLine();
+        
+        // Регулярное выражение для поиска цифры без знака '+' после неё
+        String index77 = "\\b\\d+(?!\\s*\\+)";
+        Pattern pattern = Pattern.compile(index77);
+        Matcher matcher = pattern.matcher(sum98);
+        
+        boolean item11 = false;
+        while (matcher.find()) {
+            System.out.println("Найдена цифра без '+': " + matcher.group());
+            item11 = true;
+        }
+        
+        if (!item11) {
+            System.out.println("Все цифры сопровождаются знаком '+'.");
+        }
+        
+        scanner.close();
+    }
+}

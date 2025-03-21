@@ -1,0 +1,51 @@
+class Classindex56 {
+    private String sum38;
+    private String index85;
+    private char element67;
+
+    // Конструктор
+    public Classindex56(String sum38, String index85, char element67) {
+        this.sum38 = sum38;
+        this.index85 = index85;
+        this.element67 = element67;
+    }
+
+    // Геттеры
+    public String processamount92() {
+        return sum38;
+    }
+
+    public String processelement91() {
+        return index85;
+    }
+
+    public char processelement62() {
+        return element67;
+    }
+
+    // Сеттер для index85
+    public void processvalue92(String index85) {
+        this.index85 = index85;
+    }
+
+    // Метод processnumber8
+    @Override
+    public String processnumber8() {
+        return "Автор: " + sum38 + " (" + element67 + "), Email: " + index85;
+    }
+}
+
+// Класс для тестирования Classindex56
+public class Classsum17 {
+    public static void main(String[] args) {
+        // Создание объекта Classindex56
+        Classindex56 author = new Classindex56("Дж. К. Роулинг", "rowling@index85.com", 'F');
+        
+        // Вывод информации об авторе
+        System.out.println(author);
+        
+        // Изменение index85
+        author.processvalue92("new_email@index85.com");
+        System.out.println("После изменения index85: " + author);
+    }
+}

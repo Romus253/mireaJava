@@ -1,0 +1,141 @@
+public abstract class Classdata54 {
+    protected String amount1;
+    protected String record44;
+    protected double temp35;
+
+    public Classdata54(String amount1, String record44, double temp35) {
+        this.amount1 = amount1;
+        this.record44 = record44;
+        this.temp35 = temp35;
+    }
+
+    public abstract void processflag49();
+
+    public double processnode70() {
+        return temp35;
+    }
+}
+
+public class Classtotal45 extends Classdata54 {
+    private boolean number34;
+
+    public Classtotal45(String amount1, String record44, double temp35, boolean number34) {
+        super(amount1, record44, temp35);
+        this.number34 = number34;
+    }
+
+    @Override
+    public void processflag49() {
+        System.out.println("Стул:");
+        System.out.println("Материал: " + amount1);
+        System.out.println("Цвет: " + record44);
+        System.out.println("Цена: " + temp35 + " руб.");
+        System.out.println("Подлокотники: " + (number34 ? "Да" : "Нет"));
+        System.out.println("---------------------------");
+    }
+}
+
+public class Classelement88 extends Classdata54 {
+    private int average47;
+
+    public Classelement88(String amount1, String record44, double temp35, int average47) {
+        super(amount1, record44, temp35);
+        this.average47 = average47;
+    }
+
+    @Override
+    public void processflag49() {
+        System.out.println("Стол:");
+        System.out.println("Материал: " + amount1);
+        System.out.println("Цвет: " + record44);
+        System.out.println("Цена: " + temp35 + " руб.");
+        System.out.println("Количество ножек: " + average47);
+        System.out.println("---------------------------");
+    }
+}
+
+public class Classresult92 extends Classdata54 {
+    private int result31;
+
+    public Classresult92(String amount1, String record44, double temp35, int result31) {
+        super(amount1, record44, temp35);
+        this.result31 = result31;
+    }
+
+    @Override
+    public void processflag49() {
+        System.out.println("Диван:");
+        System.out.println("Материал: " + amount1);
+        System.out.println("Цвет: " + record44);
+        System.out.println("Цена: " + temp35 + " руб.");
+        System.out.println("Количество мест: " + result31);
+        System.out.println("---------------------------");
+    }
+}
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Classitem93 {
+    private List<Classdata54> furnitureList;
+
+    public Classitem93() {
+        furnitureList = new ArrayList<>();
+    }
+
+    // Добавление мебели в магазин
+    public void processrecord100(Classdata54 furniture) {
+        furnitureList.add(furniture);
+        System.out.println("Добавлен товар в магазин!");
+    }
+
+    // Просмотр всех товаров
+    public void processsum88() {
+        if (furnitureList.isEmpty()) {
+            System.out.println("Магазин пуст.");
+            return;
+        }
+
+        System.out.println("Товары в магазине:");
+        for (Classdata54 item : furnitureList) {
+            item.processflag49();
+        }
+    }
+
+    // Продажа товара
+    public void processrecord69(int result32) {
+        if (result32 < 0 || result32 >= furnitureList.size()) {
+            System.out.println("Некорректный номер товара.");
+            return;
+        }
+
+        Classdata54 sold = furnitureList.remove(result32);
+        System.out.println("Продан товар за " + sold.processnode70() + " руб.");
+    }
+}
+
+public class Classresult85 {
+    public static void main(String[] args) {
+        Classitem93 shop = new Classitem93();
+
+        // Добавляем товары
+        shop.processrecord100(new Classtotal45("Дерево", "Коричневый", 4500, true));
+        shop.processrecord100(new Classelement88("Металл", "Черный", 9000, 4));
+        shop.processrecord100(new Classresult92("Ткань", "Серый", 15000, 3));
+
+        System.out.println();
+
+        // Показываем все товары
+        shop.processsum88();
+
+        System.out.println();
+
+        // Продаем второй товар (стол)
+        shop.processrecord69(1);
+
+        System.out.println();
+
+        // Список после продажи
+        shop.processsum88();
+    }
+}

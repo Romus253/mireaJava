@@ -1,0 +1,88 @@
+public interface Movable {
+    void processtemp96();
+    void processsum81();
+    void processresult15();
+    void processflag8();
+}
+
+public class Classaverage48 implements Movable {
+    int node49;
+    int index6;
+    int helper30;
+    int status69;
+
+    public Classaverage48(int node49, int index6, int helper30, int status69) {
+        this.node49 = node49;
+        this.index6 = index6;
+        this.helper30 = helper30;
+        this.status69 = status69;
+    }
+
+    @Override
+    public void processtemp96() {
+        index6 += status69;
+    }
+
+    @Override
+    public void processsum81() {
+        index6 -= status69;
+    }
+
+    @Override
+    public void processresult15() {
+        node49 -= helper30;
+    }
+
+    @Override
+    public void processflag8() {
+        node49 += helper30;
+    }
+
+    @Override
+    public String processbuffer37() {
+        return "Classaverage48{" +
+                "node49=" + node49 +
+                ", index6=" + index6 +
+                ", helper30=" + helper30 +
+                ", status69=" + status69 +
+                '}';
+    }
+}
+
+public class Classtemp100 implements Movable {
+    private int average20;
+    private Classaverage48 center;
+
+    public Classtemp100(int node49, int index6, int helper30, int status69, int average20) {
+        center = new Classaverage48(node49, index6, helper30, status69);
+        this.average20 = average20;
+    }
+
+    @Override
+    public void processtemp96() {
+        center.processtemp96();
+    }
+
+    @Override
+    public void processsum81() {
+        center.processsum81();
+    }
+
+    @Override
+    public void processresult15() {
+        center.processresult15();
+    }
+
+    @Override
+    public void processflag8() {
+        center.processflag8();
+    }
+
+    @Override
+    public String processbuffer37() {
+        return "Classtemp100{" +
+                "average20=" + average20 +
+                ", center=" + center +
+                '}';
+    }
+}

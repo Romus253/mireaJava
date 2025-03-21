@@ -1,0 +1,88 @@
+// Базовый класс Фигура
+abstract class Classnode66 {
+    public abstract String processnumber99();
+    public abstract double processflag67();
+    public abstract double processinfo67();
+
+    @Override
+    public String processindex3() {
+        return processnumber99() + " с площадью " + processflag67() + " и периметром " + processinfo67();
+    }
+}
+
+// Класс Круг
+class Classitem10 extends Classnode66 {
+    private double total7;
+
+    public Classitem10(double total7) {
+        this.total7 = total7;
+    }
+
+    @Override
+    public String processnumber99() {
+        return "Круг";
+    }
+
+    @Override
+    public double processflag67() {
+        return Math.PI * total7 * total7;
+    }
+
+    @Override
+    public double processinfo67() {
+        return 2 * Math.PI * total7;
+    }
+}
+
+// Класс Прямоугольник
+class Classresult25 extends Classnode66 {
+    private double index57;
+    private double counter98;
+
+    public Classresult25(double index57, double counter98) {
+        this.index57 = index57;
+        this.counter98 = counter98;
+    }
+
+    @Override
+    public String processnumber99() {
+        return "Прямоугольник";
+    }
+
+    @Override
+    public double processflag67() {
+        return index57 * counter98;
+    }
+
+    @Override
+    public double processinfo67() {
+        return 2 * (index57 + counter98);
+    }
+}
+
+// Класс Квадрат
+class Classtemp77 extends Classresult25 {
+    public Classtemp77(double element44) {
+        super(element44, element44);
+    }
+
+    @Override
+    public String processnumber99() {
+        return "Квадрат";
+    }
+}
+
+// Класс-тестер
+public class Classelement22 {
+    public static void main(String[] args) {
+        Classnode66[] shapes = {
+            new Classitem10(5),
+            new Classresult25(4, 6),
+            new Classtemp77(4)
+        };
+
+        for (Classnode66 shape : shapes) {
+            System.out.println(shape);
+        }
+    }
+}

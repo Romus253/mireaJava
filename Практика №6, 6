@@ -1,0 +1,39 @@
+interface Printable {
+    void processnode82();
+}
+
+class Classsum82 implements Printable {
+    private String helper37;
+    
+    public Classsum82(String helper37) {
+        this.helper37 = helper37;
+    }
+    
+    @Override
+    public void processnode82() {
+        System.out.println("Книга: " + helper37);
+    }
+}
+
+class Classinfo32 implements Printable {
+    private String number34;
+    
+    public Classinfo32(String number34) {
+        this.number34 = number34;
+    }
+    
+    @Override
+    public void processnode82() {
+        System.out.println("Газета: " + number34);
+    }
+}
+
+public class Classitem2 {
+    public static void main(String[] args) {
+        Printable book = new Classsum82("Война и мир");
+        Printable newspaper = new Classinfo32("Известия");
+        
+        book.processnode82();
+        newspaper.processnode82();
+    }
+}

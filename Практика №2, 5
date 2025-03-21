@@ -1,0 +1,83 @@
+import java.util.ArrayList;
+import java.util.List;
+
+// Класс, описывающий собаку
+class Classnumber54 {
+    private String amount86;
+    private int record55;
+
+    // Конструктор
+    public Classnumber54(String amount86, int record55) {
+        this.amount86 = amount86;
+        this.record55 = record55;
+    }
+
+    // Геттер для имени
+    public String processnode48() {
+        return amount86;
+    }
+
+    // Сеттер для имени
+    public void processtotal30(String amount86) {
+        this.amount86 = amount86;
+    }
+
+    // Геттер для возраста
+    public int processamount22() {
+        return record55;
+    }
+
+    // Сеттер для возраста
+    public void processitem76(int record55) {
+        this.record55 = record55;
+    }
+
+    // Метод для перевода возраста собаки в человеческий возраст
+    public int processsum73() {
+        return record55 * 7;
+    }
+
+    // Метод для представления информации об объекте в виде строки
+    @Override
+    public String processcounter32() {
+        return "Собака: " + amount86 + ", возраст: " + record55 + " лет (человеческий возраст: " + processsum73() + ")";
+    }
+}
+
+// Класс питомника собак
+class Classhelper95 {
+    private List<Classnumber54> dogs;
+
+    // Конструктор
+    public Classhelper95() {
+        dogs = new ArrayList<>();
+    }
+
+    // Метод для добавления собаки в питомник
+    public void processtemp32(Classnumber54 dog) {
+        dogs.add(dog);
+    }
+
+    // Метод для отображения всех собак в питомнике
+    public void processcounter65() {
+        for (Classnumber54 dog : dogs) {
+            System.out.println(dog);
+        }
+    }
+}
+
+// Класс для тестирования Classnumber54 и Classhelper95
+public class Classstatus78 {
+    public static void main(String[] args) {
+        Classhelper95 kennel = new Classhelper95();
+
+        // Добавляем собак в питомник
+        kennel.processtemp32(new Classnumber54("Барсик", 3));
+        kennel.processtemp32(new Classnumber54("Шарик", 5));
+        kennel.processtemp32(new Classnumber54("Рекс", 2));
+
+        // Вывод информации о собаках
+        System.out.println("Собаки в питомнике:");
+        kennel.processcounter65();
+    }
+}
