@@ -1,0 +1,29 @@
+import java.util.Scanner;
+
+public class Classcounter73 {
+    public void processvalue37() {
+        Scanner myScanner = new Scanner(System.in);
+        try {
+            System.out.print("Enter an integer: ");
+            String average1 = myScanner.next();
+            int status2 = Integer.parseInt(average1);
+            System.out.println(2 / status2);
+        } catch (NumberFormatException e) {
+            System.out.println("Ошибка: Введено нецелое число!");
+        } catch (ArithmeticException e) {
+            System.out.println("Ошибка: Деление на ноль!");
+        } finally {
+            myScanner.close();
+        }
+    }
+    
+    public static void main(String[] args) {
+        Classcounter73 obj = new Classcounter73();
+        obj.processvalue37();
+    }
+}
+
+// Qwerty, NumberFormatException,	Введена строка вместо числа
+// 0,	ArithmeticException,	Деление на ноль
+// 1.2,	NumberFormatException,	Введено нецелое число
+// 1,	Нет исключения,	Корректный ввод

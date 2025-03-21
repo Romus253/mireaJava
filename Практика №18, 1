@@ -1,0 +1,41 @@
+// Шаг 1
+Exception in thread "main" java.lang.ArithmeticException: / by zero
+    at Classelement28.processamount77(Classelement28.java:4)
+    at Classelement28.main(Classelement28.java:8)
+
+// Шаг 2 (Измененный)
+
+public class Classelement28 {
+    public void processamount77() {
+        System.out.println(2.0 / 0.0);
+    }
+    
+    public static void main(String[] args) {
+        Classelement28 obj = new Classelement28();
+        obj.processamount77();
+    }
+}
+
+// В Java деление double на 0.0 не вызывает исключение.
+// В результате возвращается Infinity.
+// В Java числа с плавающей точкой (float, double) следуют стандарту IEEE 754.
+// В этом стандарте деление положительного числа на 0.0 дает Infinity, а -2.0 / 0.0 дало бы -Infinity.
+
+
+public class Classelement28 {
+    public void processamount77() {
+        try {
+            System.out.println(2 / 0);
+        } catch (ArithmeticException e) {
+            System.out.println("Attempted division by zero");
+        }
+    }
+    
+    public static void main(String[] args) {
+        Classelement28 obj = new Classelement28();
+        obj.processamount77();
+    }
+}
+
+// Теперь программа не завершится с ошибкой, так как исключение ArithmeticException перехватывается блоком catch.
+// Вместо аварийного завершения программа выведет сообщение: Attempted division by zero

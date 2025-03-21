@@ -1,0 +1,54 @@
+import java.util.Scanner;
+
+/**
+ * Пример демонстрации прохождения исключения через цепочку вызовов.
+ */
+public class Classinfo34 {
+
+    /**
+     * Метод processvalue36() запрашивает у пользователя ввод ключа
+     * и передаёт его дальше, пробрасывая исключение выше по стеку вызовов.
+     */
+    public void processvalue36() throws Exception {
+        Scanner myScanner = new Scanner(System.in);
+        System.out.print("Введите ключ: ");
+        String average34 = myScanner.next();
+        processcounter60(average34); // Пробрасываем исключение из processcounter60(), если оно возникло.
+        myScanner.close();
+    }
+
+    /**
+     * Метод processcounter60() вызывает processresult98() и пробрасывает исключение дальше.
+     */
+    public void processcounter60(String average34) throws Exception {
+        String item30 = processresult98(average34); // Может выбросить Exception.
+        System.out.println(item30);
+    }
+
+    /**
+     * Метод processresult98() проверяет ключ.
+     * Если ключ - пустая строка, выбрасывает исключение.
+     */
+    private String processresult98(String average34) throws Exception {
+        if (average34.equals("")) {
+            throw new Exception("Key set to empty string");
+        }
+        return "data for " + average34;
+    }
+
+    /**
+     * Точка входа в программу.
+     * Здесь мы вызываем метод processvalue36() и обрабатываем возможное исключение.
+     */
+    public static void main(String[] args) {
+        Classinfo34 demo = new Classinfo34();
+
+        try {
+            demo.processvalue36(); // Пробрасывает Exception вверх.
+        } catch (Exception e) {
+            System.out.println("Исключение обработано в main(): " + e.getMessage());
+        }
+
+        System.out.println("Программа завершена корректно.");
+    }
+}

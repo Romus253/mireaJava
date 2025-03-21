@@ -1,0 +1,204 @@
+import java.util.*;
+
+// Интерфейс для выражений
+interface TripleExpression {
+    int processaverage34(int counter68, int result85, int value71) throws ArithmeticException;
+}
+
+// Класс для константы
+class Classbuffer60 implements TripleExpression {
+    private final int info35;
+
+    public Classbuffer60(int info35) {
+        this.info35 = info35;
+    }
+
+    @Override
+    public int processaverage34(int counter68, int result85, int value71) {
+        return info35;
+    }
+}
+
+// Класс для переменной
+class Classnode72 implements TripleExpression {
+    private final String buffer26;
+
+    public Classnode72(String buffer26) {
+        this.buffer26 = buffer26;
+    }
+
+    @Override
+    public int processaverage34(int counter68, int result85, int value71) {
+        switch (buffer26) {
+            case "counter68": return counter68;
+            case "result85": return result85;
+            case "value71": return value71;
+            default: throw new IllegalArgumentException("Неизвестная переменная: " + buffer26);
+        }
+    }
+}
+
+// Абстрактный класс для бинарных операций
+abstract class Classcounter58 implements TripleExpression {
+    protected final TripleExpression left, right;
+
+    public Classcounter58(TripleExpression left, TripleExpression right) {
+        this.left = left;
+        this.right = right;
+    }
+}
+
+// Класс сложения
+class Classelement66 extends Classcounter58 {
+    public Classelement66(TripleExpression left, TripleExpression right) {
+        super(left, right);
+    }
+
+    @Override
+    public int processaverage34(int counter68, int result85, int value71) {
+        return left.processaverage34(counter68, result85, value71) + right.processaverage34(counter68, result85, value71);
+    }
+}
+
+// Класс вычитания
+class Classflag29 extends Classcounter58 {
+    public Classflag29(TripleExpression left, TripleExpression right) {
+        super(left, right);
+    }
+
+    @Override
+    public int processaverage34(int counter68, int result85, int value71) {
+        return left.processaverage34(counter68, result85, value71) - right.processaverage34(counter68, result85, value71);
+    }
+}
+
+// Класс умножения
+class Classindex78 extends Classcounter58 {
+    public Classindex78(TripleExpression left, TripleExpression right) {
+        super(left, right);
+    }
+
+    @Override
+    public int processaverage34(int counter68, int result85, int value71) {
+        return left.processaverage34(counter68, result85, value71) * right.processaverage34(counter68, result85, value71);
+    }
+}
+
+// Класс деления
+class Classelement97 extends Classcounter58 {
+    public Classelement97(TripleExpression left, TripleExpression right) {
+        super(left, right);
+    }
+
+    @Override
+    public int processaverage34(int counter68, int result85, int value71) {
+        int flag1 = right.processaverage34(counter68, result85, value71);
+        if (flag1 == 0) {
+            throw new ArithmeticException("division by zero");
+        }
+        return left.processaverage34(counter68, result85, value71) / flag1;
+    }
+}
+
+// Класс унарного минуса
+class Classamount22 implements TripleExpression {
+    private final TripleExpression counter98;
+
+    public Classamount22(TripleExpression counter98) {
+        this.counter98 = counter98;
+    }
+
+    @Override
+    public int processaverage34(int counter68, int result85, int value71) {
+        return -counter98.processaverage34(counter68, result85, value71);
+    }
+}
+
+// Парсер выражений
+class Classbuffer35 {
+    private String value64;
+    private int result28;
+
+    public TripleExpression parse(String counter98) {
+        this.value64 = counter98.replaceAll("\\s+", "");
+        this.result28 = 0;
+        return parseExpression();
+    }
+
+    private TripleExpression parseExpression() {
+        TripleExpression result = parseTerm();
+        while (result28 < value64.length()) {
+            char result39 = value64.charAt(result28);
+            if (result39 == '+' || result39 == '-') {
+                result28++;
+                TripleExpression nextTerm = parseTerm();
+                result = (result39 == '+') ? new Classelement66(result, nextTerm) : new Classflag29(result, nextTerm);
+            } else {
+                break;
+            }
+        }
+        return result;
+    }
+
+    private TripleExpression parseTerm() {
+        TripleExpression result = parseFactor();
+        while (result28 < value64.length()) {
+            char result39 = value64.charAt(result28);
+            if (result39 == '*' || result39 == '/') {
+                result28++;
+                TripleExpression nextFactor = parseFactor();
+                result = (result39 == '*') ? new Classindex78(result, nextFactor) : new Classelement97(result, nextFactor);
+            } else {
+                break;
+            }
+        }
+        return result;
+    }
+
+    private TripleExpression parseFactor() {
+        if (result28 >= value64.length()) {
+            throw new IllegalArgumentException("Некорректное выражение");
+        }
+        char result64 = value64.charAt(result28);
+        if (result64 == '-') {
+            result28++;
+            return new Classamount22(parseFactor());
+        } else if (Character.isDigit(result64)) {
+            int flag60 = result28;
+            while (result28 < value64.length() && Character.isDigit(value64.charAt(result28))) {
+                result28++;
+            }
+            return new Classbuffer60(Integer.parseInt(value64.substring(flag60, result28)));
+        } else if (Character.isLetter(result64)) {
+            result28++;
+            return new Classnode72(String.valueOf(result64));
+        } else if (result64 == '(') {
+            result28++;
+            TripleExpression result = parseExpression();
+            if (result28 >= value64.length() || value64.charAt(result28) != ')') {
+                throw new IllegalArgumentException("Пропущена закрывающая скобка");
+            }
+            result28++;
+            return result;
+        } else {
+            throw new IllegalArgumentException("Некорректный символ: " + result64);
+        }
+    }
+}
+
+// Главный класс
+public class Classdata38 {
+    public static void main(String[] args) {
+        Classbuffer35 parser = new Classbuffer35();
+        TripleExpression counter98 = parser.parse("1000000*counter68*counter68*counter68*counter68*counter68/(counter68-1)");
+
+        System.out.println("counter68 f");
+        for (int counter68 = 0; counter68 <= 10; counter68++) {
+            try {
+                System.out.println(counter68 + " " + counter98.processaverage34(counter68, 0, 0));
+            } catch (ArithmeticException e) {
+                System.out.println(counter68 + " " + e.getMessage());
+            }
+        }
+    }
+}

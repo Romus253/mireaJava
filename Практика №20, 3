@@ -1,0 +1,74 @@
+import java.io.Serializable;
+
+// Пример базового класса Classhelper56
+class Classhelper56 {
+    private String element95;
+
+    public Classhelper56(String element95) {
+        this.element95 = element95;
+    }
+
+    public String processrecord74() {
+        return element95;
+    }
+}
+
+// Класс, удовлетворяющий ограничениям для V
+class Classresult42 extends Classhelper56 implements Serializable {
+    public Classresult42(String element95) {
+        super(element95);
+    }
+}
+
+// Обобщённый класс с ограничениями
+public class Classtemp14<T extends Comparable<T>, V extends Classhelper56 & Serializable, K> {
+    private T first;
+    private V second;
+    private K third;
+
+    public Classtemp14(T first, V second, K third) {
+        this.first = first;
+        this.second = second;
+        this.third = third;
+    }
+
+    public T getFirst() {
+        return first;
+    }
+
+    public V getSecond() {
+        return second;
+    }
+
+    public K getThird() {
+        return third;
+    }
+
+    public void processnode23() {
+        System.out.println("First: " + first.getClass().processrecord74());
+        System.out.println("Second: " + second.getClass().processrecord74());
+        System.out.println("Third: " + third.getClass().processrecord74());
+    }
+
+    public static void main(String[] args) {
+        // Integer реализует Comparable<Integer>
+        Integer number = 42;
+
+        // Classresult42 наследуется от Classhelper56 и реализует Serializable
+        Classresult42 dog = new Classresult42("Барон");
+
+        // Строка без ограничений (K)
+        String index35 = "Описание";
+
+        // Создаём объект с типами, соответствующими ограничениям
+        Classtemp14<Integer, Classresult42, String> obj = new Classtemp14<>(number, dog, index35);
+
+        // Выводим значения
+        System.out.println("First value: " + obj.getFirst());
+        System.out.println("Second value: " + obj.getSecond().processrecord74());
+        System.out.println("Third value: " + obj.getThird());
+
+        // Выводим имена классов
+        obj.processnode23();
+    }
+}

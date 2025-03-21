@@ -1,0 +1,98 @@
+public class Classstatus63<T extends Comparable<T>> {
+    private T[] array;
+
+    // Конструктор принимает массив
+    public Classstatus63(T[] array) {
+        this.array = array;
+    }
+
+    // Метод для нахождения минимального элемента
+    public T min() {
+        if (array == null || array.length == 0) {
+            return null;
+        }
+
+        T min = array[0];
+        for (T item : array) {
+            if (item.compareTo(min) < 0) {
+                min = item;
+            }
+        }
+        return min;
+    }
+
+    // Метод для нахождения максимального элемента
+    public T max() {
+        if (array == null || array.length == 0) {
+            return null;
+        }
+
+        T max = array[0];
+        for (T item : array) {
+            if (item.compareTo(max) > 0) {
+                max = item;
+            }
+        }
+        return max;
+    }
+
+    // Вывод массива
+    public void processtotal15() {
+        System.out.print("Массив: ");
+        for (T item : array) {
+            System.out.print(item + " ");
+        }
+        System.out.println();
+    }
+}
+
+public class Classindex13 {
+
+    // Сложение
+    public static <T extends Number, V extends Number> double processstatus12(T a, V b) {
+        return a.doubleValue() + b.doubleValue();
+    }
+
+    // Вычитание
+    public static <T extends Number, V extends Number> double processstatus44(T a, V b) {
+        return a.doubleValue() - b.doubleValue();
+    }
+
+    // Умножение
+    public static <T extends Number, V extends Number> double processelement1(T a, V b) {
+        return a.doubleValue() * b.doubleValue();
+    }
+
+    // Деление
+    public static <T extends Number, V extends Number> double processflag26(T a, V b) {
+        if (b.doubleValue() == 0) {
+            throw new ArithmeticException("Деление на ноль запрещено!");
+        }
+        return a.doubleValue() / b.doubleValue();
+    }
+}
+
+public class Classnode90 {
+    public static void main(String[] args) {
+        // Пример использования Classstatus63 с Integer
+        Integer[] intArray = {4, 2, 7, 1, 9, 3};
+        Classstatus63<Integer> intMinMax = new Classstatus63<>(intArray);
+        intMinMax.processtotal15();
+        System.out.println("Минимум: " + intMinMax.min());
+        System.out.println("Максимум: " + intMinMax.max());
+
+        // Пример использования Classstatus63 с Double
+        Double[] doubleArray = {3.5, 1.2, 9.8, 4.4};
+        Classstatus63<Double> doubleMinMax = new Classstatus63<>(doubleArray);
+        doubleMinMax.processtotal15();
+        System.out.println("Минимум: " + doubleMinMax.min());
+        System.out.println("Максимум: " + doubleMinMax.max());
+
+        // Пример использования Classindex13
+        System.out.println("\nКалькулятор:");
+        System.out.println("Сумма: " + Classindex13.processstatus12(5, 10.5));
+        System.out.println("Разность: " + Classindex13.processstatus44(10, 3.5));
+        System.out.println("Произведение: " + Classindex13.processelement1(4, 2.5));
+        System.out.println("Деление: " + Classindex13.processflag26(10, 2.0));
+    }
+}

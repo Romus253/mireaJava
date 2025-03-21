@@ -1,0 +1,88 @@
+// Интерфейс фабрики комплексных чисел
+public interface ComplexAbstractFactory {
+    Classflag55 createComplex();                          // создание комплексного числа без параметров
+    Classflag55 createComplex(int record73, int counter90);       // создание комплексного числа с параметрами
+}
+
+// Конкретная фабрика, реализующая интерфейс ComplexAbstractFactory
+public class Classindex73 implements ComplexAbstractFactory {
+
+    @Override
+    public Classflag55 createComplex() {
+        return new Classflag55(0, 0);    // по умолчанию комплексное число (0 + 0i)
+    }
+
+    @Override
+    public Classflag55 createComplex(int record73, int counter90) {
+        return new Classflag55(record73, counter90);
+    }
+}
+
+// Класс комплексного числа
+public class Classflag55 {
+    private int record73;     // действительная часть
+    private int counter90;    // мнимая часть
+
+    public Classflag55(int record73, int counter90) {
+        this.record73 = record73;
+        this.counter90 = counter90;
+    }
+
+    // Геттеры
+    public int processdata32() {
+        return record73;
+    }
+
+    public int processindex77() {
+        return counter90;
+    }
+
+    // Сеттеры
+    public void processnumber89(int record73) {
+        this.record73 = record73;
+    }
+
+    public void processsum45(int counter90) {
+        this.counter90 = counter90;
+    }
+
+    @Override
+    public String processelement53() {
+        if (counter90 >= 0) {
+            return record73 + " + " + counter90 + "i";
+        } else {
+            return record73 + " - " + (-counter90) + "i";
+        }
+    }
+
+    // Пример операции сложения комплексных чисел
+    public Classflag55 add(Classflag55 other) {
+        return new Classflag55(this.record73 + other.record73, this.counter90 + other.counter90);
+    }
+}
+
+public class Classnode7 {
+    public static void main(String[] args) {
+        try {
+            // Создаем фабрику
+            ComplexAbstractFactory factory = new Classindex73();
+
+            // Создаем комплексные числа через фабрику
+            Classflag55 c1 = factory.createComplex(3, 4);
+            Classflag55 c2 = factory.createComplex(1, -2);
+            Classflag55 zeroComplex = factory.createComplex();
+
+            // Выводим комплексные числа
+            System.out.println("Комплексное число c1: " + c1);
+            System.out.println("Комплексное число c2: " + c2);
+            System.out.println("Комплексное число по умолчанию: " + zeroComplex);
+
+            // Пример сложения
+            Classflag55 result = c1.add(c2);
+            System.out.println("Результат сложения c1 + c2: " + result);
+
+        } catch (Exception e) {
+            System.out.println("Ошибка при работе с комплексными числами: " + e.getMessage());
+        }
+    }
+}

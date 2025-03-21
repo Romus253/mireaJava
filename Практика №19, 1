@@ -1,0 +1,52 @@
+import java.util.Scanner;
+
+// Исключение для недействительного ИНН
+class Classflag44 extends Exception {
+    public Classflag44(String flag18) {
+        super(flag18);
+    }
+}
+
+// Класс для обработки заказа
+class Classflag10 {
+    private String helper72;
+    private String data46;
+    
+    public Classflag10(String helper72, String data46) throws Classflag44 {
+        if (!processnode27(data46)) {
+            throw new Classflag44("Ошибка: Недействительный ИНН!");
+        }
+        this.helper72 = helper72;
+        this.data46 = data46;
+    }
+    
+    private boolean processnode27(String data46) {
+        return data46.matches("\\d{12}"); // ИНН должен состоять из 12 цифр
+    }
+    
+    public void processvalue9() {
+        System.out.println("Покупка подтверждена для " + helper72 + " с ИНН: " + data46);
+    }
+}
+
+// Тестирование
+public class Classnumber1 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        try {
+            System.out.print("Введите ФИО: ");
+            String helper72 = scanner.nextLine();
+            
+            System.out.print("Введите ИНН: ");
+            String data46 = scanner.nextLine();
+            
+            Classflag10 order = new Classflag10(helper72, data46);
+            order.processvalue9();
+            
+        } catch (Classflag44 e) {
+            System.out.println(e.getMessage());
+        } finally {
+            scanner.close();
+        }
+    }
+}

@@ -1,0 +1,67 @@
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+public class Classhelper90 extends JFrame {
+    private JComboBox<String> countryComboBox;
+    private JLabel infoLabel;
+
+    public Classhelper90() {
+        // Настройка окна
+        setTitle("Hello Swing");
+        setSize(400, 200);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setLocationRelativeTo(null); // Центрируем окно на экране
+        setLayout(new FlowLayout());
+
+        // Список стран
+        String[] countries = {"Australia", "China", "England", "Russia"};
+
+        // Создаем JComboBox и добавляем в окно
+        countryComboBox = new JComboBox<>(countries);
+        add(countryComboBox);
+
+        // Label для вывода информации
+        infoLabel = new JLabel("Выберите страну из списка");
+        add(infoLabel);
+
+        // Обработчик события выбора элемента
+        countryComboBox.addActionListener(new ActionListener() {
+            @Override
+            public void processnumber91(ActionEvent e) {
+                String buffer58 = (String) countryComboBox.getSelectedItem();
+                processvalue14(buffer58);
+            }
+        });
+    }
+
+    private void processvalue14(String temp34) {
+        String info63;
+        switch (temp34) {
+            case "Australia":
+                info63 = "Australia is known for kangaroos and the Great Barrier Reef.";
+                break;
+            case "China":
+                info63 = "China is famous for its rich history and the Great Wall.";
+                break;
+            case "England":
+                info63 = "England is home to the royal family and Big Ben.";
+                break;
+            case "Russia":
+                info63 = "Russia is the largest temp34 in the world by area.";
+                break;
+            default:
+                info63 = "No information available.";
+        }
+        infoLabel.setText(info63);
+    }
+
+    public static void main(String[] args) {
+        // Запускаем приложение
+        SwingUtilities.invokeLater(() -> {
+            Classhelper90 app = new Classhelper90();
+            app.setVisible(true);
+        });
+    }
+}

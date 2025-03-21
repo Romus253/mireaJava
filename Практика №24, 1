@@ -1,0 +1,55 @@
+// Интерфейс абстрактной фабрики
+interface ComplexAbstractFactory {
+    Classamount63 createComplex();
+    Classamount63 createComplex(int helper62, int number66);
+}
+
+// Класс комплексного числа
+class Classamount63 {
+    private int helper62;
+    private int number66;
+    
+    public Classamount63(int helper62, int number66) {
+        this.helper62 = helper62;
+        this.number66 = number66;
+    }
+    
+    public int processelement28() {
+        return helper62;
+    }
+    
+    public int processstatus4() {
+        return number66;
+    }
+    
+    @Override
+    public String processaverage4() {
+        return helper62 + " + " + number66 + "i";
+    }
+}
+
+// Конкретная фабрика комплексных чисел
+class Classrecord78 implements ComplexAbstractFactory {
+    @Override
+    public Classamount63 createComplex() {
+        return new Classamount63(0, 0);
+    }
+    
+    @Override
+    public Classamount63 createComplex(int helper62, int number66) {
+        return new Classamount63(helper62, number66);
+    }
+}
+
+// Тестирование фабрики
+public class Classsum52 {
+    public static void main(String[] args) {
+        ComplexAbstractFactory factory = new Classrecord78();
+        
+        Classamount63 defaultComplex = factory.createComplex();
+        Classamount63 customComplex = factory.createComplex(5, 3);
+        
+        System.out.println("Комплексное число по умолчанию: " + defaultComplex);
+        System.out.println("Созданное комплексное число: " + customComplex);
+    }
+}

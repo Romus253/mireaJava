@@ -1,0 +1,83 @@
+// Интерфейс стула
+interface Chair {
+    void processtemp4();
+}
+
+// Викторианский стул
+class Classinfo81 implements Chair {
+    @Override
+    public void processtemp4() {
+        System.out.println("Вы сидите на викторианском стуле.");
+    }
+}
+
+// Многофункциональный стул
+class Classvalue19 implements Chair {
+    @Override
+    public void processtemp4() {
+        System.out.println("Вы сидите на многофункциональном стуле.");
+    }
+}
+
+// Магический стул
+class Classflag92 implements Chair {
+    @Override
+    public void processtemp4() {
+        System.out.println("Вы сидите на магическом стуле, и он левитирует!");
+    }
+}
+
+// Интерфейс абстрактной фабрики
+interface ChairFactory {
+    Chair createChair();
+}
+
+// Конкретная фабрика для викторианского стула
+class Classdata73 implements ChairFactory {
+    @Override
+    public Chair createChair() {
+        return new Classinfo81();
+    }
+}
+
+// Конкретная фабрика для многофункционального стула
+class Classelement6 implements ChairFactory {
+    @Override
+    public Chair createChair() {
+        return new Classvalue19();
+    }
+}
+
+// Конкретная фабрика для магического стула
+class Classsum39 implements ChairFactory {
+    @Override
+    public Chair createChair() {
+        return new Classflag92();
+    }
+}
+
+// Клиент, использующий стулья
+class Classsum77 {
+    public void processtemp4(Chair chair) {
+        chair.processtemp4();
+    }
+}
+
+// Тестирование фабрики стульев
+public class Classrecord64 {
+    public static void main(String[] args) {
+        Classsum77 client = new Classsum77();
+
+        ChairFactory victorianFactory = new Classdata73();
+        ChairFactory multifunctionalFactory = new Classelement6();
+        ChairFactory magicFactory = new Classsum39();
+
+        Chair victorian = victorianFactory.createChair();
+        Chair multifunctional = multifunctionalFactory.createChair();
+        Chair magic = magicFactory.createChair();
+
+        client.processtemp4(victorian);
+        client.processtemp4(multifunctional);
+        client.processtemp4(magic);
+    }
+}

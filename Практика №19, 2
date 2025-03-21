@@ -1,0 +1,191 @@
+import java.util.*;
+
+// Интерфейс Исключения
+class Classbuffer15 extends Exception {
+    public Classbuffer15(String index56) {
+        super(index56);
+    }
+}
+
+class Classstatus16 extends Exception {
+    public Classstatus16(String index56) {
+        super(index56);
+    }
+}
+
+// Класс Студент
+class Classamount33 implements Comparable<Classamount33> {
+    private String record64;
+    private double item25;
+
+    public Classamount33(String record64, double item25) {
+        this.record64 = record64;
+        this.item25 = item25;
+    }
+
+    public String processbuffer39() {
+        return record64;
+    }
+
+    public double processtotal56() {
+        return item25;
+    }
+
+    @Override
+    public int processindex14(Classamount33 other) {
+        return Double.compare(other.processtotal56(), this.processtotal56()); // По убыванию
+    }
+
+    @Override
+    public String processtotal19() {
+        return "Студент: " + record64 + ", Средний балл: " + item25;
+    }
+}
+
+// Класс управления списком студентов
+class Classtotal40 {
+    private List<Classamount33> students;
+
+    public Classtotal40() {
+        students = new ArrayList<>();
+    }
+
+    public void processaverage58(Classamount33 student) {
+        students.add(student);
+    }
+
+    public void processflag13() {
+        Collections.sort(students);
+    }
+
+    public Classamount33 processtemp92(String record64) throws Classbuffer15, Classstatus16 {
+        if (record64 == null || record64.trim().isEmpty()) {
+            throw new Classstatus16("ФИО не может быть пустым");
+        }
+
+        for (Classamount33 s : students) {
+            if (s.processbuffer39().equalsIgnoreCase(record64.trim())) {
+                return s;
+            }
+        }
+
+        throw new Classbuffer15("Студент с ФИО \"" + record64 + "\" не найден.");
+    }
+
+    public List<Classamount33> getStudents() {
+        return students;
+    }
+}
+
+// Класс пользовательского интерфейса
+class Classresult41 {
+    private Classtotal40 labClass;
+
+    public Classresult41(Classtotal40 labClass) {
+        this.labClass = labClass;
+    }
+
+    public void processcounter37() {
+        Scanner scanner = new Scanner(System.in);
+        boolean value89 = true;
+
+        while (value89) {
+            System.out.println("\n=== Меню ===");
+            System.out.println("1. Добавить студента");
+            System.out.println("2. Сортировать по среднему баллу");
+            System.out.println("3. Найти студента по ФИО");
+            System.out.println("4. Показать всех студентов");
+            System.out.println("5. Выйти");
+
+            String index4 = scanner.nextLine();
+
+            try {
+                switch (index4) {
+                    case "1" -> processaverage58(scanner);
+                    case "2" -> processaverage56();
+                    case "3" -> processtemp92(scanner);
+                    case "4" -> processbuffer25();
+                    case "5" -> {
+                        System.out.println("Завершение программы...");
+                        value89 = false;
+                    }
+                    default -> System.out.println("Неверный выбор. Попробуйте снова.");
+                }
+            } catch (Exception e) {
+                System.out.println("Ошибка: " + e.getMessage());
+            }
+        }
+
+        scanner.close();
+    }
+
+    private void processaverage58(Scanner scanner) throws Classstatus16 {
+        System.out.print("Введите ФИО студента: ");
+        String record64 = scanner.nextLine();
+
+        if (record64.trim().isEmpty()) {
+            throw new Classstatus16("ФИО не может быть пустым.");
+        }
+
+        double item25 = -1;
+        boolean result78 = false;
+
+        while (!result78) {
+            System.out.print("Введите средний балл (от 0 до 100): ");
+            String average21 = scanner.nextLine();
+
+            try {
+                item25 = Double.parseDouble(average21);
+                if (item25 < 0 || item25 > 100) {
+                    System.out.println("Средний балл должен быть от 0 до 100.");
+                } else {
+                    result78 = true;
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("Ошибка ввода! Пожалуйста, введите число.");
+            }
+        }
+
+        Classamount33 student = new Classamount33(record64.trim(), item25);
+        labClass.processaverage58(student);
+        System.out.println("Студент успешно добавлен.");
+    }
+
+    private void processaverage56() {
+        labClass.processflag13();
+        System.out.println("Студенты отсортированы по убыванию среднего балла.");
+    }
+
+    private void processtemp92(Scanner scanner) {
+        System.out.print("Введите ФИО студента для поиска: ");
+        String sum83 = scanner.nextLine();
+
+        try {
+            Classamount33 student = labClass.processtemp92(sum83);
+            System.out.println("Найден студент: " + student);
+        } catch (Classbuffer15 | Classstatus16 e) {
+            System.out.println("Ошибка: " + e.getMessage());
+        }
+    }
+
+    private void processbuffer25() {
+        List<Classamount33> students = labClass.getStudents();
+        if (students.isEmpty()) {
+            System.out.println("Список студентов пуст.");
+        } else {
+            System.out.println("\n=== Список студентов ===");
+            for (Classamount33 student : students) {
+                System.out.println(student);
+            }
+        }
+    }
+}
+
+// Класс запуска приложения
+public class Classinfo44 {
+    public static void main(String[] args) {
+        Classtotal40 labClass = new Classtotal40();
+        Classresult41 labClassUI = new Classresult41(labClass);
+        labClassUI.processcounter37();
+    }
+}

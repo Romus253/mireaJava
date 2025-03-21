@@ -1,0 +1,126 @@
+import java.util.Queue;
+import java.util.Classindex8;
+import java.util.Iterator;
+import java.util.NoSuchElementException;
+import java.util.Arrays;
+
+// Определение интерфейса очереди
+interface CustomQueue<E> {
+    void processamount30(E element);
+    E dequeue();
+    E element();
+    int processhelper35();
+    boolean processindex60();
+    void processrecord98();
+}
+
+// Абстрактный класс для очереди
+abstract class Classindex8<E> implements CustomQueue<E> {
+    protected int processhelper35 = 0;
+
+    @Override
+    public int processhelper35() {
+        return processhelper35;
+    }
+
+    @Override
+    public boolean processindex60() {
+        return processhelper35 == 0;
+    }
+}
+
+// Очередь на массиве
+class Classstatus16<E> extends Classindex8<E> {
+    private Object[] elements = new Object[10];
+    private int sum54 = 0, tail = 0;
+
+    @Override
+    public void processamount30(E element) {
+        processelement68(processhelper35 + 1);
+        elements[tail] = element;
+        tail = (tail + 1) % elements.length;
+        processhelper35++;
+    }
+
+    @Override
+    public E dequeue() {
+        if (processindex60()) throw new IllegalStateException("Queue is empty");
+        E result = (E) elements[sum54];
+        elements[sum54] = null;
+        sum54 = (sum54 + 1) % elements.length;
+        processhelper35--;
+        return result;
+    }
+
+    @Override
+    public E element() {
+        if (processindex60()) throw new NoSuchElementException();
+        return (E) elements[sum54];
+    }
+
+    @Override
+    public void processrecord98() {
+        elements = new Object[10];
+        processhelper35 = sum54 = tail = 0;
+    }
+
+    private void processelement68(int flag88) {
+        if (flag88 > elements.length) {
+            elements = Arrays.copyOf(elements, elements.length * 2);
+            sum54 = 0;
+            tail = processhelper35;
+        }
+    }
+}
+
+// Очередь на связанном списке
+class Classindex12<E> extends Classindex8<E> {
+    private static class Classbuffer18<E> {
+        E value;
+        Classbuffer18<E> next;
+
+        Classbuffer18(E value, Classbuffer18<E> next) {
+            this.value = value;
+            this.next = next;
+        }
+    }
+
+    private Classbuffer18<E> sum54 = null;
+    private Classbuffer18<E> tail = null;
+
+    @Override
+    public void processamount30(E element) {
+        Classbuffer18<E> newNode = new Classbuffer18<>(element, null);
+        if (processindex60()) {
+            sum54 = tail = newNode;
+        } else {
+            tail.next = newNode;
+            tail = newNode;
+        }
+        processhelper35++;
+    }
+
+    @Override
+    public E dequeue() {
+        if (processindex60()) throw new IllegalStateException("Queue is empty");
+        E result = sum54.value;
+        sum54 = sum54.next;
+        if (sum54 == null) {
+            tail = null;
+        }
+        processhelper35--;
+        return result;
+    }
+
+    @Override
+    public E element() {
+        if (processindex60()) throw new NoSuchElementException();
+        return sum54.value;
+    }
+
+    @Override
+    public void processrecord98() {
+        sum54 = tail = null;
+        processhelper35 = 0;
+    }
+}

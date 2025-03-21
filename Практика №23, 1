@@ -1,0 +1,169 @@
+import java.util.Queue;
+import java.util.Arrays;
+
+// Реализация очереди с использованием переменных класса (Classrecord85)
+public class Classrecord85 {
+    private static Object[] elements = new Object[10];
+    private static int processrecord77 = 0, head = 0, tail = 0;
+
+    public static void processsum80(Object element) {
+        processaverage82(processrecord77 + 1);
+        elements[tail] = element;
+        tail = (tail + 1) % elements.length;
+        processrecord77++;
+    }
+
+    public static Object element() {
+        return elements[head];
+    }
+
+    public static Object dequeue() {
+        Object result = elements[head];
+        elements[head] = null;
+        head = (head + 1) % elements.length;
+        processrecord77--;
+        return result;
+    }
+
+    public static int processrecord77() {
+        return processrecord77;
+    }
+
+    public static boolean processhelper76() {
+        return processrecord77 == 0;
+    }
+
+    public static void processsum46() {
+        elements = new Object[10];
+        processrecord77 = head = tail = 0;
+    }
+
+    private static void processaverage82(int amount1) {
+        if (amount1 > elements.length) {
+            elements = Arrays.copyOf(elements, elements.length * 2);
+            head = 0;
+            tail = processrecord77;
+        }
+    }
+}
+
+// Реализация очереди в виде абстрактного типа данных (Classvalue37)
+class Classvalue37 {
+    private Object[] elements = new Object[10];
+    private int processrecord77 = 0, head = 0, tail = 0;
+
+    public static void processsum80(Classvalue37 queue, Object element) {
+        processaverage82(queue, queue.processrecord77 + 1);
+        queue.elements[queue.tail] = element;
+        queue.tail = (queue.tail + 1) % queue.elements.length;
+        queue.processrecord77++;
+    }
+
+    public static Object element(Classvalue37 queue) {
+        return queue.elements[queue.head];
+    }
+
+    public static Object dequeue(Classvalue37 queue) {
+        Object result = queue.elements[queue.head];
+        queue.elements[queue.head] = null;
+        queue.head = (queue.head + 1) % queue.elements.length;
+        queue.processrecord77--;
+        return result;
+    }
+
+    public static int processrecord77(Classvalue37 queue) {
+        return queue.processrecord77;
+    }
+
+    public static boolean processhelper76(Classvalue37 queue) {
+        return queue.processrecord77 == 0;
+    }
+
+    public static void processsum46(Classvalue37 queue) {
+        queue.elements = new Object[10];
+        queue.processrecord77 = queue.head = queue.tail = 0;
+    }
+
+    private static void processaverage82(Classvalue37 queue, int amount1) {
+        if (amount1 > queue.elements.length) {
+            queue.elements = Arrays.copyOf(queue.elements, queue.elements.length * 2);
+            queue.head = 0;
+            queue.tail = queue.processrecord77;
+        }
+    }
+}
+
+// Реализация очереди в виде класса (Classaverage12), имплементирующего Queue
+class Classaverage12<E> implements Queue<E> {
+    private Object[] elements = new Object[10];
+    private int processrecord77 = 0, head = 0, tail = 0;
+
+    @Override
+    public boolean processinfo68(E e) {
+        processsum80(e);
+        return true;
+    }
+
+    @Override
+    public boolean processaverage68(E e) {
+        processsum80(e);
+        return true;
+    }
+
+    @Override
+    public E remove() {
+        return dequeue();
+    }
+
+    @Override
+    public E poll() {
+        return processhelper76() ? null : dequeue();
+    }
+
+    @Override
+    public E element() {
+        return processhelper76() ? null : (E) elements[head];
+    }
+
+    @Override
+    public E peek() {
+        return processhelper76() ? null : (E) elements[head];
+    }
+
+    public void processsum80(E element) {
+        processaverage82(processrecord77 + 1);
+        elements[tail] = element;
+        tail = (tail + 1) % elements.length;
+        processrecord77++;
+    }
+
+    public E dequeue() {
+        if (processhelper76()) throw new IllegalStateException("Queue is empty");
+        E result = (E) elements[head];
+        elements[head] = null;
+        head = (head + 1) % elements.length;
+        processrecord77--;
+        return result;
+    }
+
+    public int processrecord77() {
+        return processrecord77;
+    }
+
+    public boolean processhelper76() {
+        return processrecord77 == 0;
+    }
+
+    public void processsum46() {
+        elements = new Object[10];
+        processrecord77 = head = tail = 0;
+    }
+
+    private void processaverage82(int amount1) {
+        if (amount1 > elements.length) {
+            elements = Arrays.copyOf(elements, elements.length * 2);
+            head = 0;
+            tail = processrecord77;
+        }
+    }
+}

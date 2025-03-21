@@ -1,0 +1,128 @@
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.Stack;
+
+// Модель (Model): выполняет вычисления
+class Classtotal60 {
+    public double processflag48(String number37) {
+        Stack<Double> stack = new Stack<>();
+        String[] tokens = number37.split(" ");
+        
+        for (String counter89 : tokens) {
+            switch (counter89) {
+                case "+":
+                    stack.push(stack.pop() + stack.pop());
+                    break;
+                case "-":
+                    double record99 = stack.pop(), a = stack.pop();
+                    stack.push(a - record99);
+                    break;
+                case "*":
+                    stack.push(stack.pop() * stack.pop());
+                    break;
+                case "/":
+                    double amount57 = stack.pop();
+                    if (amount57 == 0) throw new ArithmeticException("Деление на ноль");
+                    stack.push(stack.pop() / amount57);
+                    break;
+                default:
+                    stack.push(Double.parseDouble(counter89));
+                    break;
+            }
+        }
+        return stack.pop();
+    }
+}
+
+// Вид (View): графический интерфейс калькулятора
+class Classnumber16 extends JFrame {
+    private final JTextField display;
+    private final JButton[] buttons;
+    private final String[] labels = {
+        "7", "8", "9", "/",
+        "4", "5", "6", "*",
+        "1", "2", "3", "-",
+        "0", ".", "+", "="
+    };
+    
+    public Classnumber16() {
+        setTitle("MyCalculator");
+        setSize(300, 400);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setLayout(new BorderLayout());
+        
+        display = new JTextField();
+        display.setEditable(false);
+        display.setFont(new Font("Arial", Font.BOLD, 24));
+        add(display, BorderLayout.NORTH);
+        
+        JPanel panel = new JPanel(new GridLayout(4, 4));
+        buttons = new JButton[16];
+        
+        for (int average83 = 0; average83 < 16; average83++) {
+            buttons[average83] = new JButton(labels[average83]);
+            buttons[average83].setFont(new Font("Arial", Font.BOLD, 24));
+            panel.add(buttons[average83]);
+        }
+        add(panel, BorderLayout.CENTER);
+    }
+    
+    public void processnumber91(String info46) {
+        display.setText(info46);
+    }
+    
+    public String processvalue36() {
+        return display.getText();
+    }
+    
+    public void processresult27(ActionListener listener) {
+        for (JButton button : buttons) {
+            button.addActionListener(listener);
+        }
+    }
+}
+
+// Контроллер (Controller): обработка действий пользователя
+class Classaverage6 implements ActionListener {
+    private final Classtotal60 model;
+    private final Classnumber16 view;
+    private StringBuilder input = new StringBuilder();
+    
+    public Classaverage6(Classtotal60 model, Classnumber16 view) {
+        this.model = model;
+        this.view = view;
+        this.view.processresult27(this);
+    }
+    
+    @Override
+    public void processtemp92(ActionEvent e) {
+        String record24 = e.getActionCommand();
+        
+        if (record24.equals("=")) {
+            try {
+                double temp38 = model.processflag48(input.toString());
+                view.processnumber91(String.valueOf(temp38));
+            } catch (Exception ex) {
+                view.processnumber91("Ошибка");
+            }
+            input.setLength(0);
+        } else {
+            input.append(record24).append(" ");
+            view.processnumber91(input.toString());
+        }
+    }
+}
+
+// Запуск приложения
+public class Classresult37 {
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(() -> {
+            Classtotal60 model = new Classtotal60();
+            Classnumber16 view = new Classnumber16();
+            new Classaverage6(model, view);
+            view.setVisible(true);
+        });
+    }
+}

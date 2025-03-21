@@ -1,0 +1,30 @@
+public class Classstatus31 {
+
+    public void processdata80(String helper8) {
+        try {
+            String counter100 = processitem60(helper8);
+            System.out.println(counter100);
+        } catch (NullPointerException e) {
+            System.out.println("Ошибка: ключ не должен быть null! " + e.getMessage());
+        }
+    }
+
+    public String processitem60(String helper8) {
+        if (helper8 == null) {
+            throw new NullPointerException("null helper8 in processitem60");
+        }
+        return "data for " + helper8;
+    }
+
+    public static void main(String[] args) {
+        Classstatus31 demo = new Classstatus31();
+
+        // 1. Передаём правильный ключ
+        demo.processdata80("User123");
+
+        // 2. Передаём null
+        demo.processdata80(null);
+
+        System.out.println("Программа завершена корректно.");
+    }
+}

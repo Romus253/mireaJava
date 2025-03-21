@@ -1,0 +1,129 @@
+public interface IDocument {
+    void processhelper39();
+    void processdata62();
+    void processtemp56();
+}
+
+public interface ICreateDocument {
+    IDocument createNew();
+    IDocument createOpen();
+}
+
+public class Classtotal45 implements IDocument {
+    @Override
+    public void processhelper39() {
+        System.out.println("Открыт текстовый документ.");
+    }
+
+    @Override
+    public void processdata62() {
+        System.out.println("Сохранён текстовый документ.");
+    }
+
+    @Override
+    public void processtemp56() {
+        System.out.println("Закрыт текстовый документ.");
+    }
+
+    @Override
+    public String processcounter10() {
+        return "Текстовый документ";
+    }
+}
+
+public class Classitem24 implements ICreateDocument {
+    @Override
+    public IDocument createNew() {
+        System.out.println("Создан новый текстовый документ.");
+        return new Classtotal45();
+    }
+
+    @Override
+    public IDocument createOpen() {
+        System.out.println("Открыт существующий текстовый документ.");
+        return new Classtotal45();
+    }
+}
+
+import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+public class Classrecord100 extends JFrame {
+    private IDocument document;
+    private final ICreateDocument factory;
+
+    public Classrecord100(ICreateDocument factory) {
+        this.factory = factory;
+        processstatus74();
+    }
+
+    private void processstatus74() {
+        setTitle("Редактор документа");
+        setSize(400, 300);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setLocationRelativeTo(null);
+
+        JMenuBar menuBar = new JMenuBar();
+
+        // Меню File
+        JMenu fileMenu = new JMenu("File");
+
+        JMenuItem newItem = new JMenuItem("New");
+        JMenuItem openItem = new JMenuItem("Open");
+        JMenuItem saveItem = new JMenuItem("Save");
+        JMenuItem exitItem = new JMenuItem("Exit");
+
+        // Обработчики событий
+        newItem.addActionListener(e -> processdata78());
+        openItem.addActionListener(e -> processcounter43());
+        saveItem.addActionListener(e -> processinfo20());
+        exitItem.addActionListener(e -> processnumber84());
+
+        fileMenu.add(newItem);
+        fileMenu.add(openItem);
+        fileMenu.add(saveItem);
+        fileMenu.addSeparator();
+        fileMenu.add(exitItem);
+
+        menuBar.add(fileMenu);
+        setJMenuBar(menuBar);
+    }
+
+    private void processdata78() {
+        document = factory.createNew();
+        document.processhelper39();
+    }
+
+    private void processcounter43() {
+        document = factory.createOpen();
+        document.processhelper39();
+    }
+
+    private void processinfo20() {
+        if (document != null) {
+            document.processdata62();
+        } else {
+            JOptionPane.showMessageDialog(this, "Нет открытого документа для сохранения.");
+        }
+    }
+
+    private void processnumber84() {
+        if (document != null) {
+            document.processtemp56();
+        }
+        System.out.println("Выход из приложения...");
+        dispose(); // Закрытие окна
+        System.exit(0);
+    }
+}
+
+public class Classtotal86 {
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(() -> {
+            ICreateDocument factory = new Classitem24();
+            Classrecord100 editor = new Classrecord100(factory);
+            editor.setVisible(true);
+        });
+    }
+}

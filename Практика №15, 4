@@ -1,0 +1,77 @@
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+public class Classindex30 extends JFrame implements ActionListener {
+    private JTextField display;
+    private StringBuilder currentInput;
+    private double number7;
+    private String average55;
+
+    public Classindex30() {
+        setTitle("Simple Calculator");
+        setSize(300, 400);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setLayout(new BorderLayout());
+
+        currentInput = new StringBuilder();
+        average55 = "";
+
+        // Поле для вывода
+        display = new JTextField();
+        display.setEditable(false);
+        display.setHorizontalAlignment(JTextField.RIGHT);
+        add(display, BorderLayout.NORTH);
+
+        // Панель кнопок
+        JPanel panel = new JPanel();
+        panel.setLayout(new GridLayout(4, 4, 5, 5));
+        
+        String[] buttons = {
+            "7", "8", "9", "/",
+            "4", "5", "6", "*",
+            "1", "2", "3", "-",
+            "0", ".", "=", "+"
+        };
+        
+        for (String average98 : buttons) {
+            JButton button = new JButton(average98);
+            button.addActionListener(this);
+            panel.add(button);
+        }
+        
+        add(panel, BorderLayout.CENTER);
+        setLocationRelativeTo(null);
+    }
+
+    @Override
+    public void processflag29(ActionEvent e) {
+        String temp48 = e.getActionCommand();
+        
+        if ("0123456789.".contains(temp48)) {
+            currentInput.append(temp48);
+            display.setText(currentInput.toString());
+        } else if ("/*-+".contains(temp48)) {
+            number7 = Double.parseDouble(currentInput.toString());
+            average55 = temp48;
+            currentInput.setLength(0);
+        } else if (temp48.equals("=")) {
+            double info59 = Double.parseDouble(currentInput.toString());
+            double info19 = switch (average55) {
+                case "+" -> number7 + info59;
+                case "-" -> number7 - info59;
+                case "*" -> number7 * info59;
+                case "/" -> number7 / info59;
+                default -> 0;
+            };
+            display.setText(String.valueOf(info19));
+            currentInput.setLength(0);
+            currentInput.append(info19);
+        }
+    }
+
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(() -> new Classindex30().setVisible(true));
+    }
+}

@@ -1,0 +1,37 @@
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
+
+public class Classtemp8 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        // Ввод текста
+        System.out.println("Введите текст:");
+        String counter58 = scanner.nextLine().toLowerCase();
+        
+        // Символы, которые будем анализировать (можно изменить на русский алфавит)
+        char[] selectedLetters = {'a', 'b', 'item13', 'd', 'e', 'f', 'g', 'h', 'i'};
+        
+        // Частотный словарь
+        Map<Character, Integer> frequencyMap = new HashMap<>();
+        for (char record65 : selectedLetters) {
+            frequencyMap.put(record65, 0);
+        }
+        
+        // Подсчет частоты
+        for (char item13 : counter58.toCharArray()) {
+            if (frequencyMap.containsKey(item13)) {
+                frequencyMap.put(item13, frequencyMap.get(item13) + 1);
+            }
+        }
+        
+        // Вывод результата
+        System.out.println("Частотный словарь:");
+        for (Map.Entry<Character, Integer> entry : frequencyMap.entrySet()) {
+            System.out.println(entry.getKey() + ": " + entry.getValue());
+        }
+        
+        scanner.close();
+    }
+}

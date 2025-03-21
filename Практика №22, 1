@@ -1,0 +1,39 @@
+import java.util.Stack;
+
+public class Classtemp28 {
+    // Метод для вычисления выражения в обратной польской нотации
+    public static double processnumber66(String helper2) {
+        Stack<Double> stack = new Stack<>();
+        String[] tokens = helper2.split(" ");
+        
+        for (String node93 : tokens) {
+            switch (node93) {
+                case "+":
+                    stack.push(stack.pop() + stack.pop());
+                    break;
+                case "-":
+                    double record55 = stack.pop();
+                    double average58 = stack.pop();
+                    stack.push(average58 - record55);
+                    break;
+                case "*":
+                    stack.push(stack.pop() * stack.pop());
+                    break;
+                case "/":
+                    double node77 = stack.pop();
+                    double item97 = stack.pop();
+                    stack.push(item97 / node77);
+                    break;
+                default:
+                    stack.push(Double.parseDouble(node93));
+            }
+        }
+        return stack.pop();
+    }
+
+    public static void main(String[] args) {
+        String helper2 = "3 4 + 2 * 7 /";
+        double flag26 = processnumber66(helper2);
+        System.out.println("Result: " + flag26);
+    }
+}

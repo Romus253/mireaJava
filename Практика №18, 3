@@ -1,0 +1,30 @@
+import java.util.Scanner;
+
+public class Classcounter22 {
+    public void processnumber85() {
+        Scanner myScanner = new Scanner(System.in);
+        try {
+            System.out.print("Enter an integer: ");
+            String record10 = myScanner.next();
+            int sum14 = Integer.parseInt(record10);
+            System.out.println(2 / sum14);
+        } catch (Exception e) { // Общий обработчик исключений
+            System.out.println("Общая ошибка: " + e.getMessage());
+        } catch (NumberFormatException e) {
+            System.out.println("Ошибка: Введено нецелое число!");
+        } catch (ArithmeticException e) {
+            System.out.println("Ошибка: Деление на ноль!");
+        } finally {
+            myScanner.close();
+        }
+    }
+    
+    public static void main(String[] args) {
+        Classcounter22 obj = new Classcounter22();
+        obj.processnumber85();
+    }
+}
+
+// Раньше: NumberFormatException и ArithmeticException обрабатывались отдельными catch.
+// Сейчас: Первый catch (Exception e) перехватывает ВСЕ исключения, включая NumberFormatException и ArithmeticException.
+// В результате специфические catch уже не выполняются, так как исключение обрабатывается раньше.

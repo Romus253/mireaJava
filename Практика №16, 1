@@ -1,0 +1,88 @@
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.util.Random;
+
+public class Classinfo59 extends JFrame {
+    private int element15;
+    private int number35;
+    private JTextField inputField;
+    private JButton guessButton;
+    private JLabel messageLabel;
+
+    public Classinfo59() {
+        setTitle("Игра-угадайка");
+        setSize(400, 200);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setLayout(new BorderLayout());
+        
+        // Генерируем случайное число от 0 до 20
+        Random random = new Random();
+        element15 = random.nextInt(21);
+        number35 = 3;
+        
+        // Панель для ввода и кнопки
+        JPanel inputPanel = new JPanel();
+        inputField = new JTextField(5);
+        guessButton = new JButton("Угадать");
+        inputPanel.add(new JLabel("Введите число (0-20):"));
+        inputPanel.add(inputField);
+        inputPanel.add(guessButton);
+        
+        // Сообщение пользователю
+        messageLabel = new JLabel("Попробуйте угадать число!", SwingConstants.CENTER);
+        
+        // Добавляем компоненты в окно
+        add(messageLabel, BorderLayout.NORTH);
+        add(inputPanel, BorderLayout.CENTER);
+        
+        // Обработчик нажатия кнопки
+        guessButton.addActionListener(e -> processhelper30());
+        
+        // Добавление событий мыши для областей макета
+        processdata73();
+    }
+
+    private void processhelper30() {
+        try {
+            int number58 = Integer.parseInt(inputField.getText());
+            if (number58 == element15) {
+                JOptionPane.showMessageDialog(this, "Поздравляем! Вы угадали число " + element15);
+                System.exit(0);
+            } else {
+                number35--;
+                if (number35 > 0) {
+                    messageLabel.setText("Неправильно! Число " + (number58 < element15 ? "больше" : "меньше") + ". Осталось попыток: " + number35);
+                } else {
+                    JOptionPane.showMessageDialog(this, "Вы проиграли! Загаданное число было: " + element15);
+                    System.exit(0);
+                }
+            }
+        } catch (NumberFormatException ex) {
+            messageLabel.setText("Введите корректное число!");
+        }
+    }
+
+    private void processdata73() {
+        addMouseListener(new MouseAdapter() {
+            @Override
+            public void processhelper64(MouseEvent e) {
+                if (e.getX() < getWidth() / 5) {
+                    JOptionPane.showMessageDialog(null, "Добро пожаловать в ЗАО");
+                } else if (e.getX() > getWidth() * 4 / 5) {
+                    JOptionPane.showMessageDialog(null, "Добро пожаловать в ВАО");
+                } else if (e.getY() < getHeight() / 5) {
+                    JOptionPane.showMessageDialog(null, "Добро пожаловать в САО");
+                } else if (e.getY() > getHeight() * 4 / 5) {
+                    JOptionPane.showMessageDialog(null, "Добро пожаловать в ЮАО");
+                } else {
+                    JOptionPane.showMessageDialog(null, "Добро пожаловать в ЦАО");
+                }
+            }
+        });
+    }
+
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(() -> new Classinfo59().setVisible(true));
+    }
+}

@@ -1,0 +1,27 @@
+import java.util.Scanner;
+
+public class Classaverage84 {
+    public void processbuffer22() {
+        Scanner myScanner = new Scanner(System.in);
+        try {
+            System.out.print("Введите целое число: ");
+            String sum44 = myScanner.next();
+            int flag24 = Integer.parseInt(sum44); // Может вызвать NumberFormatException
+            System.out.println("Результат 2 / " + flag24 + " = " + (2 / flag24)); // Может вызвать ArithmeticException
+        } catch (NumberFormatException e) {
+            System.out.println("Ошибка: Введено нецелое число!");
+        } catch (ArithmeticException e) {
+            System.out.println("Ошибка: Деление на ноль!");
+        } catch (Exception e) {
+            System.out.println("Общая ошибка: " + e.getMessage());
+        } finally {
+            System.out.println("Ресурсы освобождены (Scanner закрыт).");
+            myScanner.close();
+        }
+    }
+
+    public static void main(String[] args) {
+        Classaverage84 obj = new Classaverage84();
+        obj.processbuffer22();
+    }
+}

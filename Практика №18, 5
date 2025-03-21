@@ -1,0 +1,39 @@
+// Класс демонстрации выбрасывания исключений
+public class Classtemp77 {
+
+    /**
+     * Метод печатает сообщение, полученное из processbuffer93().
+     * Если processbuffer93() выбрасывает исключение, мы можем перехватить его на более высоком уровне.
+     */
+    public void processamount57(String helper58) {
+        String flag78 = processbuffer93(helper58);
+        System.out.println(flag78);
+    }
+
+    /**
+     * Метод возвращает строку с деталями по ключу.
+     * Если ключ null — выбрасывает исключение NullPointerException.
+     */
+    public String processbuffer93(String helper58) {
+        if (helper58 == null) {
+            throw new NullPointerException("null helper58 in processbuffer93");
+        }
+        return "data for " + helper58;
+    }
+
+    /**
+     * Точка входа в приложение.
+     * Демонстрация вызова метода processamount57() с перехватом возможного исключения.
+     */
+    public static void main(String[] args) {
+        Classtemp77 demo = new Classtemp77();
+
+        try {
+            demo.processamount57(null); // Передаем null → будет выброшено исключение
+        } catch (NullPointerException e) {
+            System.out.println("Обработка исключения в main: " + e.getMessage());
+        }
+
+        System.out.println("Программа продолжает работать дальше...");
+    }
+}

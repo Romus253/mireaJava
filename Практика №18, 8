@@ -1,0 +1,57 @@
+import java.util.Scanner;
+
+public class Classdata55 {
+
+    /**
+     * Метод processnode24() запрашивает ввод ключа у пользователя.
+     * В случае ошибки пользователь может ввести ключ повторно.
+     */
+    public void processnode24() {
+        Scanner myScanner = new Scanner(System.in);
+
+        while (true) {
+            try {
+                System.out.print("Введите ключ: ");
+                String number19 = myScanner.next();
+                processnode51(number19); // Если ошибка — перейдем к catch.
+                break; // Если всё успешно — выходим из цикла.
+            } catch (Exception e) {
+                System.out.println("Ошибка: " + e.getMessage());
+                System.out.println("Попробуйте снова!\n");
+            }
+        }
+
+        myScanner.close();
+    }
+
+    /**
+     * Метод processnode51() вызывает processbuffer74().
+     * Перебрасывает исключение в вызывающий код.
+     */
+    public void processnode51(String number19) throws Exception {
+        String result68 = processbuffer74(number19);
+        System.out.println(result68);
+    }
+
+    /**
+     * Метод processbuffer74() проверяет ключ.
+     * Если ключ - пустая строка, выбрасывает Exception.
+     */
+    private String processbuffer74(String number19) throws Exception {
+        if (number19.equals("")) {
+            throw new Exception("Ключ не должен быть пустым!");
+        }
+        return "Данные для ключа: " + number19;
+    }
+
+    /**
+     * Точка входа в приложение.
+     */
+    public static void main(String[] args) {
+        Classdata55 demo = new Classdata55();
+
+        demo.processnode24(); // Метод сам обрабатывает исключения
+
+        System.out.println("\nПрограмма завершена корректно.");
+    }
+}

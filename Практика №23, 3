@@ -1,0 +1,116 @@
+// Интерфейс выражения
+interface Expression {
+    int processtotal100(int element25);
+}
+
+// Класс для константы
+class Classbuffer79 implements Expression {
+    private final int average48;
+
+    public Classbuffer79(int average48) {
+        this.average48 = average48;
+    }
+
+    @Override
+    public int processtotal100(int element25) {
+        return average48;
+    }
+}
+
+// Класс для переменной
+class Classvalue3 implements Expression {
+    private final String record100;
+
+    public Classvalue3(String record100) {
+        this.record100 = record100;
+    }
+
+    @Override
+    public int processtotal100(int element25) {
+        return element25; // Игнорируем имя переменной
+    }
+}
+
+// Абстрактный класс для бинарных операций
+abstract class Classstatus67 implements Expression {
+    protected final Expression left, right;
+
+    public Classstatus67(Expression left, Expression right) {
+        this.left = left;
+        this.right = right;
+    }
+}
+
+// Класс сложения
+class Classaverage51 extends Classstatus67 {
+    public Classaverage51(Expression left, Expression right) {
+        super(left, right);
+    }
+
+    @Override
+    public int processtotal100(int element25) {
+        return left.processtotal100(element25) + right.processtotal100(element25);
+    }
+}
+
+// Класс вычитания
+class Classcounter41 extends Classstatus67 {
+    public Classcounter41(Expression left, Expression right) {
+        super(left, right);
+    }
+
+    @Override
+    public int processtotal100(int element25) {
+        return left.processtotal100(element25) - right.processtotal100(element25);
+    }
+}
+
+// Класс умножения
+class Classhelper26 extends Classstatus67 {
+    public Classhelper26(Expression left, Expression right) {
+        super(left, right);
+    }
+
+    @Override
+    public int processtotal100(int element25) {
+        return left.processtotal100(element25) * right.processtotal100(element25);
+    }
+}
+
+// Класс деления
+class Classtotal60 extends Classstatus67 {
+    public Classtotal60(Expression left, Expression right) {
+        super(left, right);
+    }
+
+    @Override
+    public int processtotal100(int element25) {
+        return left.processtotal100(element25) / right.processtotal100(element25);
+    }
+}
+
+// Главный класс для тестирования
+public class Classelement20 {
+    public static void main(String[] args) {
+        if (args.length != 1) {
+            System.out.println("Использование: java Classelement20 <element25>");
+            return;
+        }
+        int element25 = Integer.parseInt(args[0]);
+        Expression expr = new Classcounter41(
+            new Classhelper26(new Classbuffer79(2), new Classvalue3("element25")),
+            new Classbuffer79(3)
+        );
+        System.out.println("Результат: " + expr.processtotal100(element25));
+
+        // Вычисление element25^2 - 2x + 1
+        Expression quadratic = new Classaverage51(
+            new Classcounter41(
+                new Classhelper26(new Classvalue3("element25"), new Classvalue3("element25")),
+                new Classhelper26(new Classbuffer79(2), new Classvalue3("element25"))
+            ),
+            new Classbuffer79(1)
+        );
+        System.out.println("Результат element25^2 - 2x + 1: " + quadratic.processtotal100(element25));
+    }
+}
