@@ -1,0 +1,43 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36 OPR/113.0.0.0" version="26.1.1">
+  <diagram name="Modified UML Diagram V2" id="9t2jJYvY1abwaWoaBeTR">
+    <mxGraphModel dx="2230" dy="1922" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="g5o3LCecy-1Bt1uNHA9O-12" value="&lt;&lt;interface&gt;&gt;&#xa;Movable" style="shape=swimlane;childLayout=stackLayout;startSize=30;horizontal=1;container=1;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="370" y="-40" width="210" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="g5o3LCecy-1Bt1uNHA9O-13" value="+ moveUp(): void&#xa;+ moveDown(): void&#xa;+ moveLeft(): void&#xa;+ moveRight(): void" style="text;html=1;align=left;verticalAlign=top;spacingTop=10;spacingLeft=10;fontSize=12;" vertex="1" parent="g5o3LCecy-1Bt1uNHA9O-12">
+          <mxGeometry y="30" width="210" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="g5o3LCecy-1Bt1uNHA9O-14" value="MovablePoint" style="shape=swimlane;childLayout=stackLayout;startSize=30;horizontal=1;container=1;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="-180" y="180" width="560" height="250" as="geometry" />
+        </mxCell>
+        <mxCell id="g5o3LCecy-1Bt1uNHA9O-15" value="- x: int&#xa;- y: int&#xa;- xSpeed: int&#xa;- ySpeed: int" style="text;html=1;align=left;verticalAlign=top;spacingTop=10;spacingLeft=10;fontSize=12;" vertex="1" parent="g5o3LCecy-1Bt1uNHA9O-14">
+          <mxGeometry y="30" width="250" height="220" as="geometry" />
+        </mxCell>
+        <mxCell id="g5o3LCecy-1Bt1uNHA9O-16" value="+ MovablePoint(x: int, y: int, xSpeed: int, ySpeed: int)&#xa;+ toString(): String&#xa;+ moveUp(): void&#xa;+ moveDown(): void&#xa;+ moveLeft(): void&#xa;+ moveRight(): void" style="text;html=1;align=left;verticalAlign=top;spacingTop=10;spacingLeft=10;fontSize=12;" vertex="1" parent="g5o3LCecy-1Bt1uNHA9O-14">
+          <mxGeometry x="250" y="30" width="250" height="220" as="geometry" />
+        </mxCell>
+        <mxCell id="g5o3LCecy-1Bt1uNHA9O-17" value="MovableCircle" style="shape=swimlane;childLayout=stackLayout;startSize=30;horizontal=1;container=1;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="460" y="180" width="630" height="270" as="geometry" />
+        </mxCell>
+        <mxCell id="g5o3LCecy-1Bt1uNHA9O-18" value="- radius: int&#xa;- center: MovablePoint" style="text;html=1;align=left;verticalAlign=top;spacingTop=10;spacingLeft=10;fontSize=12;" vertex="1" parent="g5o3LCecy-1Bt1uNHA9O-17">
+          <mxGeometry y="30" width="270" height="240" as="geometry" />
+        </mxCell>
+        <mxCell id="g5o3LCecy-1Bt1uNHA9O-19" value="+ MovableCircle(x: int, y: int, xSpeed: int, ySpeed: int, radius: int)&#xa;+ toString(): String&#xa;+ moveUp(): void&#xa;+ moveDown(): void&#xa;+ moveLeft(): void&#xa;+ moveRight(): void" style="text;html=1;align=left;verticalAlign=top;spacingTop=10;spacingLeft=10;fontSize=12;" vertex="1" parent="g5o3LCecy-1Bt1uNHA9O-17">
+          <mxGeometry x="270" y="30" width="360" height="240" as="geometry" />
+        </mxCell>
+        <mxCell id="g5o3LCecy-1Bt1uNHA9O-20" style="endArrow=block;endFill=0;dashed=1;html=1;strokeWidth=2;" edge="1" parent="1" source="g5o3LCecy-1Bt1uNHA9O-14" target="g5o3LCecy-1Bt1uNHA9O-12">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="g5o3LCecy-1Bt1uNHA9O-21" style="endArrow=block;endFill=0;dashed=1;html=1;strokeWidth=2;" edge="1" parent="1" source="g5o3LCecy-1Bt1uNHA9O-17" target="g5o3LCecy-1Bt1uNHA9O-12">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="g5o3LCecy-1Bt1uNHA9O-22" style="endArrow=block;endFill=0;html=1;strokeWidth=2;dashed=1;" edge="1" parent="1" source="g5o3LCecy-1Bt1uNHA9O-17" target="g5o3LCecy-1Bt1uNHA9O-14">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
